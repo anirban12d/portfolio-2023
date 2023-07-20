@@ -27,7 +27,6 @@ import { FormContext } from "~/routes/layout";
 import { Select } from "./Select";
 import PhCalendarCheckLight from "~/Icons/Form/PhCalenderCheckLight-Black";
 import { createServerClient } from 'supabase-auth-helpers-qwik';
-import { createClient } from "@supabase/supabase-js";
 
 const FormSchema = z.object({
   name: z.string(),
