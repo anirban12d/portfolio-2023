@@ -1,11 +1,14 @@
 import { component$ } from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/head/head';
+import { inject } from '@vercel/analytics';
 
 
 import './global.css';
 
 export default component$(() => {
+
+  inject()
   /**
    * The root of a QwikCity site always start with the <QwikCityProvider> component,
    * immediately followed by the document's <head> and <body>.

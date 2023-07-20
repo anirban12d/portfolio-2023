@@ -19,7 +19,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";
 import { client } from "./layout";
 import { useSanityMyImages } from "./layout";
-import { inject } from '@vercel/analytics';
+
  
 
 
@@ -41,7 +41,6 @@ type Image = {
 
 export default component$(() => {
 
-  inject();
 
 const sanity = useSanityMyImages();
 
