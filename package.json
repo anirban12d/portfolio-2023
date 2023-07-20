@@ -63,6 +63,7 @@
     "@supabase/supabase-js": "^2.26.0",
     "@unpic/qwik": "^0.0.23",
     "@unpic/react": "^0.0.32",
+    "@vercel/analytics": "^1.0.1",
     "flowbite": "^1.7.0",
     "framer-motion": "^10.12.18",
     "lottie-react": "^2.4.0",
