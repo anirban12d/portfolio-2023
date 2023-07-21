@@ -75,11 +75,11 @@ export default component$(() =>{
             <ButtonFifth>Schedule a call</ButtonFifth>
           </div>
           <div class="flex items-center justify-center gap-8 md:ml-16">
-          <Link href="https://twitter.com/Anirban12d" target="_blank"><PhTwitterLogoLight/></Link>
-          <Link href="https://www.linkedin.com/in/anirban12d/" target="_blank"><PhLinkedinLogoLight/></Link>
-          <Link href="https://www.instagram.com/anirban.jpg/" target="_blank"><PhInstagramLogoLight/></Link>
-          <Link href="https://github.com/anirban12d" target="_blank"><PhGithubLogoLight/></Link>
-          <Link href="https://www.facebook.com/prince.anirban.90" target="_blank"><PhFacebookLogoLight/></Link>
+          <Link href="https://twitter.com/Anirban12d" target="_blank" aria-label="Link to Anirban Das's Twitter profile"><PhTwitterLogoLight/></Link>
+          <Link href="https://www.linkedin.com/in/anirban12d/" target="_blank" aria-label="Link to Anirban Das's Linkedin profile"><PhLinkedinLogoLight/></Link>
+          <Link href="https://www.instagram.com/anirban.jpg/" target="_blank" aria-label="Link to Anirban Das's Instagram profile"><PhInstagramLogoLight/></Link>
+          <Link href="https://github.com/anirban12d" target="_blank" aria-label="Link to Anirban Das's Github profile"><PhGithubLogoLight/></Link>
+          <Link href="https://www.facebook.com/prince.anirban.90" target="_blank" aria-label="Link to Anirban Das's Facebook profile"><PhFacebookLogoLight/></Link>
           </div>
         </div>
         <div class="flex w-full justify-between md:gap-16 md:w-auto xl:gap-32">
