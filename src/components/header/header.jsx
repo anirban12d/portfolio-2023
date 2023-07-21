@@ -83,7 +83,7 @@ const contactfn = $(() => {
             <Link href="/services">Services</Link>
           </li>
           <button class={currentPage.contact ? currentClass : otherClass} onClick$={contactfn}>
-            <Link>Contact</Link>
+            Contact
           </button>
         </ul>
         <ButtonFirst >Hire me</ButtonFirst>

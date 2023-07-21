@@ -80,10 +80,10 @@ const sanity = useSanityMyImages();
                 <span class="block text-center">Online</span>
               </h1>
             </div>
-            <h3 class="text-center text-16 text-textColor md:text-21 lg:text-27">
+            <h2 class="text-center text-16 text-textColor md:text-21 lg:text-27">
               I Create Visually Stunning and Intuitively Functional Websites
               <span class="block text-center">Crafted to Drive Result</span>
-            </h3>
+            </h2>
             <ButtonSecond>Let's make it happen</ButtonSecond>
           </div>
         </section>

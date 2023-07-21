@@ -25,8 +25,8 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
-        <script defer src="/_vercel/insights/script.js"></script>
         <RouterHead />
+        <script defer src="/_vercel/insights/script.js"></script>
       </head>
       <body lang="en">
         <RouterOutlet />
