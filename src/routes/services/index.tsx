@@ -297,11 +297,6 @@ export const head: DocumentHead = {
       rel: 'canonical',
       href: 'https://www.anirbandas.in/services',
     },
-    // Favicon
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png',
-    },
+   
   ],
 };
