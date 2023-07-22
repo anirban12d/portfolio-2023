@@ -331,19 +331,19 @@ export default component$(() => {
                 </h3>
 
                 <div class="flex flex-col items-center gap-16 lg:flex-row">
-                  <div class="flex grow flex-col gap-8 rounded-4xl border-4 border-black bg-grey px-32 py-16 md:px-64   lg:py-32">
+                  <div class="flex self-stretch flex-col gap-8 rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
                     <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
                       Frontend Tools
                     </h6>
-                    <p class="text-16 font-medium text-textColor lg:max-w-384">
+                    <p class="text-16 font-medium text-textColor lg:max-w-384 max-w-prose">
                       {projectData.frontendTools}
                     </p>
                   </div>
-                  <div class="flex min-h-full grow flex-col gap-8 rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
-                    <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
+                  <div class="flex self-stretch flex-col gap-8 rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
+                    <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36 max-w-prose">
                       Ui Libraries
                     </h6>
-                    <p class="text-16 font-medium text-textColor lg:mb-48 lg:max-w-384">
+                    <p class="text-16 font-medium text-textColor lg:max-w-384">
                       {projectData.uiTools}
                     </p>
                   </div>
