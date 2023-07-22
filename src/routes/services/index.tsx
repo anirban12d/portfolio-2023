@@ -2,10 +2,18 @@ import { component$ } from "@builder.io/qwik";
 
 import { LearnMoreBtn } from "~/components/button/LearnMoreBtn";
 
-import { QCollaborative, QGoalOriented, QPersonalized, QQualityTesting, QSEO, QSupport, QUserCentric, QWebOptimization } from "~/integrations/react/lottie";
+import {
+  QCollaborative,
+  QGoalOriented,
+  QPersonalized,
+  QQualityTesting,
+  QSEO,
+  QSupport,
+  QUserCentric,
+  QWebOptimization,
+} from "~/integrations/react/lottie";
 
 import type { DocumentHead } from "@builder.io/qwik-city";
-
 
 export default component$(() => {
   return (
@@ -14,18 +22,17 @@ export default component$(() => {
       {/* //Hero Heading */}
       <section class="container min-w-full">
         <div class="flex w-full flex-col items-center justify-center gap-24 md:min-h-screen md:gap-32 xl:gap-48">
-          <div class="flex w-full flex-col items-center justify-center gap-24 mt-64 md:gap-32 xl:gap-48 lg:mt-48">
-          <h1 class="text-center text-48 tracking-low text-black sm:text-69 md:text-80 lg:text-105 xl:text-138">
-          Bridging
-          </h1>
-          <h2 class="xl:80 text-center text-23 text-black sm:text-28 md:text-47 lg:text-61">
-            creativity and functionality
-          </h2>
-          <h3 class="text-center text-13 text-black sm:text-16 lg:text-21 xl:text-27">
-            "Creating seamless digital experiences that drive results."
-          </h3>
+          <div class="mt-64 flex w-full flex-col items-center justify-center gap-24 md:gap-32 lg:mt-48 xl:gap-48">
+            <h1 class="text-center text-48 tracking-low text-black sm:text-69 md:text-80 lg:text-105 xl:text-138">
+              Bridging
+            </h1>
+            <h2 class="xl:80 text-center text-23 text-black sm:text-28 md:text-47 lg:text-61">
+              creativity and functionality
+            </h2>
+            <h3 class="text-center text-13 text-black sm:text-16 lg:text-21 xl:text-27">
+              "Creating seamless digital experiences that drive results."
+            </h3>
           </div>
-          
         </div>
       </section>
       {/* Hero Heading Ends */}
@@ -36,10 +43,9 @@ export default component$(() => {
           Everything you need
         </h3>
         <div class="flex flex-col items-center gap-32 md:gap-64">
-
           {/* card 1 */}
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
+            <div class="flex w-2/5 items-center lg:w-1/3">
               <QWebOptimization />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
@@ -60,8 +66,8 @@ export default component$(() => {
           {/* card 2 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
-              <QUserCentric/>
+            <div class="flex w-2/5 items-center lg:w-1/3">
+              <QUserCentric />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -82,8 +88,8 @@ export default component$(() => {
           {/* card 3 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
-              <QGoalOriented/>
+            <div class="flex w-2/5 items-center lg:w-1/3">
+              <QGoalOriented />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -104,8 +110,8 @@ export default component$(() => {
           {/* card 4 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
-              <QPersonalized/>
+            <div class="flex w-2/5 items-center lg:w-1/3">
+              <QPersonalized />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -125,10 +131,12 @@ export default component$(() => {
 
           {/* card 5 */}
 
-          <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32
-         md:px-64 xl:max-w-1080">
+          <div
+            class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32
+         md:px-64 xl:max-w-1080"
+          >
             <div class="flex w-2/5 items-center">
-              <QQualityTesting/>
+              <QQualityTesting />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -149,7 +157,7 @@ export default component$(() => {
           {/* card 6 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
+            <div class="flex w-2/5 items-center lg:w-1/3">
               <QSupport />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
@@ -170,7 +178,7 @@ export default component$(() => {
           {/* card 7 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
+            <div class="flex w-2/5 items-center lg:w-1/3">
               <QSEO />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
@@ -191,8 +199,8 @@ export default component$(() => {
           {/* card 8 */}
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
-            <div class="flex w-2/5 lg:w-1/3 items-center">
-              <QCollaborative/>
+            <div class="flex w-2/5 items-center lg:w-1/3">
+              <QCollaborative />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -216,87 +224,88 @@ export default component$(() => {
   );
 });
 
-
 export const head: DocumentHead = {
   // This will be used to resolve the <title> of the page
-  title: 'Anirban Das - Services',
+  title: "Anirban Das - Services",
   meta: [
     {
-      name: 'description',
-      content: 'Find out what you need for your website to shine',
+      name: "description",
+      content: "Find out what you need for your website to shine",
     },
     // Open graph
     {
-      property: 'og:title',
-      content: 'Anirban Das - Services',
+      property: "og:title",
+      content: "Anirban Das - Services",
     },
     {
-      property: 'og:description',
-      content: 'Find out what you need for your website to shine',
+      property: "og:description",
+      content: "Find out what you need for your website to shine",
     },
     {
-      property: 'og:url',
-      content: 'https://www.anirbandas.in/services', // Replace with your website URL
+      property: "og:url",
+      content: "https://www.anirbandas.in/services", // Replace with your website URL
     },
     {
-      property: 'og:locale',
-      content: 'en',
+      property: "og:locale",
+      content: "en",
     },
     {
-      property: 'og:site_name',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      property: "og:site_name",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      property: 'og:type',
-      content: 'article',
+      property: "og:type",
+      content: "article",
     },
     {
-      property: 'og:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg', // Replace with the actual image URL for sharing
+      property: "og:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:width',
-      content: '1200', // Replace with the actual image URL for sharing
+      property: "og:image:width",
+      content: "1200", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:height',
-      content: '630', // Replace with the actual image URL for sharing
+      property: "og:image:height",
+      content: "630", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     // Twitter Card meta tags (for Twitter sharing)
     {
-      name: 'twitter:card',
-      content: 'summary_large_image',
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
-      name: 'twitter:site',
-      content: '@anirban12d',
+      name: "twitter:site",
+      content: "@anirban12d",
     },
     {
-      name: 'twitter:title',
-      content: 'Anirban Das - Services',
+      name: "twitter:title",
+      content: "Anirban Das - Services",
     },
     {
-      name: 'twitter:description',
-      content: 'Find out what you need for your website to shine',
+      name: "twitter:description",
+      content: "Find out what you need for your website to shine",
     },
     {
-      name: 'twitter:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg', // Replace with the actual image URL for sharing
+      name: "twitter:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg", // Replace with the actual image URL for sharing
     },
     {
-      name: 'twitter:image:alt',
-      content: 'Image of Anirban Das\'s personal website - Fullstack Developer & UX Designer', // Replace with the actual image URL for sharing
+      name: "twitter:image:alt",
+      content:
+        "Image of Anirban Das's personal website - Fullstack Developer & UX Designer", // Replace with the actual image URL for sharing
     },
   ],
   links: [
     {
-      rel: 'canonical',
-      href: 'https://www.anirbandas.in/services',
+      rel: "canonical",
+      href: "https://www.anirbandas.in/services",
     },
-   
   ],
 };

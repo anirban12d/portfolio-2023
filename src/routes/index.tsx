@@ -14,14 +14,11 @@ import { MockupReact } from "~/components/mockup/mockup-react";
 import { useNavigate } from "@builder.io/qwik-city";
 import { useContext } from "@builder.io/qwik";
 import { currentPageContext } from "./layout";
-import { type Any} from "@sanity/client";
+import { type Any } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";
 import { client } from "./layout";
 import { useSanityMyImages } from "./layout";
-
- 
-
 
 const builder = imageUrlBuilder(client);
 
@@ -40,9 +37,7 @@ type Image = {
 };
 
 export default component$(() => {
-
-
-const sanity = useSanityMyImages();
+  const sanity = useSanityMyImages();
 
   const nav = useNavigate();
 
@@ -223,18 +218,18 @@ const sanity = useSanityMyImages();
         {/* Introduction Section */}
         <section class="flex w-full items-center">
           <div class=" mx-8 flex flex-col items-center gap-4 overflow-hidden rounded-4xl border-8 border-solid border-black text-center sm:mx-32 sm:border-8 md:mx-120 lg:flex-row-reverse lg:text-left">
-          <div class="w-5/6 h-full overflow-hidden">
-          <Image
-            src={urlFor(sanity.value[0]?.introductionImage).url()}
-            layout="constrained"
-            width={386}
-            height={515}
-            alt={sanity.value[0]?.MainImageAlt}
-            background="auto"
-            class="h-full w-full mx-auto"
-            />
-          </div>
-            
+            <div class="h-full w-5/6 overflow-hidden">
+              <Image
+                src={urlFor(sanity.value[0]?.introductionImage).url()}
+                layout="constrained"
+                width={386}
+                height={515}
+                alt={sanity.value[0]?.MainImageAlt}
+                background="auto"
+                class="mx-auto h-full w-full"
+              />
+            </div>
+
             <div class="flex max-w-prose flex-col items-center gap-16 px-16 py-32 lg:max-w-1080 lg:items-start lg:gap-32 lg:py-72 lg:pl-64">
               <h6 class="text-33 sm:text-40 md:text-47">Hi, I’m Anirban</h6>
               <p class="text-16">
@@ -264,99 +259,99 @@ const sanity = useSanityMyImages();
             <div class="mt-16 flex max-w-848 flex-col items-center gap-16 rounded-4xl border-8  border-solid border-black px-32 py-24 md:mt-32 md:gap-32 md:px-64 md:py-64 lg:px-64 lg:py-72">
               <div class="flex items-center justify-around gap-8 sx:gap-10 sm:gap-32 md:gap-64">
                 <Image
-                    src="/images/logo/Webflow-logo.png"
-                    layout="constrained"
-                    alt="Webflow logo image."
-                    width={50}
-                    height={50}
-                    background="auto"
-                    class="w-50 md:w-104 xl:w-152"
-                  />
+                  src="/images/logo/Webflow-logo.png"
+                  layout="constrained"
+                  alt="Webflow logo image."
+                  width={50}
+                  height={50}
+                  background="auto"
+                  class="w-50 md:w-104 xl:w-152"
+                />
                 <Image
-                    src="/images/logo/Shopify-logo.png"
-                    layout="constrained"
-                    alt="Shopify logo image."
-                    width={50}
-                    height={50}
-                    background="auto"
-                    class="w-50 md:w-104 xl:w-152"
-                  />
+                  src="/images/logo/Shopify-logo.png"
+                  layout="constrained"
+                  alt="Shopify logo image."
+                  width={50}
+                  height={50}
+                  background="auto"
+                  class="w-50 md:w-104 xl:w-152"
+                />
                 <Image
-                    src="/images/logo/vercel-logo.png"
-                    layout="constrained"
-                    alt="Vercel logo image."
-                    width={50}
-                    height={50}
-                    background="auto"
-                    class="w-50 md:w-104 xl:w-152"
-                  />
+                  src="/images/logo/vercel-logo.png"
+                  layout="constrained"
+                  alt="Vercel logo image."
+                  width={50}
+                  height={50}
+                  background="auto"
+                  class="w-50 md:w-104 xl:w-152"
+                />
                 <Image
-                    src="/images/logo/Netlify-logo.png"
-                    layout="constrained"
-                    alt="Netlify logo image."
-                    width={50}
-                    height={50}
-                    background="auto"
-                    class="w-50 md:w-104 xl:w-152"
-                  />
+                  src="/images/logo/Netlify-logo.png"
+                  layout="constrained"
+                  alt="Netlify logo image."
+                  width={50}
+                  height={50}
+                  background="auto"
+                  class="w-50 md:w-104 xl:w-152"
+                />
               </div>
               <div class="flex items-center justify-around gap-8 sx:gap-16 sm:gap-32 md:gap-64">
                 <Image
-                    src="/images/logo/Next.js-logo.png"
-                    layout="constrained"
-                    alt="Next.js logo image."
-                    width={40}
-                    height={40}
-                    background="auto"
-                    class="w-40 md:w-80 xl:w-100"
-                  />
+                  src="/images/logo/Next.js-logo.png"
+                  layout="constrained"
+                  alt="Next.js logo image."
+                  width={40}
+                  height={40}
+                  background="auto"
+                  class="w-40 md:w-80 xl:w-100"
+                />
                 <Image
-                    src="/images/logo/Nuxt.js-logo.png"
-                    layout="constrained"
-                    alt="Nuxt.js logo image."
-                    width={45}
-                    height={45}
-                    background="auto"
-                    class="w-45 md:w-96 xl:w-120"
-                  />
+                  src="/images/logo/Nuxt.js-logo.png"
+                  layout="constrained"
+                  alt="Nuxt.js logo image."
+                  width={45}
+                  height={45}
+                  background="auto"
+                  class="w-45 md:w-96 xl:w-120"
+                />
                 <Image
-                    src="/images/logo/React-logo.png"
-                    layout="constrained"
-                    alt="React logo image."
-                    width={30}
-                    height={30}
-                    background="auto"
-                    class="w-30 md:w-64 xl:w-60"
-                  />
+                  src="/images/logo/React-logo.png"
+                  layout="constrained"
+                  alt="React logo image."
+                  width={30}
+                  height={30}
+                  background="auto"
+                  class="w-30 md:w-64 xl:w-60"
+                />
               </div>
               <div class="flex items-center justify-around gap-12 sx:gap-24 sm:gap-24 md:gap-48 lg:gap-56">
                 <Image
-                    src="/images/logo/aws-logo.png"
-                    layout="constrained"
-                    alt="AWS logo image."
-                    width={20}
-                    height={20}
-                    background="auto"
-                    class="w-20 md:w-40 xl:w-50"
-                  />
+                  src="/images/logo/aws-logo.png"
+                  layout="constrained"
+                  alt="AWS logo image."
+                  width={20}
+                  height={20}
+                  background="auto"
+                  class="w-20 md:w-40 xl:w-50"
+                />
                 <Image
-                    src="/images/logo/Figma-logo.png"
-                    layout="constrained"
-                    alt="Figma logo image."
-                    width={9}
-                    height={9}
-                    background="auto"
-                    class="w-9 md:w-18 xl:w-26"
-                  />
+                  src="/images/logo/Figma-logo.png"
+                  layout="constrained"
+                  alt="Figma logo image."
+                  width={9}
+                  height={9}
+                  background="auto"
+                  class="w-9 md:w-18 xl:w-26"
+                />
                 <Image
-                    src="/images/logo/Sanity-logo.png"
-                    layout="constrained"
-                    alt="Sanity logo image."
-                    width={18}
-                    height={18}
-                    background="auto"
-                    class="w-18 md:w-40 xl:w-40"
-                  />
+                  src="/images/logo/Sanity-logo.png"
+                  layout="constrained"
+                  alt="Sanity logo image."
+                  width={18}
+                  height={18}
+                  background="auto"
+                  class="w-18 md:w-40 xl:w-40"
+                />
               </div>
             </div>
           </div>
@@ -372,87 +367,91 @@ const sanity = useSanityMyImages();
   );
 });
 
-
 export const head: DocumentHead = {
   // This will be used to resolve the <title> of the page
-  title: 'Anirban Das - Fullstack Developer & UX Designer',
+  title: "Anirban Das - Fullstack Developer & UX Designer",
   meta: [
     {
-      name: 'description',
-      content: 'I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result',
+      name: "description",
+      content:
+        "I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result",
     },
     // Open graph
     {
-      property: 'og:title',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      property: "og:title",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      property: 'og:locale',
-      content: 'en',
+      property: "og:locale",
+      content: "en",
     },
     {
-      property: 'og:site_name',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      property: "og:site_name",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      property: 'og:type',
-      content: 'article',
+      property: "og:type",
+      content: "article",
     },
     {
-      property: 'og:description',
-      content: 'I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result',
+      property: "og:description",
+      content:
+        "I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result",
     },
     {
-      property: 'og:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg', // Replace with the actual image URL for sharing
+      property: "og:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:width',
-      content: '1200', // Replace with the actual image URL for sharing
+      property: "og:image:width",
+      content: "1200", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:height',
-      content: '630', // Replace with the actual image URL for sharing
+      property: "og:image:height",
+      content: "630", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:url',
-      content: 'https://www.anirbandas.in', // Replace with your website URL
+      property: "og:url",
+      content: "https://www.anirbandas.in", // Replace with your website URL
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     // Twitter Card meta tags (for Twitter sharing)
     {
-      name: 'twitter:card',
-      content: 'summary_large_image',
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
-      name: 'twitter:site',
-      content: '@anirban12d',
+      name: "twitter:site",
+      content: "@anirban12d",
     },
     {
-      name: 'twitter:title',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      name: "twitter:title",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      name: 'twitter:description',
-      content: 'I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result',
+      name: "twitter:description",
+      content:
+        "I Create Visually Stunning and Intuitively Functional Websites Crafted to Drive Result",
     },
     {
-      name: 'twitter:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg', // Replace with the actual image URL for sharing
+      name: "twitter:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg", // Replace with the actual image URL for sharing
     },
     {
-      name: 'twitter:image:alt',
-      content: 'Image of Anirban Das\'s personal website - Fullstack Developer & UX Designer', // Replace with the actual image URL for sharing
+      name: "twitter:image:alt",
+      content:
+        "Image of Anirban Das's personal website - Fullstack Developer & UX Designer", // Replace with the actual image URL for sharing
     },
   ],
   links: [
     {
-      rel: 'canonical',
-      href: 'https://www.anirbandas.in',
+      rel: "canonical",
+      href: "https://www.anirbandas.in",
     },
-    
   ],
 };

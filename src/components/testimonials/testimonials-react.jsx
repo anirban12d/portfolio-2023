@@ -52,7 +52,7 @@ function testimonials() {
           What my clients are saying
         </h3>
 
-        <div className=" w-screen max-w-1280">
+        <div className=" max-w-1280 w-screen">
           <Swiper
             effect={"cards"}
             grabCursor={true}

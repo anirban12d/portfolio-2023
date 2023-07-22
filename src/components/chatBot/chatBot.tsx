@@ -5,33 +5,30 @@ import PhXCircleLight from "~/Icons/ChatBot/PhXCircleLight";
 import { ChatBotContext, currentPageContext } from "~/routes/layout";
 import { FormContext } from "~/routes/layout";
 
-
 export default component$(() => {
+  const formOpen = useContext(FormContext);
 
-  const formOpen = useContext(FormContext)
-  
   const FormCloseHandler = $(() => {
-      formOpen.value = true;
-  })
-
-  const outputRef = useSignal<Element>()
-
-  const scrollToBottom = $(() => {
-    outputRef.value?.scrollTo(0, outputRef.value?.scrollHeight)
-
+    formOpen.value = true;
   });
 
-  scrollToBottom()
+  const outputRef = useSignal<Element>();
 
-  const currentPage = useContext(currentPageContext)
-  
+  const scrollToBottom = $(() => {
+    outputRef.value?.scrollTo(0, outputRef.value?.scrollHeight);
+  });
+
+  scrollToBottom();
+
+  const currentPage = useContext(currentPageContext);
+
   const chatBotVisible = useContext(ChatBotContext);
-  const chats = useStore( {
+  const chats = useStore({
     hello: false,
     hire: false,
     email: false,
     help: false,
-  } )
+  });
 
   const closeHandler = $(() => {
     chatBotVisible.value = false;
@@ -40,34 +37,40 @@ export default component$(() => {
     currentPage.home = false;
     currentPage.projects = false;
     currentPage.services = false;
-  })
+  });
 
   const clickHello = $(() => {
     chats.hello = true;
-  })
+  });
 
   const clickHire = $(() => {
     chats.hire = true;
-  })
+  });
 
   const clickHireFn = $(() => {
     FormCloseHandler();
     chats.hire = true;
-  })
-
+  });
 
   const clickEmail = $(() => {
     chats.email = true;
-  })
+  });
 
   return (
     <>
       {chatBotVisible.value && (
-        <div class={`fixed bottom-0 z-40 flex h-full  flex-col overflow-hidden rounded-3xl border-2 border-black bg-white md:mb-8 md:right-100 md:max-h-640 md:max-w-384`}>
+        <div
+          class={`fixed bottom-0 z-40 flex h-full  flex-col overflow-hidden rounded-3xl border-2 border-black bg-white md:right-100 md:mb-8 md:max-h-640 md:max-w-384`}
+        >
           <div class="flex items-center justify-between bg-bgColor px-16 py-16">
             <div class="flex items-center gap-8 bg-bgColor">
               <div class="h-48 w-48 overflow-hidden rounded-full">
-                <img src="/images/botimg.jpg" alt="" />
+                <img
+                  src="/images/botimg.jpg"
+                  alt="An Avatar image of Anirban Das"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div class="flex flex-col justify-center gap-2">
                 <h5 class="text-19 font-medium text-white">Anibot</h5>
@@ -85,11 +88,13 @@ export default component$(() => {
           </div>
 
           {/* Chat */}
-          <div class="flex flex-col gap-16 overflow-y-auto overscroll-auto scroll-smooth px-16 py-32" ref={outputRef}>
+          <div
+            class="flex flex-col gap-16 overflow-y-auto overscroll-auto scroll-smooth px-16 py-32"
+            ref={outputRef}
+          >
             <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
               Hi
             </div>
-
 
             <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
               I’m Anibot, I’m here to help you with any questions you might have
@@ -101,80 +106,74 @@ export default component$(() => {
             <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
               <button onClick$={clickHire}>I'd like to hire you</button>
             </div>
-            <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black" >
-              <button onClick$={clickEmail}>Send an email</button>
-            </div>
-
-
-
-            {chats.hello && (<>
-              <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Hello 👋
-            </div>
-            
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Thanks for saying Hi!
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Hope you are having a great day! 🎉
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Is there anything else I can help you with?
-            </div>
-
-
-            
-            <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
-              <button onClick$={clickHire}>I'd like to hire you</button>
-            </div>
             <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
               <button onClick$={clickEmail}>Send an email</button>
             </div>
-            </>)}
-            
-            
-            {chats.hire && (<>
-              <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Great!
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              I'm excited! 🎉
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Send me a project request!
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              We'll talk further about your project
-            </div>
 
+            {chats.hello && (
+              <>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Hello 👋
+                </div>
 
-            <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
-              <button onClick$={clickHireFn}>Send a project request</button>
-            </div>
-            <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
-              <button onClick$={clickEmail}>Send an email</button>
-            </div>
-            </>)}
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Thanks for saying Hi!
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Hope you are having a great day! 🎉
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Is there anything else I can help you with?
+                </div>
 
+                <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
+                  <button onClick$={clickHire}>I'd like to hire you</button>
+                </div>
+                <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
+                  <button onClick$={clickEmail}>Send an email</button>
+                </div>
+              </>
+            )}
 
+            {chats.hire && (
+              <>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Great!
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  I'm excited! 🎉
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Send me a project request!
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  We'll talk further about your project
+                </div>
 
-            {chats.email && (<>
-              <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Here you go
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              <a href="mailto: anirbandashere@gmail.com">anirbandashere@gmail.com</a>
-            </div>
-            <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
-              Have a good day 🎉
-            </div>
-            </>)}
-            
+                <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
+                  <button onClick$={clickHireFn}>Send a project request</button>
+                </div>
+                <div class="w-fit self-end rounded-4xl border-2 border-black bg-white px-24 py-16 text-16 text-black">
+                  <button onClick$={clickEmail}>Send an email</button>
+                </div>
+              </>
+            )}
 
-            
-
-            
-
+            {chats.email && (
+              <>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Here you go
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  <a href="mailto: anirbandashere@gmail.com">
+                    anirbandashere@gmail.com
+                  </a>
+                </div>
+                <div class="w-fit rounded-4xl bg-bgColor px-24 py-16 text-16 font-light text-white">
+                  Have a good day 🎉
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}

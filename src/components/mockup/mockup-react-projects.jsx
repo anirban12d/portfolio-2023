@@ -31,7 +31,7 @@ function mockupProjects({dataProject}) {
               className="h-full w-full"
             />
             <Swiper
-              
+              key={dataProject._id}
               slidesPerView={1}
               spaceBetween={10}
               loop={true}
@@ -43,7 +43,22 @@ function mockupProjects({dataProject}) {
               className="absolute rounded-md left-0 right-0 top-10 mx-auto max-h-79% min-h-65% w-78% overflow-hidden md:top-20  lg:top-28"
             >
             <SwiperSlide
-                    key={dataProject._key}
+                    key={1}
+                    >
+                <div className="w-full h-full">
+                <Image
+                        src={urlFor(dataProject.mainImage).url()}
+                        layout="constrained"
+                        alt={dataProject.alt}
+                        width={2100}
+                        height={1313}
+                        background="auto"
+                        className=" h-full w-full"
+                      />
+                </div>
+              </SwiperSlide>
+            <SwiperSlide
+                    key={2}
                     >
                 <div className="w-full h-full">
                 <Image
@@ -58,7 +73,7 @@ function mockupProjects({dataProject}) {
                 </div>
               </SwiperSlide>
               <SwiperSlide
-                    key={dataProject._key}
+                    key={3}
                     >
                 <div className="w-full h-full">
                 <Image
@@ -73,7 +88,7 @@ function mockupProjects({dataProject}) {
                 </div>
               </SwiperSlide>
               <SwiperSlide
-                    key={dataProject._key}
+                    key={4}
                     >
                 <div className="w-full h-full">
                 <Image

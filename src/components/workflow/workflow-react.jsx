@@ -34,9 +34,9 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">1</h5>
+                  <h5 className="text-48 font-medium md:text-105">1</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Request</h6>
+                    <h6 className="text-23 font-medium md:text-36">Request</h6>
                     <p className="text-16 md:text-16 lg:text-19">
                       Let's kick off our collaboration with a thrilling first
                       step: the project request! It's like a sneak peek into
@@ -53,7 +53,7 @@ function workflow() {
                 <div className="flex items-center justify-center gap-16 md:gap-64">
                   <h5 className="text-48 md:text-105">2</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Call</h6>
+                    <h6 className="text-23 font-medium md:text-36">Call</h6>
                     <p className="text-16 md:text-16 lg:text-19">
                       It's all about getting to know each other, like going on a
                       friendly "get-together" adventure. We'll discover if we're
@@ -70,9 +70,9 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">3</h5>
+                  <h5 className="text-48 font-medium md:text-105">3</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Proposal</h6>
+                    <h6 className="text-23 font-medium md:text-36">Proposal</h6>
                     <p className="text-16 md:text-16 lg:text-19">
                       Once I've absorbed every detail of your project, it's time
                       to weave magic into an individual proposal, tailor-made
@@ -89,9 +89,11 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">4</h5>
+                  <h5 className="text-48 font-medium md:text-105">4</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Implementation</h6>
+                    <h6 className="text-23 font-medium md:text-36">
+                      Implementation
+                    </h6>
                     <p className="text-16 md:text-16 lg:text-19">
                       All set and ready to bring your project to life! With all
                       the necessary ingredients in hand, I'll dive headfirst
@@ -107,9 +109,9 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">5</h5>
+                  <h5 className="text-48 font-medium md:text-105">5</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Testing</h6>
+                    <h6 className="text-23 font-medium md:text-36">Testing</h6>
                     <p className="text-16 md:text-16 lg:text-19">
                       Before the big debut, your finalized website will undergo
                       a meticulous quality assurance process. Every nook and
@@ -124,16 +126,16 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">6</h5>
+                  <h5 className="text-48 font-medium md:text-105">6</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Launch</h6>
+                    <h6 className="text-23 font-medium md:text-36">Launch</h6>
                     <p className="text-16 md:text-16 lg:text-19">
-                      On the final day, I've got your
-                      back, taking care of everything from domain names to
-                      hosting. But wait, there's more! If you prefer, I can also
-                      export the code, allowing your website to dazzle on any
-                      platform you desire. Let me handle the technicalities while you
-                      focus on what truly matters—growing your business.
+                      On the final day, I've got your back, taking care of
+                      everything from domain names to hosting. But wait, there's
+                      more! If you prefer, I can also export the code, allowing
+                      your website to dazzle on any platform you desire. Let me
+                      handle the technicalities while you focus on what truly
+                      matters—growing your business.
                     </p>
                   </div>
                 </div>
@@ -143,15 +145,15 @@ function workflow() {
             <SwiperSlide>
               <div className="flex max-h-640 max-w-736 items-center justify-center rounded-4xl border-2 border-black px-16 py-16 md:min-h-256 md:border-4 md:px-64 md:py-32 lg:py-32">
                 <div className="flex items-center justify-center gap-16 md:gap-64">
-                  <h5 className="text-48 md:text-105 font-medium">7</h5>
+                  <h5 className="text-48 font-medium md:text-105">7</h5>
                   <div className="flex flex-col gap-4 md:gap-16 lg:gap-24">
-                    <h6 className="text-23 md:text-36 font-medium">Support</h6>
+                    <h6 className="text-23 font-medium md:text-36">Support</h6>
                     <p className="text-16 md:text-16 lg:text-19">
-                      Our journey doesn't end there! In the long
-                      run, when challenges arise, I'll be your steadfast
-                      companion, ready to provide unwavering support and
-                      guidance. You can count on me, Anirban, to be by your
-                      side, fixing any hiccups that may come your way.
+                      Our journey doesn't end there! In the long run, when
+                      challenges arise, I'll be your steadfast companion, ready
+                      to provide unwavering support and guidance. You can count
+                      on me, Anirban, to be by your side, fixing any hiccups
+                      that may come your way.
                     </p>
                   </div>
                 </div>
