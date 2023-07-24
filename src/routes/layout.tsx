@@ -8,6 +8,8 @@ import {
 } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { createContextId } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
+import { useVisibleTask$ } from "@builder.io/qwik";
 
 import Header from "~/components/header/header";
 import Footer from "~/components/footer/footer";
@@ -73,6 +75,8 @@ export interface Page {
 }
 
 export default component$(() => {
+  const loc = useLocation();
+
   const currentPage = useStore({
     home: true,
     about: false,
@@ -80,6 +84,42 @@ export default component$(() => {
     services: false,
     contact: false,
   });
+
+  useVisibleTask$(
+    ({ track }) => {
+      track(() => {
+        loc.url.pathname;
+      });
+      if (loc.url.pathname == "/") {
+        currentPage.home = true;
+        currentPage.about = false;
+        currentPage.projects = false;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/about/") {
+        currentPage.home = false;
+        currentPage.about = true;
+        currentPage.projects = false;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/projects/") {
+        currentPage.home = false;
+        currentPage.about = false;
+        currentPage.projects = true;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/services/") {
+        currentPage.home = false;
+        currentPage.about = false;
+        currentPage.projects = false;
+        currentPage.services = true;
+        currentPage.contact = false;
+      } else {
+        currentPage.home = true;
+      }
+    },
+    { strategy: "document-ready" }
+  );
 
   const chatBotVisible = useSignal(false);
   const FormVisible = useSignal(false);

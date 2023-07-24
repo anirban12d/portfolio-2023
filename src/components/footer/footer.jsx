@@ -3,7 +3,7 @@ import { Link } from "@builder.io/qwik-city";
 import { ButtonFifth } from "../button/ButtonFifth";
 import { useContext } from "@builder.io/qwik";
 import { ChatBotContext } from "~/routes/layout";
-import { useNavigate } from "@builder.io/qwik-city";
+import { useLocation } from "@builder.io/qwik-city";
 
 import PhTwitterLogoLight from "~/Icons/footer/PhTwitterLogoLight";
 import PhFacebookLogoLight from "~/Icons/footer/PhFacebookLogoLight";
@@ -13,45 +13,49 @@ import PhInstagramLogoLight from "~/Icons/footer/PhInstagramLogoLight";
 import { currentPageContext } from "~/routes/layout";
 
 export default component$(() => {
-  const nav = useNavigate();
+  const loc = useLocation();
 
   const chatBotVisible = useContext(ChatBotContext);
   const currentPage = useContext(currentPageContext);
 
-  const homefn = $(() => {
-    nav("/");
-    currentPage.home = true;
-    currentPage.about = false;
-    currentPage.projects = false;
-    currentPage.services = false;
-    currentPage.contact = false;
-  });
-
-  const projectsfn = $(() => {
-    nav("/projects");
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = true;
-    currentPage.services = false;
-    currentPage.contact = false;
-  });
-
-  const servicesfn = $(() => {
-    nav("/services");
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = false;
-    currentPage.services = true;
-    currentPage.contact = false;
-  });
-
   const contactfn = $(() => {
-    chatBotVisible.value = !chatBotVisible.value;
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = false;
-    currentPage.services = false;
-    currentPage.contact = true;
+    if (chatBotVisible.value === false) {
+      chatBotVisible.value = !chatBotVisible.value;
+      currentPage.home = false;
+      currentPage.about = false;
+      currentPage.projects = false;
+      currentPage.services = false;
+      currentPage.contact = true;
+    } else {
+      chatBotVisible.value = !chatBotVisible.value;
+      if (loc.url.pathname == "/") {
+        currentPage.home = true;
+        currentPage.about = false;
+        currentPage.projects = false;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/about/") {
+        currentPage.home = false;
+        currentPage.about = true;
+        currentPage.projects = false;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/projects/") {
+        currentPage.home = false;
+        currentPage.about = false;
+        currentPage.projects = true;
+        currentPage.services = false;
+        currentPage.contact = false;
+      } else if (loc.url.pathname == "/services/") {
+        currentPage.home = false;
+        currentPage.about = false;
+        currentPage.projects = false;
+        currentPage.services = true;
+        currentPage.contact = false;
+      } else {
+        currentPage.home = true;
+      }
+    }
   });
 
   return (
@@ -59,9 +63,9 @@ export default component$(() => {
       <div class="m-auto flex max-w-996 flex-col items-center gap-32 px-32 py-16 md:flex-row md:justify-between md:gap-0 md:px-48 md:py-16">
         <div class="flex flex-col items-center gap-8 md:items-start md:justify-start xl:gap-16">
           <div class="flex flex-col items-center md:items-start md:justify-start xl:gap-8">
-            <h6 class="text-center text-27 font-medium md:justify-start md:text-left xl:text-36">
+            <h4 class="text-center text-27 font-medium md:justify-start md:text-left xl:text-36">
               Anirban Das
-            </h6>
+            </h4>
             <p class="max-w-255 text-center text-12 md:justify-start md:text-left md:text-13 xl:max-w-340 xl:text-16">
               “Building high-performance websites that help your business
               succeed.”
@@ -115,14 +119,23 @@ export default component$(() => {
             </div>
             <div>
               <ul class="flex flex-col gap-8 lg:gap-8">
-                <li class="text-16 md:text-16" onClick$={homefn}>
-                  <Link href="/">Home</Link>
+                <li class="text-16 md:text-16">
+                  <Link href="/" aria-label="Go back to home">
+                    Home
+                  </Link>
                 </li>
-                <li class="text-16 md:text-16" onClick$={projectsfn}>
-                  <Link href="/projects">Projects</Link>
+                <li class="text-16 md:text-16">
+                  <Link href="/projects" aria-label="See my projects">
+                    Projects
+                  </Link>
                 </li>
-                <li class="text-16 md:text-16" onClick$={servicesfn}>
-                  <Link href="/services">Services</Link>
+                <li class="text-16 md:text-16">
+                  <Link
+                    href="/services"
+                    aria-label="Find out more about my services"
+                  >
+                    Services
+                  </Link>
                 </li>
               </ul>
             </div>

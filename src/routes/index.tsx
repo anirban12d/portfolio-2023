@@ -1,4 +1,4 @@
-import { component$, $ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { ButtonSecond } from "~/components/button/ButtonSecond";
 import { ButtonThird } from "~/components/button/buttonThird";
@@ -11,14 +11,12 @@ import PhPresentationChartLight from "~/Icons/Usp/PhPresentationChartLight";
 import PhTestTubeLight from "~/Icons/Usp/PhTestTubeLight";
 import { WorkflowReact } from "~/components/workflow/workflow-react";
 import { MockupReact } from "~/components/mockup/mockup-react";
-import { useNavigate } from "@builder.io/qwik-city";
-import { useContext } from "@builder.io/qwik";
-import { currentPageContext } from "./layout";
 import { type Any } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";
 import { client } from "./layout";
 import { useSanityMyImages } from "./layout";
+import { Link } from "@builder.io/qwik-city";
 
 const builder = imageUrlBuilder(client);
 
@@ -38,28 +36,6 @@ type Image = {
 
 export default component$(() => {
   const sanity = useSanityMyImages();
-
-  const nav = useNavigate();
-
-  const currentPage = useContext(currentPageContext);
-
-  const servicesfn = $(() => {
-    nav("/services");
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = false;
-    currentPage.services = true;
-    currentPage.contact = false;
-  });
-
-  const projectsfn = $(() => {
-    nav("/projects");
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = true;
-    currentPage.services = false;
-    currentPage.contact = false;
-  });
 
   return (
     <>
@@ -86,15 +62,14 @@ export default component$(() => {
         {/* Hero Project Showcase */}
         <MockupReact />
         <div>
-          <span
-            class="flex items-center justify-center gap-4 text-16 hover:cursor-pointer md:gap-8 md:text-21"
-            onClick$={projectsfn}
-          >
-            See my projects
-            <span class="inline-block">
-              <PhArrowRight />
+          <Link href="/projects" aria-label="See all my projects">
+            <span class="flex items-center justify-center gap-4 text-16 hover:cursor-pointer md:gap-8 md:text-21">
+              See my projects
+              <span class="inline-block">
+                <PhArrowRight />
+              </span>
             </span>
-          </span>
+          </Link>
         </div>
 
         {/* USP Section */}
@@ -201,15 +176,17 @@ export default component$(() => {
             </div>
             {/* usp card end */}
             <div class="text-16 md:text-21">
-              <span
-                class="flex items-center justify-center gap-4 hover:cursor-pointer md:gap-8"
-                onClick$={servicesfn}
+              <Link
+                href="/services"
+                aria-label="Find out more about my services"
               >
-                Find out more about my services{" "}
-                <span class="inline-block">
-                  <PhArrowRight />
+                <span class="flex items-center justify-center gap-4 hover:cursor-pointer md:gap-8">
+                  Find out more about my services{" "}
+                  <span class="inline-block">
+                    <PhArrowRight />
+                  </span>
                 </span>
-              </span>
+              </Link>
             </div>
           </div>
           {/* USP end */}

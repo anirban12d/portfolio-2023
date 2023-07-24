@@ -4,8 +4,11 @@ import { useContext } from "@builder.io/qwik";
 import PhXCircleLight from "~/Icons/ChatBot/PhXCircleLight";
 import { ChatBotContext, currentPageContext } from "~/routes/layout";
 import { FormContext } from "~/routes/layout";
+import { useLocation } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const loc = useLocation();
+
   const formOpen = useContext(FormContext);
 
   const FormCloseHandler = $(() => {
@@ -32,11 +35,33 @@ export default component$(() => {
 
   const closeHandler = $(() => {
     chatBotVisible.value = false;
-    currentPage.about = false;
-    currentPage.contact = false;
-    currentPage.home = false;
-    currentPage.projects = false;
-    currentPage.services = false;
+    if (loc.url.pathname == "/") {
+      currentPage.home = true;
+      currentPage.about = false;
+      currentPage.projects = false;
+      currentPage.services = false;
+      currentPage.contact = false;
+    } else if (loc.url.pathname == "/about/") {
+      currentPage.home = false;
+      currentPage.about = true;
+      currentPage.projects = false;
+      currentPage.services = false;
+      currentPage.contact = false;
+    } else if (loc.url.pathname == "/projects/") {
+      currentPage.home = false;
+      currentPage.about = false;
+      currentPage.projects = true;
+      currentPage.services = false;
+      currentPage.contact = false;
+    } else if (loc.url.pathname == "/services/") {
+      currentPage.home = false;
+      currentPage.about = false;
+      currentPage.projects = false;
+      currentPage.services = true;
+      currentPage.contact = false;
+    } else {
+      currentPage.home = true;
+    }
   });
 
   const clickHello = $(() => {
