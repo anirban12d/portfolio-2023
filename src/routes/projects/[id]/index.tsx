@@ -123,7 +123,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
@@ -162,7 +162,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
@@ -201,7 +201,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
@@ -240,7 +240,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
@@ -279,7 +279,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
@@ -317,7 +317,7 @@ export default component$(() => {
                           width={1920}
                           height={1200}
                           background="auto"
-                          class="w-full object-cover object-center"
+                          class="w-full rounded-xl object-cover object-center"
                         />
                       </>
                     );
