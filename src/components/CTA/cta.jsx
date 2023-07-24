@@ -13,9 +13,9 @@ export default component$(() => {
         </div>
         <div class="flex flex-col items-center gap-24 lg:items-start xl:gap-32">
           <div class="flex flex-col items-center gap-16 px-4 md:gap-24 lg:items-start xl:gap-32">
-            <h6 class="text-center text-28 text-primary md:text-36 lg:text-left xl:text-47">
+            <h3 class="text-center text-28 text-primary md:text-36 lg:text-left xl:text-47">
               Let's get started
-            </h6>
+            </h3>
             <p class="max-w-633 text-center text-15 font-normal text-primary sm:text-16 lg:text-left">
               I work closely with my clients to understand their vision and
               develop a customized strategy to achieve their goals. Schedule a
