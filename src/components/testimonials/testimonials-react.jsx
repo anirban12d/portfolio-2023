@@ -110,29 +110,6 @@ function testimonials() {
                 </SwiperSlide>
               );
             })}
-
-            {/* <SwiperSlide>
-            <div className="flex max-w-90% flex-col gap-8 min-h-[210px] rounded-4xl border-4 border-solid border-black bg-primary px-32 py-24 md:gap-8 md:py-32 md:pl-48 md:pr-32 lg:py-64 lg:pl-64 lg:pr-32">
-              <div>
-                <p className="max-w-prose text-16 md:text-19">
-                  Dan's core strength is his ability to adapt and apply critical
-                  thinking to a problem. He doesn't just take a project and do
-                  
-                </p>
-              </div>
-              <div className="mt-8 flex items-center gap-8 md:gap-16">
-                <div className="h-48 w-48 rounded-full bg-black md:h-64 md:w-64"></div>
-                <div className="flex flex-col items-start justify-between gap-2">
-                  <h5 className="text-16 font-semibold sm:text-19 md:text-24">
-                    Client Name
-                  </h5>
-                  <h6 className="text-13 sm:text-13 md:text-16">
-                    Company Name
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide> */}
           </Swiper>
         </div>
       </section>
@@ -141,5 +118,5 @@ function testimonials() {
 }
 
 export const TestimonialReact = qwikify$(testimonials, {
-  eagerness: "visible",
+  eagerness: "idle",
 });

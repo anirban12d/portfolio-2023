@@ -141,7 +141,7 @@ export default component$(() => {
       <ProjectForm />
       <ChatBot />
       <ServicesModal />
-      <TestimonialReact />
+      <TestimonialReact client:idle />
       <CallToAction />
       <FloatingNavbar />
       <Footer />

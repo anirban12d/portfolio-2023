@@ -82,6 +82,7 @@ export default component$(() => {
                     width={1920}
                     height={1200}
                     background="auto"
+                    loading="eager"
                     class="w-full object-cover object-center"
                   />
                 </div>
@@ -95,7 +96,7 @@ export default component$(() => {
                     </p>
                   </div>
                   <div>
-                    <Link href={"/projects/" + items.slug.current}>
+                    <Link href={"/projects/" + items.slug.current} aria-label="Link to the project page">
                       <button class="sm:px-36 rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-50 lg:py-12">
                         Read more
                       </button>

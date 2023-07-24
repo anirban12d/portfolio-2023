@@ -46,7 +46,7 @@ export default component$(() => {
           {/* card 1 */}
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QWebOptimization />
+              <QWebOptimization client:load />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -67,7 +67,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QUserCentric />
+              <QUserCentric client:idle />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -89,7 +89,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QGoalOriented />
+              <QGoalOriented client:idle/>
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -111,7 +111,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QPersonalized />
+              <QPersonalized client:idle />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -136,7 +136,7 @@ export default component$(() => {
          md:px-64 xl:max-w-1080"
           >
             <div class="flex w-2/5 items-center">
-              <QQualityTesting />
+              <QQualityTesting client:idle/>
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -158,7 +158,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QSupport />
+              <QSupport client:idle/>
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -179,7 +179,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row-reverse md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QSEO />
+              <QSEO client:idle/>
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
@@ -200,7 +200,7 @@ export default component$(() => {
 
           <div class="flex flex-col items-center gap-16 px-16 py-16 md:flex-row md:justify-around md:gap-32 md:px-64 xl:max-w-1080">
             <div class="flex w-2/5 items-center lg:w-1/3">
-              <QCollaborative />
+              <QCollaborative client:idle/>
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
               <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">

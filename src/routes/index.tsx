@@ -336,7 +336,7 @@ export default component$(() => {
         {/* My toolkit ends */}
 
         {/* My Workflow */}
-        <WorkflowReact />
+        <WorkflowReact client:idle />
         {/* My workflow ends */}
       </div>
       {/* // Hero Wrapper end */}

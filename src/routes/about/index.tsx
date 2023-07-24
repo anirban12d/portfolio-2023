@@ -220,12 +220,12 @@ export default component$(() => {
             <h3 class="text-center text-33 font-medium sm:text-40 md:text-61 xl:text-80">
               My toolkit
             </h3>
-            <h5 class="text-center text-16 md:text-19 xl:text-27">
+            <h4 class="text-center text-16 md:text-19 xl:text-27">
               I’m capable of working confidently with any tools necessary to
               achieve goals.
               <br />
               These are few of my favorites
-            </h5>
+            </h4>
           </div>
           {/* Graphics */}
           <div class="flex max-w-1080 flex-col gap-16 xl:gap-64">

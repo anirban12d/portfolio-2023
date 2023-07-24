@@ -115,7 +115,7 @@ export default component$(() => {
         <div class="flex w-full justify-between md:w-auto md:gap-16 xl:gap-32">
           <div class="flex flex-col gap-8">
             <div>
-              <h6 class="text-16 font-bold md:text-16">Quick links</h6>
+              <h5 class="text-16 font-bold md:text-16">Quick links</h5>
             </div>
             <div>
               <ul class="flex flex-col gap-8 lg:gap-8">

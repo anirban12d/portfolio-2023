@@ -166,4 +166,4 @@ function workflow() {
   );
 }
 
-export const WorkflowReact = qwikify$(workflow, { eagerness: "visible" });
+export const WorkflowReact = qwikify$(workflow, { eagerness: "idle" });

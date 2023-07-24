@@ -135,9 +135,9 @@ export const QWebOptimization = qwikify$(WebOptimization, {
   eagerness: "load",
 });
 export const QUserCentric = qwikify$(UserCentric, { eagerness: "load" });
-export const QGoalOriented = qwikify$(GoalOriented, { eagerness: "load" });
-export const QPersonalized = qwikify$(Personalized, { eagerness: "load" });
-export const QQualityTesting = qwikify$(QualityTesting, { eagerness: "load" });
-export const QSupport = qwikify$(Support, { eagerness: "load" });
-export const QSEO = qwikify$(SEO, { eagerness: "load" });
-export const QCollaborative = qwikify$(Collaborative, { eagerness: "load" });
+export const QGoalOriented = qwikify$(GoalOriented, { eagerness: "idle" });
+export const QPersonalized = qwikify$(Personalized, { eagerness: "idle" });
+export const QQualityTesting = qwikify$(QualityTesting, { eagerness: "idle" });
+export const QSupport = qwikify$(Support, { eagerness: "idle" });
+export const QSEO = qwikify$(SEO, { eagerness: "idle" });
+export const QCollaborative = qwikify$(Collaborative, { eagerness: "idle" });
