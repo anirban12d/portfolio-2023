@@ -44,6 +44,7 @@ function mockup() {
               alt=""
               background="auto"
               className="h-full w-full"
+              loading="eager"
             />
             <Swiper
               slidesPerView={1}
