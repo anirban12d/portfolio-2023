@@ -58,9 +58,9 @@ export default component$(() => {
 
       {/* Cards */}
       <section class="container flex min-w-full flex-col items-center gap-32 md:gap-64 lg:gap-96 xl:gap-128">
-        <h3 class="text-center text-28 text-black sm:text-40 md:text-61 xl:text-80">
+        <h4 class="text-center text-28 text-black sm:text-40 md:text-61 xl:text-80">
           My recent works
-        </h3>
+        </h4>
         <div class="flex flex-col gap-32 px-16 md:gap-64">
           {projectsData.value.map((items: any) => {
             return (
@@ -87,18 +87,17 @@ export default component$(() => {
                 </div>
                 <div class="flex flex-col items-start gap-8 sm:gap-16 md:gap-24 lg:max-w-416 xl:max-w-496">
                   <div class="flex flex-col gap-8 sm:gap-16 md:gap-24">
-                    <h6 class="text-23 font-medium text-white sm:text-33 md:text-36">
+                    <h5 class="text-23 font-medium text-white sm:text-33 md:text-36">
                       {items.title}
-                    </h6>
+                    </h5>
                     <p class="max-w-prose text-16 font-normal text-white md:text-16">
                       {items.description}
                     </p>
                   </div>
                   <div>
-                    {/* <LearnMoreBtnWhite>Learn more</LearnMoreBtnWhite> */}
                     <Link href={"/projects/" + items.slug.current}>
                       <button class="sm:px-36 rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-50 lg:py-12">
-                        Learn more
+                        Read more
                       </button>
                     </Link>
                   </div>

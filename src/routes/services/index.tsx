@@ -49,9 +49,9 @@ export default component$(() => {
               <QWebOptimization />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Website Optimization
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 Want to know how your website can perform even better? I offer
                 professional website reviews to help you identify areas for
@@ -70,9 +70,9 @@ export default component$(() => {
               <QUserCentric />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 User-Centric Design
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 Your website is the digital face of your brand, and a great user
                 experience can make all the difference. I specialize in creating
@@ -92,9 +92,9 @@ export default component$(() => {
               <QGoalOriented />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Goal-Oriented Strategy
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 Whether you're a small business or a large enterprise, I'll work
                 with you to develop a tailored strategy that aligns with your
@@ -114,9 +114,9 @@ export default component$(() => {
               <QPersonalized />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Personalized Solutions
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 Every business has unique needs, and that's why I offer
                 customized web development solutions to help you achieve your
@@ -139,9 +139,9 @@ export default component$(() => {
               <QQualityTesting />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Stringent Quality Testing
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 A successful website requires more than just great design and
                 functionality. I provide meticulous testing services to ensure
@@ -161,9 +161,9 @@ export default component$(() => {
               <QSupport />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Continuous Support
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 My website support services cover everything from routine
                 maintenance to continuous optimization, allowing you to focus on
@@ -182,9 +182,9 @@ export default component$(() => {
               <QSEO />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 SEO-Strategy
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 Boost your website's traffic and leads with my SEO services. I
                 focus on keyword research and on-page optimization to improve
@@ -203,9 +203,9 @@ export default component$(() => {
               <QCollaborative />
             </div>
             <div class="flex flex-col gap-8 md:max-w-396 md:gap-16 lg:max-w-442">
-              <h6 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
+              <h4 class="text-23 text-textColor sm:text-28 md:text-27 lg:text-36">
                 Collaborative approach
-              </h6>
+              </h4>
               <p class="text-16 text-textColor">
                 I can work flexibly with other teams and designers to turn your
                 vision into a stunning website that represents your brand and

@@ -87,12 +87,14 @@ export default component$(() => {
           >
             <Link href="/services">Services</Link>
           </li>
+          <li>
           <button
             class={currentPage.contact ? currentClass : otherClass}
             onClick$={contactfn}
           >
             Contact
           </button>
+          </li>
         </ul>
         <ButtonFirst>Hire me</ButtonFirst>
       </div>

@@ -26,7 +26,6 @@ export default component$(() => {
   const images = useSanityMyImages();
 
   const image = images.value[0];
-
   return (
     <div class="flex flex-col gap-32 md:gap-64 lg:gap-128">
       {/* Hero Heading */}
@@ -38,11 +37,11 @@ export default component$(() => {
             <h1 class="text-center text-33 sm:text-40 md:text-80 xl:text-105">
               I'm Anirban Das
             </h1>
-            <h3 class="text-center text-13 leading-150 md:text-19 xl:text-24 xl:leading-150">
+            <h2 class="text-center text-13 leading-150 md:text-19 xl:text-24 xl:leading-150">
               I Create Visually Stunning and Intuitively Functional Websites.
               <br />
               Crafted to Drive Result.
-            </h3>
+            </h2>
             <ButtonSecond>Let's make it happen</ButtonSecond>
           </div>
         </div>
@@ -60,10 +59,11 @@ export default component$(() => {
               <Image
                 src={urlFor(image.aboutImageMain).url()}
                 layout="constrained"
-                alt={image.aboutImageMainAlt}
+                alt={image.AboutImageMainAlt}
                 width={900}
                 height={1600}
                 background="auto"
+                loading="eager"
                 class="w-full object-cover object-center"
               />
             </div>
@@ -220,12 +220,12 @@ export default component$(() => {
             <h3 class="text-center text-33 font-medium sm:text-40 md:text-61 xl:text-80">
               My toolkit
             </h3>
-            <h6 class="text-center text-16 md:text-19 xl:text-27">
+            <h5 class="text-center text-16 md:text-19 xl:text-27">
               I’m capable of working confidently with any tools necessary to
               achieve goals.
               <br />
               These are few of my favorites
-            </h6>
+            </h5>
           </div>
           {/* Graphics */}
           <div class="flex max-w-1080 flex-col gap-16 xl:gap-64">

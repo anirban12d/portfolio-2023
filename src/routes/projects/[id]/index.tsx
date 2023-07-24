@@ -60,21 +60,21 @@ export default component$(() => {
           <div class="flex w-1280 flex-col items-center gap-32 bg-bgColor py-64 md:gap-64 md:rounded-4xl lg:gap-96 xl:gap-128">
             <div class="min-h-80 flex w-60% max-w-996 flex-col items-center justify-around gap-32 rounded-4xl bg-white px-32 py-32 md:w-90% md:flex-row">
               <div class="flex flex-col items-center gap-4 md:gap-8">
-                <h6 class="text-19 font-medium">Industry</h6>
+                <h2 class="text-19 font-medium">Industry</h2>
                 <span class="text-16">
                   {projectData?.industry ? projectData.industry : "N/A"}
                 </span>
               </div>
 
               <div class="flex flex-col items-center gap-4 md:gap-8">
-                <h6 class="text-19 font-medium">Location</h6>
+                <h2 class="text-19 font-medium">Location</h2>
                 <span class="text-16">
                   {projectData.location ? projectData.location : "N/A"}
                 </span>
               </div>
 
               <div class="flex flex-col items-center gap-4 md:gap-8">
-                <h6 class="text-19 font-medium">Website</h6>
+                <h2 class="text-19 font-medium">Website</h2>
                 {projectData?.projectUrl ? (
                   <span class="flex items-center text-blue underline">
                     <a
@@ -119,7 +119,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -158,7 +158,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -197,7 +197,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -236,7 +236,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -275,7 +275,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -313,7 +313,7 @@ export default component$(() => {
                           key={item._key}
                           src={urlFor(item.asset).url()}
                           layout="constrained"
-                          alt={item.alt}
+                          alt="An Image of the website page"
                           width={1920}
                           height={1200}
                           background="auto"
@@ -327,23 +327,23 @@ export default component$(() => {
             )}
             {projectData?.frontendTools && (
               <div class="flex flex-col items-center gap-32 bg-bgColor md:gap-64">
-                <h3 class="px-32 text-center text-28 text-white sm:text-40 md:text-61 xl:text-80">
+                <h4 class="px-32 text-center text-28 text-white sm:text-40 md:text-61 xl:text-80">
                   Tools used
-                </h3>
+                </h4>
 
                 <div class="flex flex-col items-center gap-16 lg:flex-row">
                   <div class="flex flex-col gap-8 self-stretch rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
-                    <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
+                    <h5 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
                       Frontend Tools
-                    </h6>
+                    </h5>
                     <p class="max-w-prose text-16 font-medium text-textColor lg:max-w-384">
                       {projectData.frontendTools}
                     </p>
                   </div>
                   <div class="flex flex-col gap-8 self-stretch rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
-                    <h6 class="max-w-prose text-23 font-medium text-textColor md:text-27 lg:text-36">
+                    <h5 class="max-w-prose text-23 font-medium text-textColor md:text-27 lg:text-36">
                       Ui Libraries
-                    </h6>
+                    </h5>
                     <p class="text-16 font-medium text-textColor lg:max-w-384">
                       {projectData.uiTools}
                     </p>

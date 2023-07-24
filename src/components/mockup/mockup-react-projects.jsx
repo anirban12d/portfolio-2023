@@ -28,6 +28,7 @@ function mockupProjects({dataProject}) {
               height="635"
               alt=""
               background="auto"
+              loading="eager"
               className="h-full w-full"
             />
             <Swiper

@@ -112,7 +112,7 @@ export default component$(() => {
                   <PhGearSixLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">Website Optimization</h6>
+                  <h4 class="text-23 md:text-27">Website Optimization</h4>
                   <p class="max-w-prose text-16">
                     Want to know how your website can perform even better? I
                     offer professional website reviews to help you identify
@@ -127,7 +127,7 @@ export default component$(() => {
                   <PhPresentationChartLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">Goal-Oriented Strategy</h6>
+                  <h4 class="text-23 md:text-27">Goal-Oriented Strategy</h4>
                   <p class="max-w-prose text-16">
                     Whether you're a small business or a large enterprise, I'll
                     work with you to develop a tailored strategy that aligns
@@ -141,7 +141,7 @@ export default component$(() => {
                   <PhMagicWandLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">User-Centric Design</h6>
+                  <h4 class="text-23 md:text-27">User-Centric Design</h4>
                   <p class="max-w-prose text-16">
                     Your website is the digital face of your brand, and a great
                     user experience can make all the difference. I specialize in
@@ -156,7 +156,7 @@ export default component$(() => {
                   <PhDevicesLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">Personalized Solutions</h6>
+                  <h4 class="text-23 md:text-27">Personalized Solutions</h4>
                   <p class="max-w-prose text-16">
                     Every business has unique needs, and that's why I offer
                     customized web development solutions to help you achieve
@@ -172,7 +172,7 @@ export default component$(() => {
                   <PhTestTubeLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">Stringent Quality Testing</h6>
+                  <h4 class="text-23 md:text-27">Stringent Quality Testing</h4>
                   <p class="max-w-prose text-16">
                     A successful website requires more than just great design
                     and functionality. It also needs to perform flawlessly
@@ -188,7 +188,7 @@ export default component$(() => {
                   <PhHeadsetLight />
                 </div>
                 <div class="flex flex-col gap-4">
-                  <h6 class="text-23 md:text-27">Continuous Support</h6>
+                  <h4 class="text-23 md:text-27">Continuous Support</h4>
                   <p class="max-w-prose text-16">
                     From regular maintenance and updates to ongoing optimization
                     and support, I'll work with you to ensure your website
