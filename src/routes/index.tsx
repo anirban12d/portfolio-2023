@@ -231,7 +231,7 @@ export default component$(() => {
             </div>
 
             <div class="flex max-w-prose flex-col items-center gap-16 px-16 py-32 lg:max-w-1080 lg:items-start lg:gap-32 lg:py-72 lg:pl-64">
-              <h6 class="text-33 sm:text-40 md:text-47">Hi, I’m Anirban</h6>
+              <h3 class="text-33 sm:text-40 md:text-47">Hi, I’m Anirban</h3>
               <p class="text-16">
                 I build professional websites for your growing business, helping
                 your company grow by boosting sales and increasing customer
