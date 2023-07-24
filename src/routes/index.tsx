@@ -250,12 +250,12 @@ export default component$(() => {
             <h3 class="text-33 font-medium md:text-61 xl:text-80">
               My toolkit
             </h3>
-            <h5 class="mt-16 text-center text-15 text-textColor sm:text-16 md:mt-32 md:text-21 xl:text-27">
+            <h4 class="mt-16 text-center text-15 text-textColor sm:text-16 md:mt-32 md:text-21 xl:text-27">
               I’m capable of working confidently with any tools necessary to
               achieve goals.
               <br />
               These are few of my favorites'
-            </h5>
+            </h4>
             <div class="mt-16 flex max-w-848 flex-col items-center gap-16 rounded-4xl border-8  border-solid border-black px-32 py-24 md:mt-32 md:gap-32 md:px-64 md:py-64 lg:px-64 lg:py-72">
               <div class="flex items-center justify-around gap-8 sx:gap-10 sm:gap-32 md:gap-64">
                 <Image

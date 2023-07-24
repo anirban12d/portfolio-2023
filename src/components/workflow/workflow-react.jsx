@@ -13,10 +13,10 @@ function workflow() {
           <h3 className="text-33 font-medium md:text-61 xl:text-80">
             My workflow
           </h3>
-          <h5 className="mt-16 text-center text-15 text-textColor sm:text-16 md:mt-32 md:text-21 xl:text-27">
+          <h4 className="mt-16 text-center text-15 text-textColor sm:text-16 md:mt-32 md:text-21 xl:text-27">
             Streamlined and transparent Workflow, making your experience
             effortless.
-          </h5>
+          </h4>
           <Swiper
             direction={"vertical"}
             centeredSlides={true}
