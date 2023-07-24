@@ -98,12 +98,12 @@ function testimonials() {
                         />
                       </div>
                       <div className="flex flex-col items-start justify-between gap-2">
-                        <h5 className="text-16 font-semibold sm:text-19 md:text-24">
+                        <h4 className="text-16 font-semibold sm:text-19 md:text-24">
                           {item.name}
-                        </h5>
-                        <h6 className="text-13 sm:text-13 md:text-16">
+                        </h4>
+                        <h5 className="text-13 sm:text-13 md:text-16">
                           {item.profession}
-                        </h6>
+                        </h5>
                       </div>
                     </div>
                   </div>
