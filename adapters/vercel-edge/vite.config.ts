@@ -13,11 +13,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [vercelEdgeAdapter(
      {
-      ssg: {
-        include: ['/*'],
-        origin: 'https://qwik.builder.io',
-        sitemapOutFile: 'sitemap.xml',
-      },
+      ssg: null,
      }
     )],
   };
