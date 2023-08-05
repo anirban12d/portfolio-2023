@@ -13,7 +13,10 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [vercelEdgeAdapter(
      {
-      ssg: null,
+      ssg: {
+        sitemapOutFile: null, 
+        include: []
+      }
      }
     )],
   };
