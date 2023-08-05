@@ -50,7 +50,16 @@ export const OverviewInput = component$(
       <div class={clsx('mt-8 w-full flex flex-col', props.class)}>
         <InputLabel name={name} label={label} required={required} />
         <textarea 
-          {...props}
+          ref={props.ref}
+          name={name}
+          value={input.value}
+          onInput$={props.onInput$}
+          onChange$={props.onChange$}
+          onBlur$={props.onBlur$}
+          placeholder={props.placeholder}
+          required={props.required}
+
+
           class={clsx(
             'min-h-96 rounded-2xl px-16 py-8 border-2 text-13 bg-white outline-none placeholder:text-slate-500',
             error
@@ -58,7 +67,6 @@ export const OverviewInput = component$(
               : 'border-slate-200 hover:border-slate-300 focus:border-black'
           )}
           id={name}
-          value={input.value}
           aria-invalid={!!error}
           aria-errormessage={`${name}-error`}
         /> 

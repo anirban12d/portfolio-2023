@@ -58,9 +58,9 @@ export default component$(() => {
 
       {/* Cards */}
       <section class="container flex min-w-full flex-col items-center gap-32 md:gap-64 lg:gap-96 xl:gap-128">
-        <h3 class="text-center text-28 text-black sm:text-40 md:text-61 xl:text-80">
+        <h4 class="text-center text-28 text-black sm:text-40 md:text-61 xl:text-80">
           My recent works
-        </h3>
+        </h4>
         <div class="flex flex-col gap-32 px-16 md:gap-64">
           {projectsData.value.map((items: any) => {
             return (
@@ -82,23 +82,23 @@ export default component$(() => {
                     width={1920}
                     height={1200}
                     background="auto"
+                    loading="eager"
                     class="w-full object-cover object-center"
                   />
                 </div>
                 <div class="flex flex-col items-start gap-8 sm:gap-16 md:gap-24 lg:max-w-416 xl:max-w-496">
                   <div class="flex flex-col gap-8 sm:gap-16 md:gap-24">
-                    <h6 class="text-23 font-medium text-white sm:text-33 md:text-36">
+                    <h5 class="text-23 font-medium text-white sm:text-33 md:text-36">
                       {items.title}
-                    </h6>
+                    </h5>
                     <p class="max-w-prose text-16 font-normal text-white md:text-16">
                       {items.description}
                     </p>
                   </div>
                   <div>
-                    {/* <LearnMoreBtnWhite>Learn more</LearnMoreBtnWhite> */}
-                    <Link href={"/projects/" + items.slug.current}>
+                    <Link href={"/projects/" + items.slug.current} aria-label="Link to the project page">
                       <button class="sm:px-36 rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-50 lg:py-12">
-                        Learn more
+                        Read more
                       </button>
                     </Link>
                   </div>
@@ -114,85 +114,82 @@ export default component$(() => {
 
 export const head: DocumentHead = {
   // This will be used to resolve the <title> of the page
-  title: 'Anirban Das - Projects',
+  title: "Anirban Das - Projects",
   meta: [
     {
-      name: 'description',
-      content: 'Check out some of my works',
+      name: "description",
+      content: "Check out some of my works",
     },
     // Open graph
     {
-      property: 'og:title',
-      content: 'Anirban Das - Projects',
+      property: "og:title",
+      content: "Anirban Das - Projects",
     },
     {
-      property: 'og:description',
-      content: 'Check out some of my works',
+      property: "og:description",
+      content: "Check out some of my works",
     },
     {
-      property: 'og:url',
-      content: 'https://www.anirbandas.in/projects', // Replace with your website URL
+      property: "og:url",
+      content: "https://www.anirbandas.in/projects", // Replace with your website URL
     },
     {
-      property: 'og:locale',
-      content: 'en',
+      property: "og:locale",
+      content: "en",
     },
     {
-      property: 'og:site_name',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      property: "og:site_name",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     {
-      property: 'og:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg', // Replace with the actual image URL for sharing
+      property: "og:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:width',
-      content: '1200', // Replace with the actual image URL for sharing
+      property: "og:image:width",
+      content: "1200", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:height',
-      content: '630', // Replace with the actual image URL for sharing
+      property: "og:image:height",
+      content: "630", // Replace with the actual image URL for sharing
     },
     // Twitter Card meta tags (for Twitter sharing)
     {
-      name: 'twitter:card',
-      content: 'summary_large_image',
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
-      name: 'twitter:site',
-      content: '@anirban12d',
+      name: "twitter:site",
+      content: "@anirban12d",
     },
     {
-      name: 'twitter:title',
-      content: 'Anirban Das - Projects',
+      name: "twitter:title",
+      content: "Anirban Das - Projects",
     },
     {
-      name: 'twitter:description',
-      content: 'Check out some of my works',
+      name: "twitter:description",
+      content: "Check out some of my works",
     },
     {
-      name: 'twitter:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg', // Replace with the actual image URL for sharing
+      name: "twitter:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg", // Replace with the actual image URL for sharing
     },
     {
-      name: 'twitter:image:alt',
-      content: 'Image of Anirban Das\'s personal website - Fullstack Developer & UX Designer', // Replace with the actual image URL for sharing
+      name: "twitter:image:alt",
+      content:
+        "Image of Anirban Das's personal website - Fullstack Developer & UX Designer", // Replace with the actual image URL for sharing
     },
   ],
   links: [
     {
-      rel: 'canonical',
-      href: 'https://www.anirbandas.in/projects',
-    },
-    // Favicon
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png',
+      rel: "canonical",
+      href: "https://www.anirbandas.in/projects",
     },
   ],
 };

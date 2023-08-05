@@ -271,7 +271,7 @@ export default component$(() => {
                   <PhCalendarCheckLight/>
                   <h2 class="text-center text-21 md:text-33">Thank you for sending the project request</h2>
                   <p class="text-center text-16">I will get back to you as soon as possible</p>
-                  <p class="text-11">You can also email me at <a href="mailto: anirbandashere@gmail.com" class=" underline decoration-indigo-500">anirbandashere@gmail.com</a></p>
+                  <p class="text-11 text-center">You can also email me at <a href="mailto: anirbandashere@gmail.com" class=" underline decoration-indigo-500">anirbandashere@gmail.com</a></p>
                   <CloseBtn>Close</CloseBtn>
                   </div>
               ) }
