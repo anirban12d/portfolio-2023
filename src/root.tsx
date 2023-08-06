@@ -28,7 +28,7 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
         <script defer type="text/partytown" src="/_vercel/insights/script.js"></script>
-        <QwikPartytown forward={['datalayer.push']}/>
+        <QwikPartytown forward={['dataLayer.push']}/>
         <script
           async
           type="text/partytown"
