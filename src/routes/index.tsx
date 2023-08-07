@@ -430,5 +430,5 @@ export const head: DocumentHead = {
       rel: "canonical",
       href: "https://www.anirbandas.in",
     },
-  ],
+  ], 
 };
