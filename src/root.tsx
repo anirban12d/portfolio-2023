@@ -6,7 +6,6 @@ import {
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/head/head";
 import { QwikPartytown } from "./components/partytown/partytown";
-
 import "./global.css";
 
 export default component$(() => {
@@ -16,6 +15,28 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+  interface LDJsonData {
+    '@context': string;
+    '@type': string;
+    name: string;
+    url: string;
+    sameAs: string[];
+    description: string;
+  }
+
+
+  const ldJson: LDJsonData = {
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    name: 'Anirban Das',
+    url: 'https://www.anirbandas.in/',
+    sameAs: [
+      'https://www.linkedin.com/in/anirban12d',
+      'https://twitter.com/anirban12d',
+      'https://www.facebook.com/princeanirban90',
+    ],
+    description: 'I Create Visually Stunning and Intuitively Functional Websites, Crafted to Drive Result.',
+  };
 
   return (
     <QwikCityProvider>
@@ -34,7 +55,10 @@ export default component$(() => {
           type="text/partytown"
           src="/_vercel/insights/script.js"
         ></script>
+        <script type="application/ld+json">{JSON.stringify(ldJson)}</script>
       </head>
+
+      
       <body lang="en">
         <noscript>
           <iframe
