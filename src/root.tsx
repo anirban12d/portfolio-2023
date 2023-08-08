@@ -68,7 +68,7 @@ export default component$(() => {
         <script
           type="text/partytown"
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6NQ8DHJ9ZK"
+          src="https://www.anirbandas.in/gtag.js"
         ></script>
         <script
           type="text/partytown"
