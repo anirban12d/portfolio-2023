@@ -64,26 +64,16 @@ export default component$(() => {
         <RouterHead />
         <QwikPartytown
           forward={["dataLayer.push", "GoogleAnalyticsObject", "ga", "gtag"]}
-          resolveUrl={(url, _location, type) => {
-            const proxyScriptHosts = [
-              'www.google-analytics.com',
-              'www.googletagmanager.com',
-            ];
-            if (type === 'script' && !!url && proxyScriptHosts.find((proxyScriptHost) => url.host.includes(proxyScriptHost))) {
-              const proxyUrl = new URL('https://my-proxy.com/api/proxy');
-              proxyUrl.searchParams.append('url', url.href);
-              return proxyUrl;
-            }
-            return url;
-          }}
         />
-        
         <script
           type="text/partytown"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-6NQ8DHJ9ZK"
         ></script>
-        <script type="text/partytown" src="./components/GTM/gtm.js"></script>
+        <script
+          type="text/partytown"
+          src="./components/GTM/gtm-script.js"
+        ></script>
         <script
           defer
           type="text/partytown"
