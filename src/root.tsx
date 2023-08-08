@@ -62,17 +62,12 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
-        <QwikPartytown
-          forward={["dataLayer.push", "GoogleAnalyticsObject", "ga", "gtag"]}
-        />
+        <QwikPartytown forward={["dataLayer.push"]} />
         <script
-          type="text/partytown"
           async
-          src="https://www.anirbandas.in/gtag.js"
-        ></script>
-        <script
-          type="text/partytown"
-          src="./components/GTM/gtm-script.js"
+          src={`https://www.googletagmanager.com/gtag/js?id=${
+            import.meta.env.PUBLIC_GTM_ID
+          }`}
         ></script>
         <script
           defer
@@ -86,15 +81,6 @@ export default component$(() => {
       </head>
 
       <body lang="en">
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KPRB495D"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          ></iframe>
-        </noscript>
-
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
