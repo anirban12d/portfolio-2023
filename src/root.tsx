@@ -5,7 +5,6 @@ import {
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/head/head";
-import { QwikPartytown } from "./components/partytown/partytown";
 import "./global.css";
 
 export default component$(() => {
@@ -62,11 +61,6 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
-        <QwikPartytown forward={["dataLayer.push"]} />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6NQ8DHJ9ZK"
-        ></script>
         <script
           defer
           type="text/partytown"
