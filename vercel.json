@@ -14,10 +14,34 @@
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
       ]
+    }
+  ],
+
+  "rewrites": [
+    {
+      "source": "/.gtag.js",
+      "destination": "/gtag.js"
+    },
+    {
+      "source": "/.gtm.js",
+      "destination": "/gtm.js"
+    },
+    {
+      "source": "/gtm.js:match*",
+      "destination": "https://anirbandas.in/:match*"
+    },
+    {
+      "source": "/gtag.js:match*",
+      "destination": "https://anirbandas.in/:match*"
     }
   ]
 }
-
