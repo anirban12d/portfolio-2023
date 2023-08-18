@@ -61,11 +61,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
-        <script
-          defer
-          type="text/partytown"
-          src="/_vercel/insights/script.js"
-        ></script>
+        <script src="/_vercel/insights/script.js"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={JSON.stringify(ldJson, null, 2)}
