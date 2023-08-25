@@ -32,9 +32,9 @@ export default component$(() => {
       <section class="container min-w-full">
         {/* Hero Heading Wrapper */}
         <div class="flex w-full flex-col items-center justify-center md:min-h-screen">
-          <div class="mt-72 flex flex-col items-center gap-24 md:mt-32 md:gap-48 xl:mt-64 xl:gap-56">
+          <div class="mt-72 flex flex-col items-center gap-20 md:mt-32 md:gap-48 xl:mt-64">
             <h2 class="text-center text-28 md:text-47 xl:text-61">Hi there!</h2>
-            <h1 class="text-center text-33 sm:text-40 md:text-80 xl:text-105">
+            <h1 class="text-center text-36 sm:text-40 md:text-80 lg:text-105 xl:text-138">
               I'm Anirban Das
             </h1>
             <h2 class="text-center text-13 leading-150 md:text-19 xl:text-24 xl:leading-150">
@@ -50,7 +50,7 @@ export default component$(() => {
       {/* About Myself */}
       <section class="container flex min-w-full flex-col gap-32 md:gap-64 lg:gap-128">
         {/* Why me */}
-        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
+        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-96">
           <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">
             Why Me?
           </h3>
@@ -100,12 +100,12 @@ export default component$(() => {
         </div>
 
         {/* My Story */}
-        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
+        <div class="flex flex-col items-center gap-32 md:gap-96">
           <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">
             My story
           </h3>
 
-          <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
+          <div class="flex flex-col items-center gap-32 md:gap-96">
             <div class="flex max-w-1080 flex-col items-center gap-16 px-2 md:px-16 lg:flex-row lg:gap-32 lg:px-64 xl:gap-64">
               <div class="max-w-[350px] overflow-hidden rounded-4xl">
                 <Image

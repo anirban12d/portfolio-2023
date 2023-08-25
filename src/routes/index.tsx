@@ -40,7 +40,7 @@ export default component$(() => {
   return (
     <>
       {/* // Hero Wrapper */}
-      <div class="mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:mt-0 md:gap-64 lg:gap-96  xl:w-1280 ">
+      <div class="mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:mt-0 md:gap-64 lg:gap-128 xl:w-1280 ">
         {/* Hero Heading */}
         <section class="container min-w-full">
           <div class="flex w-full flex-col items-center justify-center gap-24 md:min-h-screen">
@@ -60,6 +60,7 @@ export default component$(() => {
         </section>
 
         {/* Hero Project Showcase */}
+        <div class="flex flex-col gap-16">
         <MockupReact />
         <div>
           <Link href="/projects" aria-label="See all my projects">
@@ -71,18 +72,19 @@ export default component$(() => {
             </span>
           </Link>
         </div>
+        </div>
 
         {/* USP Section */}
         <section class="flex w-full flex-col items-center">
           {/* USP Start */}
-          <div class="flex flex-col items-center gap-32 px-8 md:gap-64 md:px-16 lg:gap-96 xl:gap-96">
+          <div class="flex flex-col items-center gap-32 px-8 md:gap-64 md:px-16 lg:gap-96">
             <h3 class="text-28 sm:text-33 md:text-61 lg:text-80">
               Everything you need
             </h3>
 
             {/* usp cards */}
             <div class="grid w-full grid-cols-1 gap-16 md:gap-32 lg:max-w-1080 lg:grid-cols-2">
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhGearSixLight />
                 </div>
@@ -97,7 +99,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhPresentationChartLight />
                 </div>
@@ -111,7 +113,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhMagicWandLight />
                 </div>
@@ -126,7 +128,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhDevicesLight />
                 </div>
@@ -142,7 +144,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhTestTubeLight />
                 </div>
@@ -158,7 +160,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-16 lg:max-w-512 lg:py-48 xl:px-48">
+              <div class="lg:max-h-336 flex flex-col items-start gap-12 rounded-4xl bg-backColor px-24 py-24 sm:py-32 md:px-32 md:py-32 lg:max-w-512 lg:py-48 xl:px-48">
                 <div class="flex items-center justify-center rounded-3xl bg-bgColor p-14">
                   <PhHeadsetLight />
                 </div>
@@ -175,7 +177,7 @@ export default component$(() => {
               </div>
             </div>
             {/* usp card end */}
-            <div class="text-16 md:text-21">
+            <div class="text-16 md:text-21 lg:-mt-32">
               <Link
                 href="/services"
                 aria-label="Find out more about my services"
@@ -223,7 +225,7 @@ export default component$(() => {
 
         {/* My toolkit */}
         <section class="w-full">
-          <div class="flex flex-col items-center gap-8 px-32 md:gap-16 lg:gap-32 xl:gap-64">
+          <div class="flex flex-col items-center gap-8 px-32 md:gap-16 lg:gap-32 xl:gap-32">
             <h3 class="text-33 font-medium md:text-61 xl:text-80">
               My toolkit
             </h3>

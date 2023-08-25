@@ -9,7 +9,7 @@ function workflow() {
   return (
     <>
       <section className="w-full">
-        <div className="flex flex-col items-center justify-center gap-8 overflow-hidden px-32 md:gap-16 lg:gap-32 xl:gap-64">
+        <div className="flex flex-col items-center justify-center gap-8 overflow-hidden px-32 md:gap-16 lg:gap-32 xl:gap-32">
           <h3 className="text-33 font-medium md:text-61 xl:text-80">
             My workflow
           </h3>
