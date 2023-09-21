@@ -50,6 +50,11 @@ export default component$(() => {
               <h1 class="text-center text-48 tracking-low text-black sm:text-69 md:text-80 lg:text-105 xl:text-138">
                 {projectData.title}
               </h1>
+              {projectData.subtitle && (
+                <h2 class="text-center text-13 text-black sm:text-16 lg:text-21 xl:text-27">
+                  {projectData.subtitle}
+                </h2>
+              )}
             </div>
           </div>
         </section>
@@ -113,20 +118,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
@@ -152,20 +160,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
@@ -191,20 +202,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
@@ -230,20 +244,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
@@ -269,20 +286,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
@@ -307,20 +327,23 @@ export default component$(() => {
                         </>
                       );
                     }
-                    return (
-                      <>
-                        <Image
-                          key={item._key}
-                          src={urlFor(item.asset).url()}
-                          layout="constrained"
-                          alt="An Image of the website page"
-                          width={1920}
-                          height={1200}
-                          background="auto"
-                          class="w-full rounded-xl object-cover object-center"
-                        />
-                      </>
-                    );
+                    if (item?._type == "image") {
+                      return (
+                        <>
+                          <Image
+                            key={item._key}
+                            src={urlFor(item.asset).url()}
+                            layout="constrained"
+                            alt="An Image of the website page"
+                            width={1920}
+                            height={1200}
+                            background="auto"
+                            class="w-full rounded-xl object-cover object-center"
+                          />
+                        </>
+                      );
+                    }
+                    return null;
                   })}
                 </div>
               </div>
