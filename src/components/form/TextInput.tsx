@@ -61,6 +61,7 @@ import {
             value={input.value}
             aria-invalid={!!error}
             aria-errormessage={`${name}-error`}
+            autoComplete="on"
           />
           <InputError name={name} error={error} />
         </div>

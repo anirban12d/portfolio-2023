@@ -7,6 +7,7 @@
 # Development
 node_modules
 *.local
+.env
 
 # Cache
 .cache
@@ -37,3 +38,6 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+# Vercel
+.vercel

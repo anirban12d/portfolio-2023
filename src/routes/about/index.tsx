@@ -6,7 +6,6 @@ import { Image } from "@unpic/qwik";
 import { client } from "../layout";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
-
 type Image = {
   src: string;
   layout: string;
@@ -23,30 +22,26 @@ function urlFor(source: any) {
   return builder.image(source);
 }
 
-
-
 export default component$(() => {
+  const images = useSanityMyImages();
 
-  const images = useSanityMyImages()
-
-  const image = images.value[0]
-
+  const image = images.value[0];
   return (
     <div class="flex flex-col gap-32 md:gap-64 lg:gap-128">
       {/* Hero Heading */}
       <section class="container min-w-full">
         {/* Hero Heading Wrapper */}
         <div class="flex w-full flex-col items-center justify-center md:min-h-screen">
-          <div class="flex flex-col items-center gap-24 mt-72 md:mt-32 md:gap-48 xl:mt-64 xl:gap-56">
+          <div class="mt-72 flex flex-col items-center gap-20 md:mt-32 md:gap-48 xl:mt-64">
             <h2 class="text-center text-28 md:text-47 xl:text-61">Hi there!</h2>
-            <h1 class="text-center text-33 sm:text-40 md:text-80 xl:text-105">
+            <h1 class="text-center text-36 sm:text-40 md:text-80 lg:text-105 xl:text-138">
               I'm Anirban Das
             </h1>
-            <h3 class="text-center text-13 leading-150 md:text-19 xl:text-24 xl:leading-150">
+            <h2 class="text-center text-13 leading-150 md:text-19 xl:text-24 xl:leading-150">
               I Create Visually Stunning and Intuitively Functional Websites.
               <br />
               Crafted to Drive Result.
-            </h3>
+            </h2>
             <ButtonSecond>Let's make it happen</ButtonSecond>
           </div>
         </div>
@@ -55,19 +50,22 @@ export default component$(() => {
       {/* About Myself */}
       <section class="container flex min-w-full flex-col gap-32 md:gap-64 lg:gap-128">
         {/* Why me */}
-        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
-          <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">Why Me?</h3>
+        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-96">
+          <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">
+            Why Me?
+          </h3>
           <div class="flex max-w-1080 flex-col items-center gap-16 px-2 md:px-16 lg:flex-row lg:px-64">
             <div class="max-w-[350px] overflow-hidden rounded-4xl">
-            <Image
-                    src={urlFor(image.aboutImageMain).url()}
-                    layout="constrained"
-                    alt={image.aboutImageMainAlt}
-                    width={900}
-                    height={1600}
-                    background="auto"
-                    class="w-full object-cover object-center"
-                  />
+              <Image
+                src={urlFor(image.aboutImageMain).url()}
+                layout="constrained"
+                alt={image.AboutImageMainAlt}
+                width={900}
+                height={1600}
+                background="auto"
+                loading="eager"
+                class="w-full object-cover object-center"
+              />
             </div>
             <div class="flex max-w-496 flex-col items-center gap-16 px-8 sx:px-16 sm:px-32">
               <p class="max-w-prose text-16">
@@ -102,21 +100,23 @@ export default component$(() => {
         </div>
 
         {/* My Story */}
-        <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
-          <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">My story</h3>
+        <div class="flex flex-col items-center gap-32 md:gap-96">
+          <h3 class="text-33 font-medium sm:text-40 md:text-61 xl:text-80">
+            My story
+          </h3>
 
-          <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
+          <div class="flex flex-col items-center gap-32 md:gap-96">
             <div class="flex max-w-1080 flex-col items-center gap-16 px-2 md:px-16 lg:flex-row lg:gap-32 lg:px-64 xl:gap-64">
               <div class="max-w-[350px] overflow-hidden rounded-4xl">
-              <Image
-                    src={urlFor(image.aboutSecondaryImage1).url()}
-                    layout="constrained"
-                    alt={image.AboutImage1Alt}
-                    width={960}
-                    height={1280}
-                    background="auto"
-                    class="w-full object-cover object-center"
-                  />
+                <Image
+                  src={urlFor(image.aboutSecondaryImage1).url()}
+                  layout="constrained"
+                  alt={image.AboutImage1Alt}
+                  width={960}
+                  height={1280}
+                  background="auto"
+                  class="w-full object-cover object-center"
+                />
               </div>
               <div class="flex max-w-496 flex-col items-center gap-16 px-8 sx:px-16 sm:px-32">
                 <p class="max-w-prose text-16">
@@ -139,7 +139,7 @@ export default component$(() => {
             <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
               <div class="flex max-w-1080 flex-col items-center gap-16 px-2 md:px-16 lg:flex-row-reverse lg:gap-32 lg:px-64 xl:gap-64">
                 <div class="max-w-[350px] overflow-hidden rounded-4xl">
-                <Image
+                  <Image
                     src={urlFor(image.aboutSecondaryImage2).url()}
                     layout="constrained"
                     alt={image.AboutImage2Alt}
@@ -175,7 +175,7 @@ export default component$(() => {
             <div class="flex flex-col items-center gap-32 md:gap-96 lg:gap-128">
               <div class="flex max-w-1080 flex-col items-center gap-16 px-2 md:px-16 lg:flex-row lg:gap-32 lg:px-64 xl:gap-64">
                 <div class="max-w-[350px] overflow-hidden rounded-4xl">
-                <Image
+                  <Image
                     src={urlFor(image.aboutSecondaryImage3).url()}
                     layout="constrained"
                     alt={image.AboutImage3Alt}
@@ -217,33 +217,33 @@ export default component$(() => {
         <div class=" flex flex-col gap-16 px-8 sm:px-32 md:gap-32 md:px-64 xl:gap-64">
           {/* texts */}
           <div class="flex flex-col items-center gap-16 md:gap-32 xl:gap-64">
-            <h3 class="text-center font-medium text-33 sm:text-40 md:text-61 xl:text-80">
+            <h3 class="text-center text-33 font-medium sm:text-40 md:text-61 xl:text-80">
               My toolkit
             </h3>
-            <h6 class="text-center text-16 md:text-19 xl:text-27">
+            <h4 class="text-center text-16 md:text-19 xl:text-27">
               I’m capable of working confidently with any tools necessary to
               achieve goals.
               <br />
               These are few of my favorites
-            </h6>
+            </h4>
           </div>
           {/* Graphics */}
           <div class="flex max-w-1080 flex-col gap-16 xl:gap-64">
             {/* Toolkit Grid */}
             <div class="overflow-hidden rounded-4xl border-4 border-black">
               <Image
-                    src="/images/Frame.png"
-                    layout="constrained"
-                    alt="An Image of all the logos for the toolkits I use for making websites. Eg: next.js, react.js,  webflow, shopify etc"
-                    width={1080}
-                    height={768}
-                    background="auto"
-                    class="w-full object-cover object-center"
-                  />
+                src="/images/Frame.png"
+                layout="constrained"
+                alt="An Image of all the logos for the toolkits I use for making websites. Eg: next.js, react.js,  webflow, shopify etc"
+                width={1080}
+                height={768}
+                background="auto"
+                class="w-full object-cover object-center"
+              />
             </div>
             {/* Technologies */}
             <div class="flex flex-col items-center gap-16 lg:flex-row">
-              <div class="flex flex-col gap-8 rounded-4xl grow border-4 border-black bg-grey px-32 py-16 md:px-64   lg:py-32">
+              <div class="flex grow flex-col gap-8 rounded-4xl border-4 border-black bg-grey px-32 py-16 md:px-64   lg:py-32">
                 <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
                   Frontend Tools
                 </h6>
@@ -254,7 +254,7 @@ export default component$(() => {
                   Webflow/Shopify.
                 </p>
               </div>
-              <div class="flex flex-col gap-8 rounded-4xl grow border-4 border-black min-h-full bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
+              <div class="flex min-h-full grow flex-col gap-8 rounded-4xl border-4 border-black bg-grey py-16 pl-32 pr-64 md:px-64 lg:py-32">
                 <h6 class="text-23 font-medium text-textColor md:text-27 lg:text-36">
                   Ui Libraries
                 </h6>
@@ -272,90 +272,84 @@ export default component$(() => {
   );
 });
 
-
-
-
 export const head: DocumentHead = {
   // This will be used to resolve the <title> of the page
-  title: 'Anirban Das - About',
+  title: "Anirban Das - About",
   meta: [
     {
-      name: 'description',
-      content: 'Find out why I love to do what I love to do',
+      name: "description",
+      content: "Find out why I love to do what I love to do",
     },
     // Open graph
     {
-      property: 'og:title',
-      content: 'Anirban Das - About',
+      property: "og:title",
+      content: "Anirban Das - About",
     },
     {
-      property: 'og:description',
-      content: 'Find out why I love to do what I love to do',
+      property: "og:description",
+      content: "Find out why I love to do what I love to do",
     },
     {
-      property: 'og:url',
-      content: 'https://www.anirbandas.in/about', // Replace with your website URL
+      property: "og:url",
+      content: "https://www.anirbandas.in/about", // Replace with your website URL
     },
     {
-      property: 'og:locale',
-      content: 'en',
+      property: "og:locale",
+      content: "en",
     },
     {
-      property: 'og:site_name',
-      content: 'Anirban Das - Fullstack Developer & UX Designer',
+      property: "og:site_name",
+      content: "Anirban Das - Fullstack Developer & UX Designer",
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     {
-      property: 'og:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg', // Replace with the actual image URL for sharing
+      property: "og:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/161ee6f9731fbc74dfcb3cc2b5808e80bf91f214-1200x630.jpg", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:width',
-      content: '1200', // Replace with the actual image URL for sharing
+      property: "og:image:width",
+      content: "1200", // Replace with the actual image URL for sharing
     },
     {
-      property: 'og:image:height',
-      content: '630', // Replace with the actual image URL for sharing
+      property: "og:image:height",
+      content: "630", // Replace with the actual image URL for sharing
     },
     // Twitter Card meta tags (for Twitter sharing)
     {
-      name: 'twitter:card',
-      content: 'summary_large_image',
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
-      name: 'twitter:site',
-      content: '@anirban12d',
+      name: "twitter:site",
+      content: "@anirban12d",
     },
     {
-      name: 'twitter:title',
-      content: 'Anirban Das - About',
+      name: "twitter:title",
+      content: "Anirban Das - About",
     },
     {
-      name: 'twitter:description',
-      content: 'Find out why I love to do what I love to do',
+      name: "twitter:description",
+      content: "Find out why I love to do what I love to do",
     },
     {
-      name: 'twitter:image',
-      content: 'https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg', // Replace with the actual image URL for sharing
+      name: "twitter:image",
+      content:
+        "https://cdn.sanity.io/images/izetizop/production/53104f57eb53f72eeeead492f157e1f755a3ab28-1200x675.jpg", // Replace with the actual image URL for sharing
     },
     {
-      name: 'twitter:image:alt',
-      content: 'Image of Anirban Das\'s personal website - Fullstack Developer & UX Designer', // Replace with the actual image URL for sharing
+      name: "twitter:image:alt",
+      content:
+        "Image of Anirban Das's personal website - Fullstack Developer & UX Designer", // Replace with the actual image URL for sharing
     },
   ],
   links: [
     {
-      rel: 'canonical',
-      href: 'https://www.anirbandas.in/about',
-    },
-    // Favicon
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png',
+      rel: "canonical",
+      href: "https://www.anirbandas.in/about",
     },
   ],
 };
