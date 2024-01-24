@@ -8,9 +8,9 @@ import { useLocation } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const currentClass =
-    "cursor-pointer rounded-full px-16 py-12 text-16 leading-[90%] bg-black text-white lg:px-24";
+    "cursor-pointer rounded-full px-16 py-12 text-16 leading-[90%] transition-all delay-100 bg-black text-white lg:px-24";
   const otherClass =
-    "cursor-pointer rounded-full px-16 py-12 text-16 leading-[90%] hover:bg-backColor2 lg:px-24";
+    "cursor-pointer rounded-full px-16 py-12 text-16 leading-[90%] transition-all delay-100 hover:bg-backColor2 lg:px-24";
 
   const nav = useNavigate();
 
