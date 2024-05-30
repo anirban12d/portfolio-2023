@@ -87,38 +87,6 @@ export default component$(() => {
               Contact
             </button>
           </li>
-          {/* <li */}
-          {/*   class={currentPage.about ? currentClass : otherClass} */}
-          {/*   onClick$={() => { */}
-          {/*     nav("/about"); */}
-          {/*   }} */}
-          {/* > */}
-          {/*   About */}
-          {/* </li> */}
-          {/* <li */}
-          {/*   class={currentPage.projects ? currentClass : otherClass} */}
-          {/*   onClick$={() => { */}
-          {/*     nav("/projects"); */}
-          {/*   }} */}
-          {/* > */}
-          {/*   Projects */}
-          {/* </li> */}
-          {/* <li */}
-          {/*   class={currentPage.services ? currentClass : otherClass} */}
-          {/*   onClick$={() => { */}
-          {/*     nav("/services"); */}
-          {/*   }} */}
-          {/* > */}
-          {/*   Services */}
-          {/* </li> */}
-          {/* <li> */}
-          {/*   <button */}
-          {/*     class={currentPage.contact ? currentClass : otherClass} */}
-          {/*     onClick$={contactfn} */}
-          {/*   > */}
-          {/*     Contact */}
-          {/*   </button> */}
-          {/* </li> */}
         </ul>
         <ButtonFirst>Hire me</ButtonFirst>
       </div>
