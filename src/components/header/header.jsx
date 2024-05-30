@@ -19,45 +19,45 @@ export default component$(() => {
 
   const loc = useLocation();
 
+  const updateCurrentPage = $((path) => {
+    currentPage.home = path === "/";
+    currentPage.about = path === "/about/";
+    currentPage.projects = path === "/projects/";
+    currentPage.services = path === "/services/";
+    currentPage.contact = path === "/contact/";
+  });
+
   const contactfn = $(() => {
-    if (chatBotVisible.value === false) {
-      chatBotVisible.value = !chatBotVisible.value;
+    chatBotVisible.value = !chatBotVisible.value;
+    if (!chatBotVisible.value) {
+      updateCurrentPage(loc.url.pathname);
+    } else {
       currentPage.home = false;
       currentPage.about = false;
       currentPage.projects = false;
       currentPage.services = false;
       currentPage.contact = true;
-    } else {
-      chatBotVisible.value = !chatBotVisible.value;
-      if (loc.url.pathname == "/") {
-        currentPage.home = true;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/about/") {
-        currentPage.home = false;
-        currentPage.about = true;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/projects/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = true;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/services/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = true;
-        currentPage.contact = false;
-      } else {
-        currentPage.home = true;
-      }
     }
   });
+
+  const Navlinks = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "Projects",
+      link: "/projects",
+    },
+    {
+      name: "Services",
+      link: "/services",
+    },
+  ];
 
   return (
     <nav class="fixed top-0 z-30 flex w-full items-center justify-center">
@@ -68,30 +68,17 @@ export default component$(() => {
           </Link>
         </div>
         <ul class="hidden flex-row gap-2 text-16 lg:flex">
-          <li
-            class={currentPage.about ? currentClass : otherClass}
-            onClick$={() => {
-              nav("/about");
-            }}
-          >
-            About
-          </li>
-          <li
-            class={currentPage.projects ? currentClass : otherClass}
-            onClick$={() => {
-              nav("/projects");
-            }}
-          >
-            Projects
-          </li>
-          <li
-            class={currentPage.services ? currentClass : otherClass}
-            onClick$={() => {
-              nav("/services");
-            }}
-          >
-            Services
-          </li>
+          {Navlinks.map((item, index) => (
+            <li
+              key={index}
+              class={
+                currentPage[item.name.toLowerCase()] ? currentClass : otherClass
+              }
+              onClick$={() => item.link && nav(item.link)}
+            >
+              {item.name}
+            </li>
+          ))}
           <li>
             <button
               class={currentPage.contact ? currentClass : otherClass}
@@ -100,6 +87,38 @@ export default component$(() => {
               Contact
             </button>
           </li>
+          {/* <li */}
+          {/*   class={currentPage.about ? currentClass : otherClass} */}
+          {/*   onClick$={() => { */}
+          {/*     nav("/about"); */}
+          {/*   }} */}
+          {/* > */}
+          {/*   About */}
+          {/* </li> */}
+          {/* <li */}
+          {/*   class={currentPage.projects ? currentClass : otherClass} */}
+          {/*   onClick$={() => { */}
+          {/*     nav("/projects"); */}
+          {/*   }} */}
+          {/* > */}
+          {/*   Projects */}
+          {/* </li> */}
+          {/* <li */}
+          {/*   class={currentPage.services ? currentClass : otherClass} */}
+          {/*   onClick$={() => { */}
+          {/*     nav("/services"); */}
+          {/*   }} */}
+          {/* > */}
+          {/*   Services */}
+          {/* </li> */}
+          {/* <li> */}
+          {/*   <button */}
+          {/*     class={currentPage.contact ? currentClass : otherClass} */}
+          {/*     onClick$={contactfn} */}
+          {/*   > */}
+          {/*     Contact */}
+          {/*   </button> */}
+          {/* </li> */}
         </ul>
         <ButtonFirst>Hire me</ButtonFirst>
       </div>

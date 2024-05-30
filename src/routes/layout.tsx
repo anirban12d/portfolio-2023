@@ -77,8 +77,8 @@ export interface Page {
 export default component$(() => {
   const loc = useLocation();
 
-  const currentPage = useStore({
-    home: true,
+  const currentPage = useStore<Page>({
+    home: false,
     about: false,
     projects: false,
     services: false,
@@ -87,48 +87,26 @@ export default component$(() => {
 
   useVisibleTask$(
     ({ track }) => {
-      track(() => {
-        loc.url.pathname;
-      });
-      if (loc.url.pathname == "/") {
-        currentPage.home = true;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/about/") {
-        currentPage.home = false;
-        currentPage.about = true;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/projects/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = true;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/services/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = true;
-        currentPage.contact = false;
-      } else {
-        currentPage.home = true;
-      }
+      track(() => loc.url.pathname);
+
+      const path = loc.url.pathname;
+      currentPage.home = path === "/";
+      currentPage.about = path === "/about/";
+      currentPage.projects = path === "/projects/";
+      currentPage.services = path === "/services/";
+      currentPage.contact = path === "/contact/";
     },
     { strategy: "document-ready" }
   );
 
   const chatBotVisible = useSignal(false);
-  const FormVisible = useSignal(false);
+  const formVisible = useSignal(false);
   const currentModal = useSignal(0);
   const serviceModalVisible = useSignal(false);
 
   useContextProvider(currentPageContext, currentPage);
   useContextProvider(ChatBotContext, chatBotVisible);
-  useContextProvider(FormContext, FormVisible);
+  useContextProvider(FormContext, formVisible);
   useContextProvider(ServiceModalContext, currentModal);
   useContextProvider(ServiceModalVisibleContext, serviceModalVisible);
 
