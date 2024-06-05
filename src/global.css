@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 /**
  * Tailwind CSS imports
@@ -12,44 +11,103 @@
 html {
     font-size: 62.5%;
 
+    scroll-behavior: smooth;
+
     ::-webkit-scrollbar {
-      width: 6px;
+        width: 6px;
     }
 
     /* Track */
     ::-webkit-scrollbar-track {
-      background: transparent;
+        background: transparent;
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 100px;
+        background: #888;
+        border-radius: 100px;
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: #555;
+        background: #555;
     }
 }
 
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 body {
-    background-color: #FFFFFF;
-    font-size: 1.6rem; 
-    
-    
+    background-color: #ffffff;
+    font-size: 1.6rem;
+}
 
+.hashnode-content-style {
+    @apply prose prose-2xl prose-invert break-words text-white md:prose-3xl first:prose-h1:mt-0 first:prose-h2:mt-0 first:prose-h3:mt-0 first:prose-h4:mt-0 first:prose-h5:mt-0 prose-p:leading-relaxed first:prose-p:mt-0 prose-a:leading-snug prose-a:underline hover:prose-a:bg-white prose-blockquote:leading-snug prose-figure:leading-snug prose-figcaption:leading-snug prose-pre:leading-snug prose-ol:leading-snug prose-ul:leading-snug prose-li:leading-snug prose-th:leading-snug prose-td:leading-snug prose-img:max-w-[100%] dark:text-neutral-50 dark:hover:prose-a:bg-neutral-800 dark:hover:prose-a:text-blue dark:prose-pre:bg-neutral-900;
+}
 
-  }
+/* Override to remove the backtick */
+.hashnode-content-style:where(code):not( :where([class~="not-prose"], [class~="not-prose"] *))::before,
+.hashnode-content-style:where(code):not( :where([class~="not-prose"], [class~="not-prose"] *))::after {
+    content: none;
+}
 
-  
+.prose code {
+    border-radius: 0.25rem;
+    font-weight: 400 !important;
+    padding: 0.25rem;
+    --tw-text-opacity: 1;
+    color: rgba(0, 0, 0, var(--tw-text-opacity));
+    font-size: 80%;
+    background: #f0efed;
+}
 
-    
+.dark .prose code {
+    --tw-bg-opacity: 1;
+    background-color: rgba(36, 41, 46, var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(238, 238, 238, var(--tw-text-opacity));
+}
+
+.prose pre {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.prose pre code {
+    background-color: transparent;
+    border-radius: 0px;
+    font-weight: 500 !important;
+    padding: 0px;
+    font-size: 100%;
+    color: #fafafa;
+}
+
+.dark .prose pre code {
+    background-color: transparent;
+    color: #ddd;
+}
+
+.markdown {
+    @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+    @apply my-6;
+}
+
+.markdown h2 {
+    @apply mb-4 mt-12 text-3xl leading-snug;
+}
+
+.markdown h3 {
+    @apply mb-4 mt-8 text-2xl leading-snug;
+}

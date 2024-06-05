@@ -71,6 +71,7 @@ export interface Page {
   about: boolean;
   projects: boolean;
   services: boolean;
+  blog: boolean;
   contact: boolean;
 }
 
@@ -82,6 +83,7 @@ export default component$(() => {
     about: false,
     projects: false,
     services: false,
+    blog: false,
     contact: false,
   });
 
@@ -94,6 +96,7 @@ export default component$(() => {
       currentPage.about = path === "/about/";
       currentPage.projects = path === "/projects/";
       currentPage.services = path === "/services/";
+      currentPage.blog = path === "/blog/";
       currentPage.contact = path === "/contact/";
     },
     { strategy: "document-ready" }
@@ -113,14 +116,14 @@ export default component$(() => {
   return (
     <div class="relative min-h-screen min-w-full scroll-smooth">
       <Header />
-      <main class="min-w-screen flex items-center justify-center">
+      {/* <main class="min-w-screen flex items-center justify-center"> */}
         <Slot />
-      </main>
+      {/* </main> */}
       <ProjectForm />
       <ChatBot />
       <ServicesModal />
-      <TestimonialReact client:idle />
-      <CallToAction />
+      {/* <TestimonialReact client:idle /> */}
+      {/* <CallToAction /> */}
       <FloatingNavbar />
       <Footer />
       <Copyright />

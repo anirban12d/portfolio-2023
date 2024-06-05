@@ -24,6 +24,7 @@ export default component$(() => {
     currentPage.about = path === "/about/";
     currentPage.projects = path === "/projects/";
     currentPage.services = path === "/services/";
+    currentPage.blog = path === "/blog/";
     currentPage.contact = path === "/contact/";
   });
 
@@ -36,15 +37,12 @@ export default component$(() => {
       currentPage.about = false;
       currentPage.projects = false;
       currentPage.services = false;
+      currentPage.blog = false;
       currentPage.contact = true;
     }
   });
 
   const Navlinks = [
-    {
-      name: "Home",
-      link: "/",
-    },
     {
       name: "About",
       link: "/about",
@@ -56,6 +54,10 @@ export default component$(() => {
     {
       name: "Services",
       link: "/services",
+    },
+    {
+      name: "Blog",
+      link: "/blog",
     },
   ];
 
