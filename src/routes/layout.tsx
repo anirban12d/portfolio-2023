@@ -14,9 +14,6 @@ import { useVisibleTask$ } from "@builder.io/qwik";
 import Header from "~/components/header/header";
 import Footer from "~/components/footer/footer";
 
-import { TestimonialReact } from "~/components/testimonials/testimonials-react";
-
-import CallToAction from "~/components/CTA/cta";
 import Copyright from "~/components/copyright/copyright";
 import FloatingNavbar from "~/components/floatingNavbar/floatingNavbar";
 import ChatBot from "~/components/chatBot/chatBot";
@@ -116,14 +113,10 @@ export default component$(() => {
   return (
     <div class="relative min-h-screen min-w-full scroll-smooth">
       <Header />
-      {/* <main class="min-w-screen flex items-center justify-center"> */}
-        <Slot />
-      {/* </main> */}
+      <Slot />
       <ProjectForm />
       <ChatBot />
       <ServicesModal />
-      {/* <TestimonialReact client:idle /> */}
-      {/* <CallToAction /> */}
       <FloatingNavbar />
       <Footer />
       <Copyright />

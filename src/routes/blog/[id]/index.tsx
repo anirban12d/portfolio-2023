@@ -6,7 +6,7 @@ import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HashnodeFetchSinglePost } from "~/api/hashnode";
-import DOMPurify from "isomorphic-dompurify";
+// import DOMPurify from "isomorphic-dompurify";
 
 export const useHashnodeData = routeLoader$(async ({ params }) => {
   try {
@@ -33,7 +33,8 @@ export default component$(() => {
   const data = useHashnodeData();
   const Data = data.value.data.publication.post;
   const rawTextHTML = Data.content.html;
-  const cleanTextHTML = DOMPurify.sanitize(rawTextHTML);
+  // const cleanTextHTML = DOMPurify.sanitize(rawTextHTML);
+  const cleanTextHTML = rawTextHTML;
 
   return (
     <>
@@ -62,7 +63,7 @@ export default component$(() => {
             </div>
 
             <div class="flex w-full flex-col items-center justify-center gap-24 md:gap-32 lg:mt-48 xl:gap-48">
-              <h1 class="px-8 text-center text-28 leading-[140%] text-black sm:text-36 md:text-48 md:leading-[120%] lg:text-57 lg:leading-[120%] xl:text-57 xl:leading-[120%]">
+              <h1 class="px-8 text-center text-28 font-semibold leading-[140%] text-black sm:text-36 md:text-48 md:leading-[120%] lg:text-57 lg:leading-[120%] xl:text-57 xl:leading-[120%]">
                 {Data.title}
               </h1>
               {Data.subtitle && (

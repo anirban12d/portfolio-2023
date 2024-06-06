@@ -1,4 +1,5 @@
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import  pkg from "@apollo/client";
+const { ApolloClient, InMemoryCache, gql } = pkg;
 
 export const client = new ApolloClient({
   uri: "https://gql.hashnode.com/",

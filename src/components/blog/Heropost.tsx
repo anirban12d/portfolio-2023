@@ -1,18 +1,7 @@
-// import { LearnMoreBtnWhite } from "~/components/button/LearnMoreBtnWhite";
-import { client } from "../../routes/layout";
-import { routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
-import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@builder.io/qwik-city";
-import type { DocumentHead } from "@builder.io/qwik-city";
 import { component$ } from "@builder.io/qwik";
 import { PhArticleIconWhite } from "~/Icons/blog/articleIconWhite";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
 
 type Tag = {
   id: string;
@@ -49,10 +38,6 @@ type Node = {
 
 type Slug = {
   slug: string;
-};
-
-type Data = {
-  node: Node;
 };
 
 type Items = {

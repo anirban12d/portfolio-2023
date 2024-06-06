@@ -18,8 +18,6 @@ import { client } from "./layout";
 import { useSanityMyImages } from "./layout";
 import { Link } from "@builder.io/qwik-city";
 import { TestimonialReact } from "~/components/testimonials/testimonials-react";
-
-import CallToAction from "~/components/CTA/cta";
 import Cta from "~/components/CTA/cta";
 
 const builder = imageUrlBuilder(client);

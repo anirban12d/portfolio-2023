@@ -9,7 +9,11 @@ import { useLocation } from "@builder.io/qwik-city";
 export default component$(() => {
   const loc = useLocation();
 
+  const currentPage = useContext(currentPageContext);
+  const chatBotVisible = useContext(ChatBotContext);
   const formOpen = useContext(FormContext);
+
+  
 
   const FormCloseHandler = $(() => {
     formOpen.value = true;
@@ -23,9 +27,6 @@ export default component$(() => {
 
   scrollToBottom();
 
-  const currentPage = useContext(currentPageContext);
-
-  const chatBotVisible = useContext(ChatBotContext);
   const chats = useStore({
     hello: false,
     hire: false,
@@ -33,35 +34,25 @@ export default component$(() => {
     help: false,
   });
 
+  const updateCurrentPage = $(() => {
+    const path = loc.url.pathname;
+    currentPage.home = path === "/";
+    currentPage.about = path === "/about/";
+    currentPage.projects = path === "/projects/";
+    currentPage.services = path === "/services/";
+    currentPage.blog = path === "/blog/";
+    currentPage.contact = !(
+      currentPage.home ||
+      currentPage.about ||
+      currentPage.projects ||
+      currentPage.services ||
+      currentPage.blog
+    );
+  });
+
   const closeHandler = $(() => {
     chatBotVisible.value = false;
-    if (loc.url.pathname == "/") {
-      currentPage.home = true;
-      currentPage.about = false;
-      currentPage.projects = false;
-      currentPage.services = false;
-      currentPage.contact = false;
-    } else if (loc.url.pathname == "/about/") {
-      currentPage.home = false;
-      currentPage.about = true;
-      currentPage.projects = false;
-      currentPage.services = false;
-      currentPage.contact = false;
-    } else if (loc.url.pathname == "/projects/") {
-      currentPage.home = false;
-      currentPage.about = false;
-      currentPage.projects = true;
-      currentPage.services = false;
-      currentPage.contact = false;
-    } else if (loc.url.pathname == "/services/") {
-      currentPage.home = false;
-      currentPage.about = false;
-      currentPage.projects = false;
-      currentPage.services = true;
-      currentPage.contact = false;
-    } else {
-      currentPage.home = true;
-    }
+    updateCurrentPage();
   });
 
   const clickHello = $(() => {
@@ -91,6 +82,7 @@ export default component$(() => {
             <div class="flex items-center gap-8 bg-bgColor">
               <div class="h-48 w-48 overflow-hidden rounded-full">
                 <img
+                  // eslint-disable-next-line qwik/jsx-img
                   src="/images/botimg.jpg"
                   alt="An Avatar image of Anirban Das"
                   width={48}

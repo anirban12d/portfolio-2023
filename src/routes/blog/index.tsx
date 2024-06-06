@@ -1,10 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-// import { LearnMoreBtnWhite } from "~/components/button/LearnMoreBtnWhite";
-import { client } from "../layout";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { Image } from "@unpic/qwik";
-import imageUrlBuilder from "@sanity/image-url";
-import { Link } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Heropost from "~/components/blog/Heropost";
@@ -12,32 +7,17 @@ import Posts from "~/components/blog/posts";
 
 import { HashnodeAllPosts } from "~/api/hashnode";
 
-import PhArticleIcon from "~/Icons/blog/icons";
-
 export const useHashnodeArticles = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
   try {
     const dataApi = await HashnodeAllPosts();
-    // console.log(dataApi)
     return dataApi;
   } catch (error) {
     console.log(error);
   }
 });
 
-type Image = {
-  src: string;
-  layout: string;
-  width: number;
-  height: number;
-  alt: string;
-  background: string;
-  class: string;
-};
-
 export default component$(() => {
-  // const hashnodedata = useHashnodeArticles();
-  // console.log(hashnodedata.value);
   return (
     // Hero Wrapper
     <div class="mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:mt-0 md:gap-64 lg:gap-96 xl:w-1280 ">
@@ -66,36 +46,6 @@ export default component$(() => {
 });
 
 // type Item = {
-//   id: string;
-//   __typename: 'PostEdge';
-//   node: {
-//     __typename: 'Post';
-//     title: string;
-//     brief: string;
-//     seo: {
-//       __typename: 'SEO';
-//       title: string;
-//       description: string;
-//     };
-//     coverImage?: {
-//       __typename?: "PostCoverImage";
-//       url: string;
-//     } | null;
-//     slug: string;
-//     readTimeInMinutes: number;
-//     tags: {
-//       __typename: 'Tag';
-//       id: string;
-//       name: string;
-//       slug: string;
-//     }[];
-//     content: {
-//       __typename: 'Content';
-//       markdown: string;
-//       html: string;
-//     };
-//   };
-// };
 
 type Item = {
   __typename: "Post";
@@ -126,10 +76,6 @@ type Item = {
 const BlogCards = component$(() => {
   const hashnodedata = useHashnodeArticles();
   const posts = hashnodedata?.value?.data?.publication?.posts?.edges || [];
-  // console.log(posts)
-
-  // const projectsData = useSanityProjects();
-  // console.log(projectsData.value);
   return (
     <section class="container flex min-w-full flex-col items-center gap-32 md:gap-64 lg:gap-96 xl:gap-128">
       <div class="grid-rows-auto grid max-w-[1192px] grid-cols-1 gap-32 px-16 md:grid-cols-2 md:gap-32 lg:grid-cols-3">
@@ -152,7 +98,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Check out some of my works",
+      content: "Tech news, tutorials, and more",
     },
     // Open graph
     {
@@ -161,11 +107,11 @@ export const head: DocumentHead = {
     },
     {
       property: "og:description",
-      content: "Check out some of my works",
+      content: "Tech news, tutorials, and more",
     },
     {
       property: "og:url",
-      content: "https://www.anirbandas.in/projects", // Replace with your website URL
+      content: "https://www.anirbandas.in/blog", // Replace with your website URL
     },
     {
       property: "og:locale",
@@ -223,7 +169,7 @@ export const head: DocumentHead = {
   links: [
     {
       rel: "canonical",
-      href: "https://www.anirbandas.in/projects",
+      href: "https://www.anirbandas.in/blog",
     },
   ],
 };
