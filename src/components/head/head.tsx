@@ -17,6 +17,12 @@ export const RouterHead = component$(() => {
         content="n80i6aomrdw-57BapcWxxDkMl1-hlCRBoj-fCNQdzPM"
       />
 
+
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+        />
+
       <link
         rel="apple-touch-icon"
         sizes="180x180"
