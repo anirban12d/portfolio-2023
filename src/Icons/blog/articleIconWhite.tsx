@@ -1,8 +1,4 @@
-import type { QwikIntrinsicElements } from "@builder.io/qwik";
 export function PhArticleIconWhite(
-  props: QwikIntrinsicElements["svg"],
-  key: string,
-  color: string
 ) {
   return (
     <svg

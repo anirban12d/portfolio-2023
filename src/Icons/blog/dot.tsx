@@ -1,9 +1,4 @@
-import type { QwikIntrinsicElements } from "@builder.io/qwik";
-
 export function DotIcon(
-  props: QwikIntrinsicElements["svg"],
-  key: string,
-  color: string
 ) {
   return (
     <svg

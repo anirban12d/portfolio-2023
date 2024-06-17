@@ -47,7 +47,7 @@ export default component$(() => {
   ) : (
     <div class="max-w-screen mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:gap-64 lg:mt-48 lg:gap-96 xl:w-1280 ">
       <PostHeroSection Data={Data} />
-      <PostMarkdownSection Data={Data} data={data} />
+      <PostMarkdownSection Data={Data} />
     </div>
   );
 });
@@ -157,7 +157,7 @@ const PostHeroSection = ({ Data }: any) => {
   );
 };
 
-const PostMarkdownSection = component$(({ Data, data }: any) => {
+const PostMarkdownSection = component$(({ Data }: any) => {
   // const id = data.value.data.publication.id;
   const rawMarkdown = Data.content.markdown;
 

@@ -1,6 +1,5 @@
-import type { QwikIntrinsicElements } from "@builder.io/qwik";
 
-export function PhHouseLight(props: QwikIntrinsicElements["svg"], key: string) {
+export function PhHouseLight() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

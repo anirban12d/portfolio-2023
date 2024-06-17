@@ -1,4 +1,4 @@
-import type { PropsOf, QwikIntrinsicElements } from "@builder.io/qwik";
+import type {  QwikIntrinsicElements } from "@builder.io/qwik";
 import { component$ } from "@builder.io/qwik";
 import { cn } from "@qwik-ui/utils";
 
