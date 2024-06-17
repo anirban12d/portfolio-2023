@@ -15,6 +15,12 @@ import qwikCityPlan from "@qwik-city-plan";
 import { manifest } from "@qwik-client-manifest";
 import render from "./entry.ssr";
 
+// Polyfill global object
+// eslint-disable-next-line no-global-assign
+if (typeof global === 'undefined') {
+  (globalThis as any).global = globalThis;
+}
+
 declare global {
   interface QwikCityPlatform extends PlatformVercel {}
 }

@@ -19,5 +19,8 @@ export default extendConfig(baseConfig, () => {
         }
       }
     )],
+    define: {
+      global: 'globalThis'
+    }
   };
 });
