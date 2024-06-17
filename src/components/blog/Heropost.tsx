@@ -2,6 +2,7 @@ import { Image } from "@unpic/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { component$ } from "@builder.io/qwik";
 import { PhArticleIconWhite } from "~/Icons/blog/articleIconWhite";
+import { DEFAULT_COVER } from "~/utils/const";
 
 type Tag = {
   id: string;
@@ -53,18 +54,33 @@ export default component$(({ items }: Props) => {
   return (
     <div key={item.id} class="col-span-1 md:col-span-2 lg:col-span-3">
       <div class="flex max-w-1080 flex-col items-start gap-16 rounded-4xl bg-bgColor px-16 py-16 sm:px-24 sm:py-24 md:gap-24 md:px-48 md:py-48 lg:max-h-420 lg:flex-row lg:items-center lg:gap-24 xl:gap-32 xl:px-56 xl:py-96">
-        <div class="w-full overflow-hidden rounded-2xl bg-white lg:w-4/5 lg:rounded-4xl">
-          <Image
-            src={item.coverImage.url}
-            layout="constrained"
-            alt={item.coverImage.attribution}
-            width={1920}
-            height={1200}
-            background="auto"
-            loading="eager"
-            class="h-[181px] max-h-[181px] w-full object-cover object-center md:h-[360px] md:max-h-[360px]"
-          />
-        </div>
+        {item?.coverImage ? (
+          <div class="w-full overflow-hidden rounded-2xl bg-white lg:w-4/5 lg:rounded-4xl">
+            <Image
+              src={item.coverImage.url}
+              layout="constrained"
+              alt={item.coverImage.attribution}
+              width={1920}
+              height={1200}
+              background="auto"
+              loading="eager"
+              class="h-[181px] max-h-[181px] w-full object-cover object-center md:h-[360px] md:max-h-[360px]"
+            />
+          </div>
+        ) : (
+          <div class="w-full overflow-hidden rounded-2xl bg-white lg:w-4/5 lg:rounded-4xl">
+            <Image
+              src={DEFAULT_COVER}
+              layout="constrained"
+              alt="A placeholder Image"
+              width={1920}
+              height={1200}
+              background="auto"
+              loading="eager"
+              class="h-[181px] max-h-[181px] w-full object-cover object-center md:h-[360px] md:max-h-[360px]"
+            />
+          </div>
+        )}
         <div class="flex flex-col items-start gap-8 sm:gap-16 md:gap-24 lg:max-w-416 xl:max-w-496">
           <div class="flex flex-col gap-8 sm:gap-16 md:gap-24">
             <h5 class="line-clamp-3 text-23 font-medium text-white sm:text-33 md:text-27">

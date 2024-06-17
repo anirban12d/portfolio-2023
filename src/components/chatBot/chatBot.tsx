@@ -13,8 +13,6 @@ export default component$(() => {
   const chatBotVisible = useContext(ChatBotContext);
   const formOpen = useContext(FormContext);
 
-  
-
   const FormCloseHandler = $(() => {
     formOpen.value = true;
   });

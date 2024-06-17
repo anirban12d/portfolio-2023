@@ -6,6 +6,9 @@ import Heropost from "~/components/blog/Heropost";
 import Posts from "~/components/blog/posts";
 
 import { HashnodeAllPosts } from "~/api/hashnode";
+// import { HashnodeMorePosts } from "~/api/hashnode";
+
+import { Skeleton } from "~/components/qwik-ui/skeleton";
 
 export const useHashnodeArticles = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
@@ -22,30 +25,12 @@ export default component$(() => {
     // Hero Wrapper
     <div class="mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:mt-0 md:gap-64 lg:gap-96 xl:w-1280 ">
       {/* //Hero Heading */}
-      <section class="container min-w-full">
-        {/* <div class="flex w-full flex-col items-center justify-center gap-24 md:min-h-screen md:gap-32 xl:gap-48"> */}
-        {/*   <div class="mt-64 flex w-full flex-col items-center justify-center gap-24 md:-mt-32 md:gap-32 lg:mt-48 xl:gap-48"> */}
-        {/*     <h1 class="text-center text-48 tracking-low text-black sm:text-69 md:text-80 lg:text-105 xl:text-138"> */}
-        {/*       Crafting */}
-        {/*     </h1> */}
-        {/*     <h2 class="xl:80 text-center text-23 text-black sm:text-28 md:text-47 lg:text-61"> */}
-        {/*       Exceptional Experiences */}
-        {/*     </h2> */}
-        {/*     <h3 class="text-center text-13 text-black sm:text-16 lg:text-21 xl:text-27"> */}
-        {/*       "Bringing brands to life through bespoke website design and */}
-        {/*       development." */}
-        {/*     </h3> */}
-        {/*   </div> */}
-        {/* </div> */}
-      </section>
+      <section class="container min-w-full"></section>
 
-      {/* Cards */}
       <BlogCards />
     </div>
   );
 });
-
-// type Item = {
 
 type Item = {
   __typename: "Post";
@@ -76,19 +61,36 @@ type Item = {
 const BlogCards = component$(() => {
   const hashnodedata = useHashnodeArticles();
   const posts = hashnodedata?.value?.data?.publication?.posts?.edges || [];
+  const isLoading = hashnodedata?.value;
   return (
     <section class="container flex min-w-full flex-col items-center gap-32 md:gap-64 lg:gap-96 xl:gap-128">
-      <div class="grid-rows-auto grid max-w-[1192px] grid-cols-1 gap-32 px-16 md:grid-cols-2 md:gap-32 lg:grid-cols-3">
-        {posts?.map((item: Item, index: number) => {
-          if (index == 0) {
-            // console.log(item);
-            return <Heropost items={item} key={index} />;
-          } else {
-            return <Posts items={item} key={index} />;
-          }
-        })}
-      </div>
+      {!isLoading ? (
+        <PageSkeleton />
+      ) : (
+        <div class="grid-rows-auto grid max-w-[1192px] grid-cols-1 gap-32 px-16 md:grid-cols-2 md:gap-32 lg:grid-cols-3">
+          {posts?.map((item: Item, index: number) => {
+            if (index == 0) {
+              return <Heropost items={item} key={index} />;
+            } else {
+              return <Posts items={item} key={index} />;
+            }
+          })}
+        </div>
+      )}
     </section>
+  );
+});
+
+const PageSkeleton = component$(() => {
+  return (
+    <div class="flex h-512 w-[80%] flex-col gap-12">
+      <Skeleton class="h-[80%] w-full rounded-3xl" />
+      <div class="h-[20%] space-y-8">
+        <Skeleton class="h-16 w-full" />
+        <Skeleton class="h-16 w-[80%]" />
+        <Skeleton class="h-16 w-[60%]" />
+      </div>
+    </div>
   );
 });
 

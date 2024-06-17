@@ -25,9 +25,9 @@ export default component$(() => {
   const updateCurrentPage = $((path: string) => {
     currentPage.home = path === "/";
     currentPage.about = path === "/about/";
-    currentPage.projects = path === "/projects/";
+    currentPage.projects = path.startsWith("/projects/");
     currentPage.services = path === "/services/";
-    currentPage.blog = path === "/blog/";
+    currentPage.blog = path.startsWith("/blog/");
     currentPage.contact = path === "/contact/";
   });
 
@@ -35,17 +35,6 @@ export default component$(() => {
     await nav(path);
     updateCurrentPage(path);
   });
-
-  // const contactfn = $(() => {
-  //   chatBotVisible.value = !chatBotVisible.value;
-  //   currentPage.home = false;
-  //   currentPage.about = false;
-  //   currentPage.projects = false;
-  //   currentPage.services = false;
-  //   currentPage.blog = false;
-  //   currentPage.contact = true;
-  // });
-  //
 
   const contactfn = $(() => {
     chatBotVisible.value = !chatBotVisible.value;

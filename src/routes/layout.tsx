@@ -91,9 +91,9 @@ export default component$(() => {
       const path = loc.url.pathname;
       currentPage.home = path === "/";
       currentPage.about = path === "/about/";
-      currentPage.projects = path === "/projects/";
+      currentPage.projects = path.startsWith("/projects/");
       currentPage.services = path === "/services/";
-      currentPage.blog = path === "/blog/";
+      currentPage.blog = path.startsWith("/blog/");
       currentPage.contact = path === "/contact/";
     },
     { strategy: "document-ready" }

@@ -2,6 +2,7 @@ import { Image } from "@unpic/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { PhArticleIconWhite } from "~/Icons/blog/articleIconWhite";
 import { component$ } from "@builder.io/qwik";
+import { DEFAULT_COVER } from "~/utils/const";
 
 type Tag = {
   id: string;
@@ -40,7 +41,6 @@ type Slug = {
   slug: string;
 };
 
-
 type Items = {
   node: Node;
 };
@@ -57,18 +57,33 @@ export default component$(({ items }: Props) => {
       class="flex flex-col items-start gap-16 overflow-hidden rounded-4xl bg-bgColor p-24 sm:p-24 md:max-w-[560px] md:gap-24 md:p-32 lg:max-h-[560] lg:items-center lg:gap-16 xl:gap-16 xl:px-32 xl:py-32"
       key={item.id}
     >
-      <div class="w-full overflow-hidden rounded-xl bg-white lg:rounded-xl">
-        <Image
-          src={item.coverImage.url}
-          layout="constrained"
-          alt={item.coverImage.attribution}
-          width={760}
-          height={443}
-          background="auto"
-          loading="eager"
-          class="h-[181px] max-h-[181px] w-full object-cover object-center"
-        />
-      </div>
+      {item?.coverImage ? (
+        <div class="w-full overflow-hidden rounded-xl bg-white lg:rounded-xl">
+          <Image
+            src={item?.coverImage.url}
+            layout="constrained"
+            alt={item.coverImage.attribution}
+            width={760}
+            height={443}
+            background="auto"
+            loading="eager"
+            class="h-[181px] max-h-[181px] w-full object-cover object-center"
+          />
+        </div>
+      ) : (
+        <div class="w-full overflow-hidden rounded-xl bg-white lg:rounded-xl">
+          <Image
+            src={DEFAULT_COVER}
+            layout="constrained"
+            alt="A placeholder Image"
+            width={760}
+            height={443}
+            background="auto"
+            loading="eager"
+            class="h-[181px] max-h-[181px] w-full object-cover object-center"
+          />
+        </div>
+      )}
       <div class="flex flex-col items-start gap-8  sm:gap-16 md:gap-24 lg:max-w-[100%] xl:max-w-[100%]">
         <div class="flex max-w-[100%] flex-col gap-8 sm:gap-16 md:gap-20">
           <h5 class="line-clamp-4 max-w-prose text-23 font-medium text-white sm:text-33 md:text-23 md:leading-[120%]">

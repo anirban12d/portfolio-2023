@@ -4,12 +4,7 @@
 
 Welcome to my portfolio! I'm Anirban Das, a passionate web developer from India, and this repository showcases the projects and work I've done to demonstrate my skills and expertise in the field.
 
-
-
 [![Homepage](https://github.com/anirban12d/portfolio-2023/assets/72315775/4cf591e4-a387-4982-adb5-9363323c8900)](https://www.anirbandas.in)
-
-
-
 
 ## Table of Contents
 

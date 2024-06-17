@@ -1,139 +1,43 @@
-import * as pkg  from "@apollo/client";
-const { ApolloClient, InMemoryCache, gql } = pkg;
-
-export const client = new ApolloClient({
-  uri: "https://gql.hashnode.com/",
-  cache: new InMemoryCache(),
+import { Client, cacheExchange, fetchExchange } from "@urql/core";
+import {
+  fetchAllPosts,
+  fetchMorePosts,
+  fetchSinglePost,
+} from "~/graphql/hashnode-queries";
+const client = new Client({
+  url: "https://gql.hashnode.com/",
+  exchanges: [cacheExchange, fetchExchange],
 });
 
 export async function HashnodeAllPosts() {
   const data = client
-    .query({
-      query: gql`
-        query Publication {
-          publication(host: "anirban12d.hashnode.dev") {
-            isTeam
-            title
-            about {
-              markdown
-            }
-            post(
-              slug: "title-unveiling-the-evolution-a-journey-through-the-history-of-nodejs"
-            ) {
-              id
-              slug
-              readTimeInMinutes
-              seo {
-                title
-                description
-              }
-              features {
-                tableOfContents {
-                  isEnabled
-                  items {
-                    id
-                    slug
-                    title
-                  }
-                }
-              }
-            }
-            posts(first: 5) {
-              edges {
-                node {
-                  id
-                  title
-                  slug
-                  subtitle
-                  coverImage {
-                    url
-                    attribution
-                    photographer
-                    isAttributionHidden
-                  }
-                  brief
-                  seo {
-                    title
-                    description
-                  }
-                  readTimeInMinutes
-                  tags {
-                    id
-                    name
-                    slug
-                  }
-                  content {
-                    markdown
-                    html
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
+    .query(fetchAllPosts, {
+      host: "anirbandas.in/blog",
     })
+    .toPromise()
     .then((result) => {
       return result;
     });
   return data;
 }
-
-export async function HashnodeFetchSinglePost(PostSlug: string) {
+export async function HashnodeMorePosts() {
   const data = client
-    .query({
-      query: gql`
-        query Publication($slug: String!) {
-          publication(host: "anirban12d.hashnode.dev") {
-            isTeam
-            title
-            about {
-              markdown
-            }
-            post(slug: $slug) {
-              id
-              title
-              subtitle
-              tags {
-                id
-                name
-                slug
-              }
-              publishedAt
-              slug
-              readTimeInMinutes
-              seo {
-                title
-                description
-              }
-              coverImage {
-                url
-                attribution
-                photographer
-                isAttributionHidden
-              }
-              content {
-                markdown
-                html
-              }
-              features {
-                tableOfContents {
-                  isEnabled
-                  items {
-                    id
-                    slug
-                    title
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
-      variables: {
-        slug: PostSlug,
-      },
+    .query(fetchMorePosts, {
+      host: "anirbandas.in/blog",
     })
+    .toPromise()
+    .then((result) => {
+      return result;
+    });
+  return data;
+}
+export async function HashnodeFetchSinglePost(slug: string) {
+  const data = client
+    .query(fetchSinglePost, {
+      host: "anirbandas.in/blog",
+      slug: slug,
+    })
+    .toPromise()
     .then((result) => {
       return result;
     });

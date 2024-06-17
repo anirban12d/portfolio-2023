@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { qwikReact } from "@builder.io/qwik-react/vite";
 import { partytownVite } from "@builder.io/partytown/utils";
 import { join } from "path";
+import commonjs from 'vite-plugin-commonjs'
 
 export default defineConfig(() => {
   return {
@@ -13,11 +14,12 @@ export default defineConfig(() => {
       qwikVite(),
       tsconfigPaths(),
       qwikReact(),
+      commonjs(),
       partytownVite({ dest: join(__dirname, "dist", "~partytown") }),
     ],
     preview: {
       headers: {
-        "Cache-Control": "public, max-age=600",
+        "Cache-Control": "public, max-age=6",
       },
     },
   };
