@@ -174,7 +174,7 @@ const PostMarkdownSection = component$(({ Data }: any) => {
   });
   return (
     <section class="container min-w-full">
-      <div class="flex flex-col items-center gap-32 bg-[#020617] px-16 py-64 md:gap-64 md:rounded-4xl lg:gap-96 xl:gap-32">
+      <div class="flex flex-col items-center gap-32 bg-[#020617] px-32 py-64 md:gap-64 md:rounded-4xl lg:gap-96 xl:gap-32">
         {Data?.features.tableOfContents.isEnabled && (
           <div class="flex flex-col items-center gap-8 rounded-2xl bg-[#0f172a] px-16 py-16 md:w-[60%] md:gap-12 md:px-32 md:py-32">
             <h3 class="mb-4 text-start text-19 font-semibold text-gray-50 md:text-center md:text-23">

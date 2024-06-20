@@ -1,5 +1,4 @@
 import { Image } from "@unpic/qwik";
-import { Link } from "@builder.io/qwik-city";
 import { PhArticleIconWhite } from "~/Icons/blog/articleIconWhite";
 import { component$ } from "@builder.io/qwik";
 import { DEFAULT_COVER } from "~/utils/const";
@@ -125,14 +124,14 @@ export default component$(({ items }: Props) => {
           </p>
         </div>
         <div>
-          <Link
+          <a
             href={"/blog/" + item.slug}
             aria-label="Link to the article page"
           >
             <button class="sm:px-36 rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-32 lg:py-8">
               Read Article
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

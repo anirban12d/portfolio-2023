@@ -20,10 +20,12 @@ export async function HashnodeAllPosts() {
     });
   return data;
 }
-export async function HashnodeMorePosts() {
+export async function HashnodeMorePosts(postCount: number, after: any) {
   const data = client
     .query(fetchMorePosts, {
       host: "anirbandas.in/blog",
+      after: after,
+      postCount: postCount,
     })
     .toPromise()
     .then((result) => {

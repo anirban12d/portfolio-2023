@@ -88,6 +88,7 @@
     "supabase-auth-helpers-qwik": "^0.0.3",
     "swiper": "^10.0.3",
     "validator": "^13.12.0",
-    "vite-plugin-commonjs": "^0.10.1"
+    "vite-plugin-commonjs": "^0.10.1",
+    "waypoints": "^4.0.1"
   }
 }

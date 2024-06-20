@@ -1,16 +1,17 @@
-import { component$ } from "@builder.io/qwik";
+import { $, component$, useStore, useVisibleTask$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
+import { useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Heropost from "~/components/blog/Heropost";
 import Posts from "~/components/blog/posts";
 
 import { HashnodeAllPosts } from "~/api/hashnode";
-// import { HashnodeMorePosts } from "~/api/hashnode";
+import { HashnodeMorePosts } from "~/api/hashnode";
 
 import { Skeleton } from "~/components/qwik-ui/skeleton";
 
-export const useHashnodeArticles = routeLoader$(async () => {
+export const useFetchHashnodeArticles = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
   try {
     const dataApi = await HashnodeAllPosts();
@@ -25,57 +26,105 @@ export default component$(() => {
     // Hero Wrapper
     <div class="mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:mt-0 md:gap-64 lg:gap-96 xl:w-1280 ">
       {/* //Hero Heading */}
-      <section class="container min-w-full"></section>
+      <section class="container min-w-full">
+        <div class="flex w-full flex-col items-center justify-center gap-24 md:hidden">
+          <div class="mt-32 flex w-full flex-col items-center justify-center gap-24">
+            <h1 class="text-center text-48 tracking-low text-black sm:text-69 md:text-80 lg:text-105 xl:text-138">
+          Anirban's Blog
+            </h1>
+            <h2 class="text-center text-13 text-black sm:text-16 lg:text-21 xl:text-27">
+              Your Gateway to the <br/>Latest in Tech Trends and Insights
+            </h2>
+          </div>
+        </div>
+      </section>
 
       <BlogCards />
     </div>
   );
 });
 
-type Item = {
-  __typename: "Post";
-  id: string;
-  title: string;
-  brief: string;
-  seo: {
-    __typename: "SEO";
-    title: string;
-    description: string;
-  };
-  readTimeInMinutes: number;
-  tags: {
-    __typename: "Tag";
-    id: string;
-    name: string;
-    slug: string;
-  }[];
-  content: { __typename: "Content"; markdown: string; html: string };
-  coverImage?: {
-    __typename?: "PostCoverImage";
-    url: string;
-  } | null;
-  slug: string;
-  node: any;
-};
-
 const BlogCards = component$(() => {
-  const hashnodedata = useHashnodeArticles();
-  const posts = hashnodedata?.value?.data?.publication?.posts?.edges || [];
-  const isLoading = hashnodedata?.value;
+  const hashnodedata = useFetchHashnodeArticles();
+
+  const allPosts = useStore({
+    data: hashnodedata?.value?.data?.publication?.posts?.edges,
+  });
+
+  const firstPost = allPosts.data[0];
+  const secondaryPosts = allPosts.data.slice(1, 7);
+  const newPosts = useStore<any>({ data: [] });
+
+  const pageInfo = useSignal(
+    hashnodedata?.value?.data.publication.posts.pageInfo.endCursor
+  );
+  const hasNextPage = useSignal(
+    hashnodedata.value?.data.publication.posts.pageInfo.hasNextPage
+  );
+
+  const loadedMore = useSignal(false); // This will be used to check if the user has loaded more posts
+  const isLoading = useSignal(false); // This is for the loading state in the load more button
+
+  // This function is responsible for fetching the next set of posts
+  const loadMorePosts = $(async () => {
+    if (!hasNextPage) {
+      return;
+    }
+    isLoading.value = true;
+    const data = await HashnodeMorePosts(6, pageInfo.value.toString());
+    const fetchedNewposts = data.data?.publication.posts.edges.map(
+      (edge: any) => edge
+    );
+    newPosts.data = [...newPosts.data, ...fetchedNewposts];
+    pageInfo.value = data.data.publication.posts.pageInfo.endCursor;
+    hasNextPage.value = data.data.publication.posts.pageInfo.hasNextPage;
+    isLoading.value = false;
+  });
+
+  // This task is responsible for loading more posts when the user clicks the load more button
+  useVisibleTask$(({ track }) => {
+    track(() => newPosts.data);
+    if (loadedMore.value == false) {
+      return;
+    }
+    loadMorePosts();
+  });
+
   return (
     <section class="container flex min-w-full flex-col items-center gap-32 md:gap-64 lg:gap-96 xl:gap-128">
-      {!isLoading ? (
+      {allPosts.data.length == 0 ? (
         <PageSkeleton />
       ) : (
         <div class="grid-rows-auto grid max-w-[1192px] grid-cols-1 gap-32 px-16 md:grid-cols-2 md:gap-32 lg:grid-cols-3">
-          {posts?.map((item: Item, index: number) => {
-            if (index == 0) {
-              return <Heropost items={item} key={index} />;
-            } else {
-              return <Posts items={item} key={index} />;
-            }
-          })}
+          {/* Fetch the first post for the hero section  */}
+          {firstPost && <Heropost items={firstPost} key={10} />}
+
+          {/* Fetch the initial posts for after the hero section */}
+          {secondaryPosts &&
+            secondaryPosts.map((post: any, index: number) => (
+              <Posts items={post} key={index} />
+            ))}
+
+          {/* Fetch and load the new posts when the user clicks the load more button */}
+          {newPosts.data.length > 0 &&
+            newPosts.data.map((post: any, index: number) => (
+              <Posts items={post} key={index} />
+            ))}
         </div>
+      )}
+
+      {hasNextPage.value && (
+        <button
+          class="sm:px-36 rounded-full text-13 bg-secondary px-18 py-9 text-center md:text-16 text-primary transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 lg:px-50 lg:py-12"
+          onClick$={() => loadMorePosts()}
+          disabled={isLoading.value}
+        >
+          {isLoading.value ? (
+            <div class="spinner mr-2 h-8 w-8 animate-spin rounded-full border-t-4 border-solid border-white"></div>
+          ) : (
+            "Load More"
+          )}
+        </button>
       )}
     </section>
   );

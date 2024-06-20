@@ -1,6 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
 import CallToAction from "~/components/CTA/cta";
 
+
 export default component$(() => {
   return (
     <>
