@@ -107,7 +107,13 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
               </div>
             )}
             {Data.coverImage.attribution && (
-              <div class="absolute right-[5%] top-[70%] flex items-center justify-end gap-2 rounded-md bg-white px-12 py-6 md:px-16 md:py-8 text-11 text-black md:right-[5%] lg:right-[5%] lg:top-[85%]">
+              <div
+                class={`absolute right-[5%] top-[70%] flex items-center justify-end gap-2 rounded-md bg-white text-11 text-black md:right-[5%] lg:right-[5%] lg:top-[85%] ${
+                  attributionVisible.value
+                    ? "px-12 py-6 md:px-16 md:py-8"
+                    : "px-6 py-6 md:px-8 md:py-8"
+                }`}
+              >
                 {attributionVisible.value && (
                   <span class="text-9 md:text-16">
                     Photo by{" "}
@@ -126,7 +132,9 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
                   </span>
                 )}
                 <button
-                  class="ml-4 text-16 text-black"
+                  class={`text-16 text-black ${
+                    attributionVisible.value ? "ml-4" : "ml-0"
+                  }`}
                   onClick$={() =>
                     (attributionVisible.value = !attributionVisible.value)
                   }
