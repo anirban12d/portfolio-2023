@@ -1,5 +1,5 @@
 import * as qwikCity from "@builder.io/qwik-city";
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 import PhArticleIcon from "~/Icons/blog/icons";
@@ -41,12 +41,14 @@ export default component$(() => {
   const data = useHashnodeData();
   const Data = data.value.data.publication.post;
 
+  const attributionVisible = useSignal(true);
+
   const isLoading = data?.value;
   return !isLoading ? (
     <PageSkeleton />
   ) : (
     <div class="max-w-screen mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:gap-64 lg:mt-48 lg:gap-96 xl:w-1280 ">
-      <PostHeroSection Data={Data} />
+      <PostHeroSection Data={Data} attributionVisible={attributionVisible} />
       <PostMarkdownSection Data={Data} />
     </div>
   );
@@ -65,7 +67,7 @@ const PageSkeleton = component$(() => {
   );
 });
 
-const PostHeroSection = ({ Data }: any) => {
+const PostHeroSection = ({ Data, attributionVisible }: any) => {
   return (
     <section class="container mx-auto min-w-full">
       <div class="flex w-full flex-col items-center justify-center gap-24 md:min-h-screen md:gap-32 xl:gap-48">
@@ -94,6 +96,7 @@ const PostHeroSection = ({ Data }: any) => {
               loading="eager"
               class="mx-auto max-h-[640px] w-full object-cover object-center"
             />
+            ``
             {Data.tags && (
               <div class="absolute left-[70%] top-[4%] flex items-center justify-start gap-2 text-11 text-white md:left-[80%] lg:left-[85%] lg:top-[8%]">
                 {Data.tags.map((tag: any) => (
@@ -101,6 +104,35 @@ const PostHeroSection = ({ Data }: any) => {
                     {tag.name}
                   </span>
                 ))}
+              </div>
+            )}
+            {Data.coverImage.attribution && (
+              <div class="absolute right-[5%] top-[70%] flex items-center justify-end gap-2 rounded-md bg-white px-12 py-6 md:px-16 md:py-8 text-11 text-black md:right-[5%] lg:right-[5%] lg:top-[85%]">
+                {attributionVisible.value && (
+                  <span class="text-9 md:text-16">
+                    Photo by{" "}
+                    <span class="font-semibold underline">
+                      <a target="_blank" href={Data.coverImage.attribution}>
+                        {Data.coverImage.photographer}
+                      </a>{" "}
+                    </span>
+                    on{" "}
+                    <a
+                      target="_blank"
+                      href="https://unsplash.com/?utm_source=Hashnode&utm_medium=referral"
+                    >
+                      <span class="font-semibold underline">Unsplash</span>
+                    </a>
+                  </span>
+                )}
+                <button
+                  class="ml-4 text-16 text-black"
+                  onClick$={() =>
+                    (attributionVisible.value = !attributionVisible.value)
+                  }
+                >
+                  {!attributionVisible.value ? "ℹ️" : "❌"}
+                </button>
               </div>
             )}
           </div>
