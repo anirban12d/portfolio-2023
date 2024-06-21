@@ -6,7 +6,6 @@ import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HashnodeFetchSinglePost } from "~/api/hashnode";
-import { RxCross2 } from "react-icons/rx";
 
 import { _MarkdownToHtml } from "~/components/blog/markdown-to-html";
 import { triggerEmbed } from "~/utils/blog/renderer/services/embed";

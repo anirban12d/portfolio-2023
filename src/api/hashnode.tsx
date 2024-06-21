@@ -5,14 +5,16 @@ import {
   fetchSinglePost,
 } from "~/graphql/hashnode-queries";
 const client = new Client({
-  url: "https://gql.hashnode.com/",
+  url: import.meta.env.PUBLIC_HASHNODE_GQL_ENDPOINT,
   exchanges: [cacheExchange, fetchExchange],
 });
+
+const hostKey = import.meta.env.PUBLIC_HASHNODE_PUBLICATION_HOST
 
 export async function HashnodeAllPosts() {
   const data = client
     .query(fetchAllPosts, {
-      host: "anirbandas.in/blog",
+      host: hostKey,
     })
     .toPromise()
     .then((result) => {
@@ -23,7 +25,7 @@ export async function HashnodeAllPosts() {
 export async function HashnodeMorePosts(postCount: number, after: any) {
   const data = client
     .query(fetchMorePosts, {
-      host: "anirbandas.in/blog",
+      host: hostKey,
       after: after,
       postCount: postCount,
     })
@@ -36,7 +38,7 @@ export async function HashnodeMorePosts(postCount: number, after: any) {
 export async function HashnodeFetchSinglePost(slug: string) {
   const data = client
     .query(fetchSinglePost, {
-      host: "anirbandas.in/blog",
+      host: hostKey,
       slug: slug,
     })
     .toPromise()
