@@ -106,8 +106,8 @@ export default component$(({ items }: Props) => {
                   <Image
                     src="/images/botimg.jpg"
                     layout="constrained"
-                    width={200}
-                    height={200}
+                    width={400}
+                    height={400}
                     alt="A lovely bath"
                     background="auto"
                     class="h-32 w-32 rounded-full md:h-64 md:w-64"

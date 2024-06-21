@@ -6,6 +6,7 @@ import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HashnodeFetchSinglePost } from "~/api/hashnode";
+import { RxCross2 } from "react-icons/rx";
 
 import { _MarkdownToHtml } from "~/components/blog/markdown-to-html";
 import { triggerEmbed } from "~/utils/blog/renderer/services/embed";
@@ -139,7 +140,48 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
                     (attributionVisible.value = !attributionVisible.value)
                   }
                 >
-                  {!attributionVisible.value ? "ℹ️" : "❌"}
+                  {attributionVisible.value ? (
+                    <svg
+                      width="800px"
+                      height="800px"
+                      viewBox="0 0 24 24"
+                        class="w-20 h-20 md:w-32 md:h-32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
+                        fill="#0F0F0F"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      width="800px"
+                      height="800px"
+                        class="w-16 h-16 md:w-24 md:h-24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                      <g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+
+                      <g id="SVGRepo_iconCarrier">
+                        {" "}
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z"
+                          fill="#000000"
+                        />{" "}
+                      </g>
+                    </svg>
+                  )}
                 </button>
               </div>
             )}
