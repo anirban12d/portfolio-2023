@@ -53,11 +53,15 @@ export default component$(({ items }: Props) => {
   // console.log(item)
   return (
     <div
-      class="flex flex-col items-start gap-16 overflow-hidden rounded-4xl bg-bgColor p-24 sm:p-24 md:max-w-[560px] md:gap-24 md:p-32 lg:max-h-[560] lg:items-center lg:gap-16 xl:gap-16 xl:px-32 xl:py-32"
+      class="flex flex-col items-start gap-16 overflow-hidden rounded-3xl bg-bgColor p-20 sm:p-20 md:max-w-[560px] md:gap-24 md:rounded-4xl md:p-32 lg:max-h-[560] lg:items-center lg:gap-16 xl:gap-16 xl:px-32 xl:py-32"
       key={item.id}
     >
       {item?.coverImage ? (
         <div class="w-full overflow-hidden rounded-xl bg-white lg:rounded-xl">
+              <a
+                href={"/blog/" + item.slug}
+                aria-label="Link to the project page"
+              >
           <Image
             src={item?.coverImage.url}
             layout="constrained"
@@ -68,9 +72,14 @@ export default component$(({ items }: Props) => {
             loading="eager"
             class="h-[181px] max-h-[181px] w-full object-cover object-center"
           />
+          </a>
         </div>
       ) : (
         <div class="w-full overflow-hidden rounded-xl bg-white lg:rounded-xl">
+              <a
+                href={"/blog/" + item.slug}
+                aria-label="Link to the project page"
+              >
           <Image
             src={DEFAULT_COVER}
             layout="constrained"
@@ -81,12 +90,15 @@ export default component$(({ items }: Props) => {
             loading="eager"
             class="h-[181px] max-h-[181px] w-full object-cover object-center"
           />
+          </a>
         </div>
       )}
       <div class="flex flex-col items-start gap-8  sm:gap-16 md:gap-24 lg:max-w-[100%] xl:max-w-[100%]">
         <div class="flex max-w-[100%] flex-col gap-8 sm:gap-16 md:gap-20">
-          <h5 class="line-clamp-4 max-w-prose text-23 font-medium text-white sm:text-33 md:text-23 md:leading-[120%]">
+          <h5 class="line-clamp-4 max-w-prose text-23 font-medium hover:cursor-pointer hover:underline text-white sm:text-33 md:text-23 md:leading-[120%]">
+          <a href={"/blog/" + item.slug} aria-label="Link to the article page">
             {item.title}
+            </a>
           </h5>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-6 md:gap-8">
@@ -124,11 +136,8 @@ export default component$(({ items }: Props) => {
           </p>
         </div>
         <div>
-          <a
-            href={"/blog/" + item.slug}
-            aria-label="Link to the article page"
-          >
-            <button class="sm:px-36 rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-32 lg:py-8">
+          <a href={"/blog/" + item.slug} aria-label="Link to the article page">
+            <button class="sm:px-36 rounded-xl md:rounded-full bg-primary px-18 py-9 text-center text-13 font-medium text-textColor transition duration-300 ease-in-out hover:scale-110 active:scale-90 sm:py-12 md:px-32 md:text-16 lg:px-32 lg:py-8">
               Read Article
             </button>
           </a>

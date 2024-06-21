@@ -115,7 +115,7 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
                 }`}
               >
                 {attributionVisible.value && (
-                  <span class="text-9 md:text-16">
+                  <span class="text-13 md:text-16">
                     Photo by{" "}
                     <span class="font-semibold underline">
                       <a target="_blank" href={Data.coverImage.attribution}>
