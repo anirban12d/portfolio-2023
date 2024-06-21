@@ -14,24 +14,21 @@ import { useVisibleTask$ } from "@builder.io/qwik";
 import Header from "~/components/header/header";
 import Footer from "~/components/footer/footer";
 
-import { TestimonialReact } from "~/components/testimonials/testimonials-react";
-
-import CallToAction from "~/components/CTA/cta";
 import Copyright from "~/components/copyright/copyright";
 import FloatingNavbar from "~/components/floatingNavbar/floatingNavbar";
 import ChatBot from "~/components/chatBot/chatBot";
 import ProjectForm from "~/components/form/ProjectForm";
 import ServicesModal from "~/components/ServicesModal/servicesModal";
+import { client } from "~/api/sanity";
 
-import { createClient } from "@sanity/client";
-
-export const client = createClient({
-  projectId: "izetizop",
-  // zop
-  dataset: "production",
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
-});
+// import { createClient } from "@sanity/client";
+//
+// export const client = createClient({
+//   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID.toString(),
+//   dataset: "production",
+//   useCdn: true, // set to `false` to bypass the edge cache
+//   apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
+// });
 
 export const useSanityMyImages = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
@@ -71,6 +68,7 @@ export interface Page {
   about: boolean;
   projects: boolean;
   services: boolean;
+  blog: boolean;
   contact: boolean;
 }
 
@@ -82,6 +80,7 @@ export default component$(() => {
     about: false,
     projects: false,
     services: false,
+    blog: false,
     contact: false,
   });
 
@@ -92,8 +91,9 @@ export default component$(() => {
       const path = loc.url.pathname;
       currentPage.home = path === "/";
       currentPage.about = path === "/about/";
-      currentPage.projects = path === "/projects/";
+      currentPage.projects = path.startsWith("/projects/");
       currentPage.services = path === "/services/";
+      currentPage.blog = path.startsWith("/blog/");
       currentPage.contact = path === "/contact/";
     },
     { strategy: "document-ready" }
@@ -113,14 +113,10 @@ export default component$(() => {
   return (
     <div class="relative min-h-screen min-w-full scroll-smooth">
       <Header />
-      <main class="min-w-screen flex items-center justify-center">
-        <Slot />
-      </main>
+      <Slot />
       <ProjectForm />
       <ChatBot />
       <ServicesModal />
-      <TestimonialReact client:idle />
-      <CallToAction />
       <FloatingNavbar />
       <Footer />
       <Copyright />

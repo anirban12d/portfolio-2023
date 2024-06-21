@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { MockupReactProjects } from "~/components/mockup/mockup-react-projects";
 import PhArrowBendRightUpLight from "~/Icons/projectsPage/PhArrowBendRightUpLight";
-import { client } from "~/routes/layout";
+import { client } from "~/api/sanity";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/react";
-import { client } from "~/routes/layout";
+import { client } from "~/api/sanity";
 
 import "swiper/css";
 

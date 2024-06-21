@@ -7,6 +7,8 @@ import PhChatsLight from "~/Icons/FloatingNavbar/PhChatsLight";
 import PhHouseLight from "~/Icons/FloatingNavbar/PhHouseLight";
 import PhLightbulbFilamentLight from "~/Icons/FloatingNavbar/PhLightbulbFilamentLight";
 import PhUserCircleLight from "~/Icons/FloatingNavbar/PhUserCircleLight";
+import PhNewsPaperLight from "~/Icons/FloatingNavbar/PhNewspaperLight";
+import { useLocation } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const currentClass =
@@ -14,15 +16,19 @@ export default component$(() => {
   const otherClass = "flex flex-col items-center gap-2";
 
   const nav = useNavigate();
+
+  const loc = useLocation();
+
   const chatBotVisible = useContext(ChatBotContext);
   const currentPage = useContext(currentPageContext);
 
   const updateCurrentPage = $((path: string) => {
     currentPage.home = path === "/";
-    currentPage.about = path === "/about";
-    currentPage.projects = path === "/projects";
-    currentPage.services = path === "/services";
-    currentPage.contact = path === "/contact";
+    currentPage.about = path === "/about/";
+    currentPage.projects = path.startsWith("/projects/");
+    currentPage.services = path === "/services/";
+    currentPage.blog = path.startsWith("/blog/");
+    currentPage.contact = path === "/contact/";
   });
 
   const navigateAndUpdatePage = $(async (path: string) => {
@@ -32,11 +38,16 @@ export default component$(() => {
 
   const contactfn = $(() => {
     chatBotVisible.value = !chatBotVisible.value;
-    currentPage.home = false;
-    currentPage.about = false;
-    currentPage.projects = false;
-    currentPage.services = false;
-    currentPage.contact = true;
+    if (!chatBotVisible.value) {
+      updateCurrentPage(loc.url.pathname);
+    } else {
+      currentPage.home = false;
+      currentPage.about = false;
+      currentPage.projects = false;
+      currentPage.services = false;
+      currentPage.blog = false;
+      currentPage.contact = true;
+    }
   });
 
   return (
@@ -74,6 +85,13 @@ export default component$(() => {
           <div class={currentPage.projects ? currentClass : otherClass}>
             <PhLightbulbFilamentLight />
             <span class="text-11 text-white">Projects</span>
+          </div>
+        </Link>
+
+        <Link href="/blog" onClick$={() => navigateAndUpdatePage("/blog")}>
+          <div class={currentPage.blog ? currentClass : otherClass}>
+            <PhNewsPaperLight />
+            <span class="text-11 text-white">Blog</span>
           </div>
         </Link>
 

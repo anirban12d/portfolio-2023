@@ -12,12 +12,15 @@ export default extendConfig(baseConfig, () => {
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
     plugins: [vercelEdgeAdapter(
-     {
-      ssg: {
-        sitemapOutFile: null, 
-        include: []
+      {
+        ssg: {
+          sitemapOutFile: null,
+          include: []
+        }
       }
-     }
     )],
+    define: {
+      global: 'globalThis'
+    }
   };
 });
