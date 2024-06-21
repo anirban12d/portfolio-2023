@@ -12,7 +12,16 @@ export const RouterHead = component$(() => {
       <title>{head.title}</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="google-site-verification" content="n80i6aomrdw-57BapcWxxDkMl1-hlCRBoj-fCNQdzPM" />
+      <meta
+        name="google-site-verification"
+        content="n80i6aomrdw-57BapcWxxDkMl1-hlCRBoj-fCNQdzPM"
+      />
+
+
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+        />
 
       <link
         rel="apple-touch-icon"

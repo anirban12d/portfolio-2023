@@ -4,14 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/react";
-import { client } from "~/routes/layout";
-
+import { client } from "~/api/sanity";
 
 import "swiper/css";
 
-function mockupProjects({dataProject}) {
-
-    const builder = imageUrlBuilder(client);
+function mockupProjects({ dataProject }) {
+  const builder = imageUrlBuilder(client);
 
   function urlFor(source) {
     return builder.image(source);
@@ -21,7 +19,7 @@ function mockupProjects({dataProject}) {
     <>
       <section className="container min-w-full justify-center overflow-hidden">
         <div className="flex flex-col justify-center">
-          <div className="relative flex overflow-hidden mx-8 md:mx-16 lg:mx-32 xl:mx-64">
+          <div className="relative mx-8 flex overflow-hidden md:mx-16 lg:mx-32 xl:mx-64">
             <Image
               src="/images/device-mockups/Macbook-2.svg"
               width="1008"
@@ -41,66 +39,58 @@ function mockupProjects({dataProject}) {
                 disableOnInteraction: true,
               }}
               modules={[Autoplay]}
-              className="absolute rounded-md left-0 right-0 top-10 mx-auto max-h-79% min-h-65% w-78% overflow-hidden md:top-20  lg:top-28"
+              className="absolute left-0 right-0 top-10 mx-auto max-h-79% min-h-65% w-78% overflow-hidden rounded-md md:top-20  lg:top-28"
             >
-            <SwiperSlide
-                    key={1}
-                    >
-                <div className="w-full h-full">
-                <Image
-                        src={urlFor(dataProject.mainImage).url()}
-                        layout="constrained"
-                        alt={dataProject.alt}
-                        width={2100}
-                        height={1313}
-                        background="auto"
-                        className=" h-full w-full"
-                      />
+              <SwiperSlide key={1}>
+                <div className="h-full w-full">
+                  <Image
+                    src={urlFor(dataProject.mainImage).url()}
+                    layout="constrained"
+                    alt={dataProject.alt}
+                    width={2100}
+                    height={1313}
+                    background="auto"
+                    className=" h-full w-full"
+                  />
                 </div>
               </SwiperSlide>
-            <SwiperSlide
-                    key={2}
-                    >
-                <div className="w-full h-full">
-                <Image
-                        src={urlFor(dataProject.firstImage).url()}
-                        layout="constrained"
-                        alt={dataProject.FirstImageAlt}
-                        width={2100}
-                        height={1313}
-                        background="auto"
-                        className=" h-full w-full"
-                      />
+              <SwiperSlide key={2}>
+                <div className="h-full w-full">
+                  <Image
+                    src={urlFor(dataProject.firstImage).url()}
+                    layout="constrained"
+                    alt={dataProject.FirstImageAlt}
+                    width={2100}
+                    height={1313}
+                    background="auto"
+                    className=" h-full w-full"
+                  />
                 </div>
               </SwiperSlide>
-              <SwiperSlide
-                    key={3}
-                    >
-                <div className="w-full h-full">
-                <Image
-                        src={urlFor(dataProject.secondImage).url()}
-                        layout="constrained"
-                        alt={dataProject.SecondImageAlt}
-                        width={2100}
-                        height={1313}
-                        background="auto"
-                        className=" h-full w-full"
-                      />
+              <SwiperSlide key={3}>
+                <div className="h-full w-full">
+                  <Image
+                    src={urlFor(dataProject.secondImage).url()}
+                    layout="constrained"
+                    alt={dataProject.SecondImageAlt}
+                    width={2100}
+                    height={1313}
+                    background="auto"
+                    className=" h-full w-full"
+                  />
                 </div>
               </SwiperSlide>
-              <SwiperSlide
-                    key={4}
-                    >
-                <div className="w-full h-full">
-                <Image
-                        src={urlFor(dataProject.thirdImage).url()}
-                        layout="constrained"
-                        alt={dataProject.ThirdImageAlt}
-                        width={2100}
-                        height={1313}
-                        background="auto"
-                        className=" h-full w-full"
-                      />
+              <SwiperSlide key={4}>
+                <div className="h-full w-full">
+                  <Image
+                    src={urlFor(dataProject.thirdImage).url()}
+                    layout="constrained"
+                    alt={dataProject.ThirdImageAlt}
+                    width={2100}
+                    height={1313}
+                    background="auto"
+                    className=" h-full w-full"
+                  />
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -112,4 +102,6 @@ function mockupProjects({dataProject}) {
   );
 }
 
-export const MockupReactProjects = qwikify$(mockupProjects, { eagerness: "load" });
+export const MockupReactProjects = qwikify$(mockupProjects, {
+  eagerness: "load",
+});

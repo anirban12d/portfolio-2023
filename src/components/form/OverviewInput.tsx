@@ -5,14 +5,14 @@ import {
   type PropFunction,
   type QwikChangeEvent,
   type QwikFocusEvent,
-} from '@builder.io/qwik';
-import clsx from 'clsx';
-import { InputError } from './InputError';
-import { InputLabel } from './InputLabel';
+} from "@builder.io/qwik";
+import clsx from "clsx";
+import { InputError } from "./InputError";
+import { InputLabel } from "./InputLabel";
 
 type TextInputProps = {
   ref: PropFunction<(element: Element) => void>;
-  type: 'text' | 'email' | 'tel' | 'password' | 'url' | 'number' | 'date';
+  type: "text" | "email" | "tel" | "password" | "url" | "number" | "date";
   name: string;
   value: string | number | undefined;
   onInput$: PropFunction<(event: Event, element: HTMLTextAreaElement) => void>;
@@ -23,7 +23,10 @@ type TextInputProps = {
     ) => void
   >;
   onBlur$: PropFunction<
-    (event: QwikFocusEvent<HTMLTextAreaElement>, element: HTMLTextAreaElement) => void
+    (
+      event: QwikFocusEvent<HTMLTextAreaElement>,
+      element: HTMLTextAreaElement
+    ) => void
   >;
   placeholder?: string;
   required?: boolean;
@@ -47,9 +50,9 @@ export const OverviewInput = component$(
       }
     });
     return (
-      <div class={clsx('mt-8 w-full flex flex-col', props.class)}>
+      <div class={clsx("mt-8 flex w-full flex-col", props.class)}>
         <InputLabel name={name} label={label} required={required} />
-        <textarea 
+        <textarea
           ref={props.ref}
           name={name}
           value={input.value}
@@ -58,18 +61,16 @@ export const OverviewInput = component$(
           onBlur$={props.onBlur$}
           placeholder={props.placeholder}
           required={props.required}
-
-
           class={clsx(
-            'min-h-96 rounded-2xl px-16 py-8 border-2 text-13 bg-white outline-none placeholder:text-slate-500',
+            "min-h-96 rounded-2xl border-2 bg-white px-16 py-8 text-13 outline-none placeholder:text-slate-500",
             error
-              ? 'border-red-600/50 dark:border-red-400/50'
-              : 'border-slate-200 hover:border-slate-300 focus:border-black'
+              ? "border-red-600/50 dark:border-red-400/50"
+              : "border-slate-200 hover:border-slate-300 focus:border-black"
           )}
           id={name}
           aria-invalid={!!error}
           aria-errormessage={`${name}-error`}
-        /> 
+        />
         <InputError name={name} error={error} />
       </div>
     );

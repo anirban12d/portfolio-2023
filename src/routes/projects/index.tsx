@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-// import { LearnMoreBtnWhite } from "~/components/button/LearnMoreBtnWhite";
-import { client } from "../layout";
+import { client } from "~/api/sanity";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 import imageUrlBuilder from "@sanity/image-url";

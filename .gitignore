@@ -39,5 +39,8 @@ lerna-debug.log*
 .yarn/*
 !.yarn/releases
 
+#NX
+.nx
+
 # Vercel
 .vercel

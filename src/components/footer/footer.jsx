@@ -21,8 +21,9 @@ export default component$(() => {
   const updateCurrentPage = $((path) => {
     currentPage.home = path === "/";
     currentPage.about = path === "/about/";
-    currentPage.projects = path === "/projects/";
+    currentPage.projects = path.startsWith("/projects/");
     currentPage.services = path === "/services/";
+    currentPage.blog = path.startsWith("/blog/");
     currentPage.contact = path === "/contact/";
   });
 
@@ -33,6 +34,7 @@ export default component$(() => {
       currentPage.about = false;
       currentPage.projects = false;
       currentPage.services = false;
+      currentPage.blog = false;
       currentPage.contact = true;
     } else {
       updateCurrentPage(loc.url.pathname);
@@ -103,6 +105,11 @@ export default component$(() => {
                 <li class="text-16 md:text-16">
                   <Link href="/" aria-label="Go back to home">
                     Home
+                  </Link>
+                </li>
+                <li class="text-16 md:text-16">
+                  <Link href="/blog" aria-label="Go back to blog">
+                    Blog
                   </Link>
                 </li>
                 <li class="text-16 md:text-16">

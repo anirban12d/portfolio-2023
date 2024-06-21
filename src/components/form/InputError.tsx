@@ -1,6 +1,6 @@
-import { component$, useSignal, useTask$ } from '@builder.io/qwik';
-import { isBrowser } from '@builder.io/qwik/build';
-import { Expandable } from './Expandable';
+import { component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { isBrowser } from "@builder.io/qwik/build";
+import { Expandable } from "./Expandable";
 
 type InputErrorProps = {
   name: string;
@@ -28,7 +28,7 @@ export const InputError = component$(({ name, error }: InputErrorProps) => {
   return (
     <Expandable expanded={!!error}>
       <div
-        class="pt-4 text-sm text-red-500 md:text-base lg:pt-5 lg:text-lg"
+        class="lg:pt-5 pt-4 text-sm text-red-500 md:text-base lg:text-lg"
         id={`${name}-error`}
       >
         {frozenError.value}

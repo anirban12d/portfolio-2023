@@ -5,8 +5,8 @@ import {
   useOnWindow,
   useSignal,
   useVisibleTask$,
-} from '@builder.io/qwik';
-import clsx from 'clsx';
+} from "@builder.io/qwik";
+import clsx from "clsx";
 
 type ExpandableProps = {
   class?: string;
@@ -39,19 +39,19 @@ export const Expandable = component$(
 
     // Update element height when window size change
     useOnWindow(
-      'resize',
+      "resize",
       $(async () => {
-        element.value!.style.maxHeight = '0';
+        element.value!.style.maxHeight = "0";
         await updateElementHeight();
-        element.value!.style.maxHeight = '';
+        element.value!.style.maxHeight = "";
       })
     );
 
     return (
       <div
         class={clsx(
-          '!m-0 origin-top duration-200',
-          !expanded && 'invisible h-0 -translate-y-2 scale-y-75 opacity-0',
+          "!m-0 origin-top duration-200",
+          !expanded && "invisible h-0 -translate-y-2 scale-y-75 opacity-0",
           props.class
         )}
         id={id}
