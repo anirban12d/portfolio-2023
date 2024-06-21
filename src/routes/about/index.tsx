@@ -3,7 +3,7 @@ import { ButtonSecond } from "~/components/button/ButtonSecond";
 import { useSanityMyImages } from "../layout";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";
-import { client } from "../layout";
+import { client } from "~/api/sanity";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 type Image = {

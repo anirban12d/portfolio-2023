@@ -1,6 +1,5 @@
-import * as qwikCity from "@builder.io/qwik-city";
 import { component$, useSignal } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
+import { routeLoader$, Link } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
@@ -239,10 +238,7 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
 };
 
 const PostMarkdownSection = component$(({ Data }: any) => {
-  // const id = data.value.data.publication.id;
   const rawMarkdown = Data.content.markdown;
-
-  // const embedEnabled = useSignal(true);
 
   useVisibleTask$(() => {
     (async () => {
@@ -263,13 +259,13 @@ const PostMarkdownSection = component$(({ Data }: any) => {
             </h3>
             {Data?.features.tableOfContents.items.map((item: any) => {
               return (
-                <qwikCity.Link
+                <Link
                   key={item.id}
                   href={`#heading-${item.slug}`}
                   class="w-full rounded-2xl px-12 py-4 text-16 text-gray-100 hover:bg-[#1e293b] md:text-16"
                 >
                   <span>{item.title}</span>
-                </qwikCity.Link>
+                </Link>
               );
             })}
           </div>

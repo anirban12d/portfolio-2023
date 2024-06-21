@@ -14,7 +14,7 @@ import { MockupReact } from "~/components/mockup/mockup-react";
 import { type Any } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "@unpic/qwik";
-import { client } from "./layout";
+import { client } from "~/api/sanity";
 import { useSanityMyImages } from "./layout";
 import { Link } from "@builder.io/qwik-city";
 import { TestimonialReact } from "~/components/testimonials/testimonials-react";

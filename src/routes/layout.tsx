@@ -19,15 +19,16 @@ import FloatingNavbar from "~/components/floatingNavbar/floatingNavbar";
 import ChatBot from "~/components/chatBot/chatBot";
 import ProjectForm from "~/components/form/ProjectForm";
 import ServicesModal from "~/components/ServicesModal/servicesModal";
+import { client } from "~/api/sanity";
 
-import { createClient } from "@sanity/client";
-
-export const client = createClient({
-  projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
-  dataset: "production",
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
-});
+// import { createClient } from "@sanity/client";
+//
+// export const client = createClient({
+//   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID.toString(),
+//   dataset: "production",
+//   useCdn: true, // set to `false` to bypass the edge cache
+//   apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
+// });
 
 export const useSanityMyImages = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
