@@ -15,46 +15,29 @@ import { currentPageContext } from "~/routes/layout";
 export default component$(() => {
   const loc = useLocation();
 
-  const chatBotVisible = useContext(ChatBotContext);
   const currentPage = useContext(currentPageContext);
+  const chatBotVisible = useContext(ChatBotContext);
+
+  const updateCurrentPage = $((path) => {
+    currentPage.home = path === "/";
+    currentPage.about = path === "/about/";
+    currentPage.projects = path.startsWith("/projects/");
+    currentPage.services = path === "/services/";
+    currentPage.blog = path.startsWith("/blog/");
+    currentPage.contact = path === "/contact/";
+  });
 
   const contactfn = $(() => {
-    if (chatBotVisible.value === false) {
-      chatBotVisible.value = !chatBotVisible.value;
+    chatBotVisible.value = !chatBotVisible.value;
+    if (chatBotVisible.value) {
       currentPage.home = false;
       currentPage.about = false;
       currentPage.projects = false;
       currentPage.services = false;
+      currentPage.blog = false;
       currentPage.contact = true;
     } else {
-      chatBotVisible.value = !chatBotVisible.value;
-      if (loc.url.pathname == "/") {
-        currentPage.home = true;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/about/") {
-        currentPage.home = false;
-        currentPage.about = true;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/projects/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = true;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/services/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = true;
-        currentPage.contact = false;
-      } else {
-        currentPage.home = true;
-      }
+      updateCurrentPage(loc.url.pathname);
     }
   });
 
@@ -122,6 +105,11 @@ export default component$(() => {
                 <li class="text-16 md:text-16">
                   <Link href="/" aria-label="Go back to home">
                     Home
+                  </Link>
+                </li>
+                <li class="text-16 md:text-16">
+                  <Link href="/blog" aria-label="Go back to blog">
+                    Blog
                   </Link>
                 </li>
                 <li class="text-16 md:text-16">

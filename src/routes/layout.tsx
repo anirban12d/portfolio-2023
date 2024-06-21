@@ -14,24 +14,21 @@ import { useVisibleTask$ } from "@builder.io/qwik";
 import Header from "~/components/header/header";
 import Footer from "~/components/footer/footer";
 
-import { TestimonialReact } from "~/components/testimonials/testimonials-react";
-
-import CallToAction from "~/components/CTA/cta";
 import Copyright from "~/components/copyright/copyright";
 import FloatingNavbar from "~/components/floatingNavbar/floatingNavbar";
 import ChatBot from "~/components/chatBot/chatBot";
 import ProjectForm from "~/components/form/ProjectForm";
 import ServicesModal from "~/components/ServicesModal/servicesModal";
+import { client } from "~/api/sanity";
 
-import { createClient } from "@sanity/client";
-
-export const client = createClient({
-  projectId: "izetizop",
-  // zop
-  dataset: "production",
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
-});
+// import { createClient } from "@sanity/client";
+//
+// export const client = createClient({
+//   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID.toString(),
+//   dataset: "production",
+//   useCdn: true, // set to `false` to bypass the edge cache
+//   apiVersion: "2023-07-13", // use current date (YYYY-MM-DD) to target the latest API version
+// });
 
 export const useSanityMyImages = routeLoader$(async () => {
   // This code runs only on the server, after every navigation
@@ -71,78 +68,55 @@ export interface Page {
   about: boolean;
   projects: boolean;
   services: boolean;
+  blog: boolean;
   contact: boolean;
 }
 
 export default component$(() => {
   const loc = useLocation();
 
-  const currentPage = useStore({
-    home: true,
+  const currentPage = useStore<Page>({
+    home: false,
     about: false,
     projects: false,
     services: false,
+    blog: false,
     contact: false,
   });
 
   useVisibleTask$(
     ({ track }) => {
-      track(() => {
-        loc.url.pathname;
-      });
-      if (loc.url.pathname == "/") {
-        currentPage.home = true;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/about/") {
-        currentPage.home = false;
-        currentPage.about = true;
-        currentPage.projects = false;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/projects/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = true;
-        currentPage.services = false;
-        currentPage.contact = false;
-      } else if (loc.url.pathname == "/services/") {
-        currentPage.home = false;
-        currentPage.about = false;
-        currentPage.projects = false;
-        currentPage.services = true;
-        currentPage.contact = false;
-      } else {
-        currentPage.home = true;
-      }
+      track(() => loc.url.pathname);
+
+      const path = loc.url.pathname;
+      currentPage.home = path === "/";
+      currentPage.about = path === "/about/";
+      currentPage.projects = path.startsWith("/projects/");
+      currentPage.services = path === "/services/";
+      currentPage.blog = path.startsWith("/blog/");
+      currentPage.contact = path === "/contact/";
     },
     { strategy: "document-ready" }
   );
 
   const chatBotVisible = useSignal(false);
-  const FormVisible = useSignal(false);
+  const formVisible = useSignal(false);
   const currentModal = useSignal(0);
   const serviceModalVisible = useSignal(false);
 
   useContextProvider(currentPageContext, currentPage);
   useContextProvider(ChatBotContext, chatBotVisible);
-  useContextProvider(FormContext, FormVisible);
+  useContextProvider(FormContext, formVisible);
   useContextProvider(ServiceModalContext, currentModal);
   useContextProvider(ServiceModalVisibleContext, serviceModalVisible);
 
   return (
     <div class="relative min-h-screen min-w-full scroll-smooth">
       <Header />
-      <main class="min-w-screen flex items-center justify-center">
-        <Slot />
-      </main>
+      <Slot />
       <ProjectForm />
       <ChatBot />
       <ServicesModal />
-      <TestimonialReact client:idle />
-      <CallToAction />
       <FloatingNavbar />
       <Footer />
       <Copyright />
