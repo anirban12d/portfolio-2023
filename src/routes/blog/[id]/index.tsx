@@ -1,8 +1,12 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useStore, $ } from "@builder.io/qwik";
 import { routeLoader$, Link } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
+import { UpArrowIcon } from "~/Icons/blog/UpArrowIcon";
+import { DownArrowIcon } from "~/Icons/blog/DownArrowIcon";
+import { CrossIcon } from "~/Icons/blog/CrossIcon";
+import { InfoIcon } from "~/Icons/blog/InfoIcon";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HashnodeFetchSinglePost } from "~/api/hashnode";
 
@@ -138,48 +142,7 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
                     (attributionVisible.value = !attributionVisible.value)
                   }
                 >
-                  {attributionVisible.value ? (
-                    <svg
-                      width="800px"
-                      height="800px"
-                      viewBox="0 0 24 24"
-                        class="w-20 h-20 md:w-32 md:h-32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
-                        fill="#0F0F0F"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      width="800px"
-                      height="800px"
-                        class="w-16 h-16 md:w-24 md:h-24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                      <g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-
-                      <g id="SVGRepo_iconCarrier">
-                        {" "}
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z"
-                          fill="#000000"
-                        />{" "}
-                      </g>
-                    </svg>
-                  )}
+                  {attributionVisible.value ? <CrossIcon /> : <InfoIcon />}
                 </button>
               </div>
             )}
@@ -237,9 +200,17 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
   );
 };
 
+
 const PostMarkdownSection = component$(({ Data }: any) => {
   const rawMarkdown = Data.content.markdown;
 
+  const tocState = useStore({
+    isFolded: true,
+  });
+
+  const toggleFold = $(() => {
+    tocState.isFolded = !tocState.isFolded;
+  });
   useVisibleTask$(() => {
     (async () => {
       // await loadIframeResizer();
@@ -249,25 +220,46 @@ const PostMarkdownSection = component$(({ Data }: any) => {
       });
     })();
   });
+
+  const MAX_ITEMS = 5; // Maximum number of items to show when folded
+
   return (
     <section class="container min-w-full">
-      <div class="flex flex-col items-center gap-32 bg-[#020617] px-32 py-64 md:gap-64 md:rounded-4xl lg:gap-96 xl:gap-32">
+      <div class="flex flex-col items-center gap-32 bg-[#020617] px-20 py-32 md:gap-64 md:rounded-4xl md:py-64 lg:gap-96 xl:gap-32">
         {Data?.features.tableOfContents.isEnabled && (
-          <div class="flex flex-col items-center gap-8 rounded-2xl bg-[#0f172a] px-16 py-16 md:w-[60%] md:gap-12 md:px-32 md:py-32">
+          <div class="relative flex flex-col items-center gap-8 rounded-2xl bg-[#0f172a] px-16 py-16 md:w-[60%] md:gap-12 md:px-32 md:py-32">
             <h3 class="mb-4 text-start text-19 font-semibold text-gray-50 md:text-center md:text-23">
               Table of Contents
             </h3>
-            {Data?.features.tableOfContents.items.map((item: any) => {
-              return (
-                <Link
-                  key={item.id}
-                  href={`#heading-${item.slug}`}
-                  class="w-full rounded-2xl px-12 py-4 text-16 text-gray-100 hover:bg-[#1e293b] md:text-16"
-                >
-                  <span>{item.title}</span>
-                </Link>
-              );
-            })}
+            {Data?.features.tableOfContents.items
+              .slice(0, tocState.isFolded ? MAX_ITEMS : undefined)
+              .map((item: any) => {
+                return (
+                  <Link
+                    key={item.id}
+                    href={`#heading-${item.slug}`}
+                    class="w-full rounded-2xl px-12 py-4 text-16 text-gray-100 hover:bg-[#1e293b] md:text-16"
+                  >
+                    <span>{item.title}</span>
+                  </Link>
+                );
+              })}
+            {Data?.features.tableOfContents.items.length > MAX_ITEMS &&
+            tocState.isFolded ? (
+              <button
+                onClick$={() => toggleFold()}
+                class={`absolute top-[80%] mb-16 mt-4 flex w-full max-w-[90%] items-center justify-center gap-4 rounded-2xl bg-[#0f172a] bg-opacity-80 bg-gradient-to-b to-[#0f172a] px-12 py-4 text-16 text-gray-100 hover:bg-opacity-90`}
+              >
+                More <DownArrowIcon />
+              </button>
+            ) : (
+              <button
+                onClick$={() => toggleFold()}
+                class="mt-4 flex w-full items-center justify-center gap-4 rounded-2xl bg-[#0f172a] bg-opacity-50 px-12 py-4 text-16 text-gray-100 backdrop-blur-md hover:bg-opacity-70"
+              >
+                Less <UpArrowIcon />
+              </button>
+            )}
           </div>
         )}
         <_MarkdownToHtml contentMarkdown={rawMarkdown} />
