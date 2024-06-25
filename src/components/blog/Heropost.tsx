@@ -110,7 +110,7 @@ export default component$(({ items }: Props) => {
                     height={400}
                     alt="A lovely bath"
                     background="auto"
-                    class="h-32 w-32 rounded-full md:h-64 md:w-64"
+                    class="h-32 w-32 rounded-full object-cover md:h-64 md:w-64"
                   />
                 </div>
                 <div class="flex flex-col items-start justify-between gap-1 text-white md:gap-2">

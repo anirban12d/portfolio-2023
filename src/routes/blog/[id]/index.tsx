@@ -1,21 +1,17 @@
-import { component$, useSignal, useStore, $ } from "@builder.io/qwik";
-import { routeLoader$, Link } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 import PhArticleIcon from "~/Icons/blog/icons";
 import DotIcon from "~/Icons/blog/dot";
-import { UpArrowIcon } from "~/Icons/blog/UpArrowIcon";
-import { DownArrowIcon } from "~/Icons/blog/DownArrowIcon";
-import { CrossIcon } from "~/Icons/blog/CrossIcon";
-import { InfoIcon } from "~/Icons/blog/InfoIcon";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HashnodeFetchSinglePost } from "~/api/hashnode";
 
 import { _MarkdownToHtml } from "~/components/blog/markdown-to-html";
+import { TableOfContents } from "~/components/blog/TableOfContents";
+import { PageSkeleton } from "~/components/blog/PageSkeleton";
+import { PostImageSection } from "~/components/blog/PostImageSection";
 import { triggerEmbed } from "~/utils/blog/renderer/services/embed";
 import { useVisibleTask$ } from "@builder.io/qwik";
-import { Skeleton } from "~/components/qwik-ui/skeleton";
-
-import { DEFAULT_COVER } from "~/utils/const";
 
 // import { triggerCustomWidgetEmbed } from "~/utils/blog/trigger-custom-widget-embed";
 // import { loadIframeResizer } from "~/utils/blog/renderer/services/embed";
@@ -44,111 +40,22 @@ export default component$(() => {
   const data = useHashnodeData();
   const Data = data.value.data.publication.post;
 
-  const attributionVisible = useSignal(true);
-
   const isLoading = data?.value;
   return !isLoading ? (
     <PageSkeleton />
   ) : (
     <div class="max-w-screen mt-64 flex w-screen flex-col justify-center gap-64 sm:gap-32 md:gap-64 lg:mt-48 lg:gap-96 xl:w-1280 ">
-      <PostHeroSection Data={Data} attributionVisible={attributionVisible} />
+      <PostHeroSection Data={Data} />
       <PostMarkdownSection Data={Data} />
     </div>
   );
 });
 
-const PageSkeleton = component$(() => {
-  return (
-    <div class="flex h-512 w-[80%] flex-col gap-12">
-      <Skeleton class="h-[80%] w-full rounded-3xl" />
-      <div class="h-[20%] space-y-8">
-        <Skeleton class="h-16 w-full" />
-        <Skeleton class="h-16 w-[80%]" />
-        <Skeleton class="h-16 w-[60%]" />
-      </div>
-    </div>
-  );
-});
-
-const PostHeroSection = ({ Data, attributionVisible }: any) => {
+const PostHeroSection = ({ Data }: any) => {
   return (
     <section class="container mx-auto min-w-full">
       <div class="flex w-full flex-col items-center justify-center gap-24 md:min-h-screen md:gap-32 xl:gap-48">
-        {!Data.coverImage ? (
-          <div class="relative mx-auto w-full">
-            <Image
-              src={DEFAULT_COVER}
-              layout="constrained"
-              alt="A placeholder Image"
-              width={760}
-              height={443}
-              background="auto"
-              loading="eager"
-              class="mx-auto max-h-[640px] w-full object-cover object-center"
-            />
-          </div>
-        ) : (
-          <div class="relative mx-auto w-full">
-            <Image
-              src={Data.coverImage.url}
-              layout="constrained"
-              alt={Data.coverImage.attribution}
-              width={760}
-              height={443}
-              background="auto"
-              loading="eager"
-              class="mx-auto max-h-[640px] w-full object-cover object-center"
-            />
-            ``
-            {Data.tags && (
-              <div class="absolute left-[70%] top-[4%] flex items-center justify-start gap-2 text-11 text-white md:left-[80%] lg:left-[85%] lg:top-[8%]">
-                {Data.tags.map((tag: any) => (
-                  <span class="rounded-full bg-blue px-16 py-2" key={tag.id}>
-                    {tag.name}
-                  </span>
-                ))}
-              </div>
-            )}
-            {Data.coverImage.attribution && (
-              <div
-                class={`absolute right-[5%] top-[70%] flex items-center justify-end gap-2 rounded-md bg-white text-11 text-black md:right-[5%] lg:right-[5%] lg:top-[85%] ${
-                  attributionVisible.value
-                    ? "px-12 py-6 md:px-16 md:py-8"
-                    : "px-6 py-6 md:px-8 md:py-8"
-                }`}
-              >
-                {attributionVisible.value && (
-                  <span class="text-13 md:text-16">
-                    Photo by{" "}
-                    <span class="font-semibold underline">
-                      <a target="_blank" href={Data.coverImage.attribution}>
-                        {Data.coverImage.photographer}
-                      </a>{" "}
-                    </span>
-                    on{" "}
-                    <a
-                      target="_blank"
-                      href="https://unsplash.com/?utm_source=Hashnode&utm_medium=referral"
-                    >
-                      <span class="font-semibold underline">Unsplash</span>
-                    </a>
-                  </span>
-                )}
-                <button
-                  class={`text-16 text-black ${
-                    attributionVisible.value ? "ml-4" : "ml-0"
-                  }`}
-                  onClick$={() =>
-                    (attributionVisible.value = !attributionVisible.value)
-                  }
-                >
-                  {attributionVisible.value ? <CrossIcon /> : <InfoIcon />}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
-
+        <PostImageSection Data={Data} />
         <div class="flex w-full flex-col items-center justify-center gap-24 md:gap-32 lg:mt-48 xl:gap-48">
           <h1 class="px-8 text-center text-28 font-semibold leading-[140%] text-black sm:text-36 md:text-48 md:leading-[120%] lg:text-57 lg:leading-[120%] xl:text-57 xl:leading-[120%]">
             {Data?.title || "No Title in this post"}
@@ -169,7 +76,7 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
                     height={200}
                     alt="A lovely bath"
                     background="auto"
-                    class="h-32 w-32 rounded-full md:h-64 md:w-64"
+                    class="h-32 w-32 rounded-full object-cover md:h-64 md:w-64"
                   />
                 </div>
 
@@ -200,17 +107,9 @@ const PostHeroSection = ({ Data, attributionVisible }: any) => {
   );
 };
 
-
 const PostMarkdownSection = component$(({ Data }: any) => {
   const rawMarkdown = Data.content.markdown;
 
-  const tocState = useStore({
-    isFolded: true,
-  });
-
-  const toggleFold = $(() => {
-    tocState.isFolded = !tocState.isFolded;
-  });
   useVisibleTask$(() => {
     (async () => {
       // await loadIframeResizer();
@@ -221,47 +120,10 @@ const PostMarkdownSection = component$(({ Data }: any) => {
     })();
   });
 
-  const MAX_ITEMS = 5; // Maximum number of items to show when folded
-
   return (
     <section class="container min-w-full">
       <div class="flex flex-col items-center gap-32 bg-[#020617] px-20 py-32 md:gap-64 md:rounded-4xl md:py-64 lg:gap-96 xl:gap-32">
-        {Data?.features.tableOfContents.isEnabled && (
-          <div class="relative flex flex-col items-center gap-8 rounded-2xl bg-[#0f172a] px-16 py-16 md:w-[60%] md:gap-12 md:px-32 md:py-32">
-            <h3 class="mb-4 text-start text-19 font-semibold text-gray-50 md:text-center md:text-23">
-              Table of Contents
-            </h3>
-            {Data?.features.tableOfContents.items
-              .slice(0, tocState.isFolded ? MAX_ITEMS : undefined)
-              .map((item: any) => {
-                return (
-                  <Link
-                    key={item.id}
-                    href={`#heading-${item.slug}`}
-                    class="w-full rounded-2xl px-12 py-4 text-16 text-gray-100 hover:bg-[#1e293b] md:text-16"
-                  >
-                    <span>{item.title}</span>
-                  </Link>
-                );
-              })}
-            {Data?.features.tableOfContents.items.length > MAX_ITEMS &&
-            tocState.isFolded ? (
-              <button
-                onClick$={() => toggleFold()}
-                class={`absolute top-[80%] mb-16 mt-4 flex w-full max-w-[90%] items-center justify-center gap-4 rounded-2xl bg-[#0f172a] bg-opacity-80 bg-gradient-to-b to-[#0f172a] px-12 py-4 text-16 text-gray-100 hover:bg-opacity-90`}
-              >
-                More <DownArrowIcon />
-              </button>
-            ) : (
-              <button
-                onClick$={() => toggleFold()}
-                class="mt-4 flex w-full items-center justify-center gap-4 rounded-2xl bg-[#0f172a] bg-opacity-50 px-12 py-4 text-16 text-gray-100 backdrop-blur-md hover:bg-opacity-70"
-              >
-                Less <UpArrowIcon />
-              </button>
-            )}
-          </div>
-        )}
+        <TableOfContents Data={Data} />
         <_MarkdownToHtml contentMarkdown={rawMarkdown} />
       </div>
     </section>
