@@ -51,14 +51,14 @@ export const useFormAction = formAction$<ProjectForm>(
   async (values, requestEv) => {
     try {
       const client = new Client()
-        .setEndpoint(requestEv.env.get("APPWRITE_API_ENDPOINT")!)
-        .setProject(requestEv.env.get("APPWRITE_PROJECT_ID")!);
+        .setEndpoint(requestEv.env.get("PUBLIC_APPWRITE_API_ENDPOINT")!)
+        .setProject(requestEv.env.get("PUBLIC_APPWRITE_PROJECT_ID")!);
 
       const databases = new Databases(client);
 
       await databases.createDocument(
-        requestEv.env.get("APPWRITE_DATABASE_ID")!,
-        requestEv.env.get("APPWRITE_COLLECTION_ID")!,
+        requestEv.env.get("PUBLIC_APPWRITE_DATABASE_ID")!,
+        requestEv.env.get("PUBLIC_APPWRITE_COLLECTION_ID")!,
         ID.unique(),
         {
           client_name: values.name,
