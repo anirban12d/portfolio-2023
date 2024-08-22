@@ -1,30 +1,30 @@
-export const triggerCustomWidgetEmbed = async (pubId) => {
-  const baseUrl = "https://anirbandas.in/blog";
-  const frames = document.querySelectorAll(".hn-embed-widget");
+export const triggercustomwidgetembed = async (pubid) => {
+  const baseurl = "https://anirbandas.in/blog";
+  const frames = document.queryselectorall(".hn-embed-widget");
   if (frames.length === 0) {
     return;
   }
-  frames.forEach(async (frame) => {
+  frames.foreach(async (frame) => {
     try {
-      const iframe = document.createElement("iframe");
+      const iframe = document.createelement("iframe");
       const host = window.location.hostname;
       iframe.id = `frame-${frame.id}`;
       iframe.sandbox =
         "allow-same-origin allow-forms allow-presentation allow-scripts allow-popups";
       iframe.src =
-        host.indexOf(".hashnode.net") !== -1 ||
-        host.indexOf(".app.localhost") !== -1
-          ? `${baseUrl}/api/pub/${pubId}/embed/${frame.id}`
-          : `https://embeds.hashnode.com?p=${pubId}&w=${frame.id}`;
+        host.indexof(".hashnode.net") !== -1 ||
+        host.indexof(".app.localhost") !== -1
+          ? `${baseurl}/api/pub/${pubid}/embed/${frame.id}`
+          : `https://embeds.hashnode.com?p=${pubid}&w=${frame.id}`;
       iframe.width = "100%";
-      frame.innerHTML = "";
-      frame.appendChild(iframe);
-      setTimeout(() => {
-        // TODO:
+      frame.innerhtml = "";
+      frame.appendchild(iframe);
+      settimeout(() => {
+        // todo:
         // eslint-disable-next-line no-undef
-        iFrameResize({ log: false, autoResize: true }, `#${iframe.id}`);
+        iframeresize({ log: false, autoresize: true }, `#${iframe.id}`);
       }, 1000);
-      frame.setAttribute("class", "hn-embed-widget-expanded");
+      frame.setattribute("class", "hn-embed-widget-expanded");
     } catch (e) {
       console.log(e);
     }
