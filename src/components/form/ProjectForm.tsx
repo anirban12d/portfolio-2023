@@ -46,36 +46,6 @@ type ProjectForm = {
   option?: string;
 };
 
-// Submits Form value in the server
-export const useFormAction = formAction$<ProjectForm>(
-  async (values, requestEv) => {
-    try {
-      const client = new Client()
-        .setEndpoint(requestEv.env.get("PUBLIC_APPWRITE_API_ENDPOINT")!)
-        .setProject(requestEv.env.get("PUBLIC_APPWRITE_PROJECT_ID")!);
-
-      const databases = new Databases(client);
-
-      await databases.createDocument(
-        requestEv.env.get("PUBLIC_APPWRITE_DATABASE_ID")!,
-        requestEv.env.get("PUBLIC_APPWRITE_COLLECTION_ID")!,
-        ID.unique(),
-        {
-          client_name: values.name,
-          client_email: values.email,
-          profession: values.profession,
-          budget: values.budget,
-          overview: values.overview,
-          currency: values.option,
-        }
-      );
-    } catch (error) {
-      console.error("Form submission failed:", error);
-    }
-  },
-  zodForm$(FormSchema)
-);
-
 export default component$(() => {
   const element = useSignal<Element>();
   const formOpen = useContext(FormContext);
@@ -93,12 +63,34 @@ export default component$(() => {
 
   const [ProjectForm, { Form, Field }] = useForm<ProjectForm>({
     loader: { value: FormValue },
-    action: useFormAction(),
     validate: zodForm$(FormSchema),
   });
 
-  const submitHandler = $(() => {
-    isSubmitted.value = true;
+  const submitHandler = $(async (values: ProjectForm) => {
+    try {
+      const client = new Client()
+        .setEndpoint(import.meta.env.PUBLIC_APPWRITE_API_ENDPOINT)
+        .setProject(import.meta.env.PUBLIC_APPWRITE_PROJECT_ID);
+
+      const databases = new Databases(client);
+
+      await databases.createDocument(
+        import.meta.env.PUBLIC_APPWRITE_DATABASE_ID,
+        import.meta.env.PUBLIC_APPWRITE_COLLECTION_ID,
+        ID.unique(),
+        {
+          client_name: values.name,
+          client_email: values.email,
+          profession: values.profession,
+          budget: values.budget,
+          overview: values.overview,
+          currency: values.option,
+        }
+      );
+      isSubmitted.value = true;
+    } catch (error) {
+      console.error("Form submission failed:", error);
+    }
   });
 
   useVisibleTask$(({ track, cleanup }) => {
