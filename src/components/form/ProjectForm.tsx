@@ -14,7 +14,6 @@ import {
   type InitialValues,
   required,
   useForm,
-  formAction$,
   zodForm$,
 } from "@modular-forms/qwik";
 
@@ -26,13 +25,13 @@ import PhXLight from "~/Icons/Form/PhXLight";
 import { FormContext } from "~/routes/layout";
 import { Select } from "./Select";
 import PhCalendarCheckLight from "~/Icons/Form/PhCalenderCheckLight-Black";
-import { createServerClient } from "supabase-auth-helpers-qwik";
+import { Client, Databases, ID } from "appwrite";
 
 const FormSchema = z.object({
   name: z.string(),
   email: z.string(),
   profession: z.string(),
-  budget: z.string(),
+  budget: z.number(),
   overview: z.string(),
   option: z.string(),
 });
@@ -41,37 +40,10 @@ type ProjectForm = {
   name: string;
   email: string;
   profession: string;
-  budget: string;
+  budget: number;
   overview: string;
   option?: string;
 };
-
-// Submits Form value in the server
-export const useFormAction = formAction$<ProjectForm>(
-  async (values, requestEv) => {
-    // Runs on server
-    const supabase = createServerClient(
-      requestEv.env.get("PUBLIC_SUPABASE_URL")!,
-      requestEv.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
-      requestEv
-    );
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { error } = await supabase.from("Project_Requests").insert({
-      client_name: values.name,
-      email: values.email,
-      profession: values.profession,
-      budget: values.budget,
-      overview: values.overview,
-      currency: values.option,
-    });
-
-    if (error) {
-      throw error;
-    }
-  },
-  zodForm$(FormSchema)
-);
 
 export default component$(() => {
   const element = useSignal<Element>();
@@ -79,8 +51,45 @@ export default component$(() => {
   const isMounted = useSignal(false);
   const isSubmitted = useSignal(false);
 
-  const submitHandler = $(() => {
-    isSubmitted.value = true;
+  const FormValue = useStore<InitialValues<ProjectForm>>({
+    name: "",
+    email: "",
+    profession: "",
+    budget: undefined,
+    overview: "",
+    option: "",
+  });
+
+  const [ProjectForm, { Form, Field }] = useForm<ProjectForm>({
+    loader: { value: FormValue },
+    validate: zodForm$(FormSchema),
+  });
+
+  const submitHandler = $(async (values: ProjectForm) => {
+    try {
+      const client = new Client()
+        .setEndpoint(import.meta.env.PUBLIC_APPWRITE_API_ENDPOINT)
+        .setProject(import.meta.env.PUBLIC_APPWRITE_PROJECT_ID);
+
+      const databases = new Databases(client);
+
+      await databases.createDocument(
+        import.meta.env.PUBLIC_APPWRITE_DATABASE_ID,
+        import.meta.env.PUBLIC_APPWRITE_COLLECTION_ID,
+        ID.unique(),
+        {
+          client_name: values.name,
+          client_email: values.email,
+          profession: values.profession,
+          budget: values.budget,
+          overview: values.overview,
+          currency: values.option,
+        }
+      );
+      isSubmitted.value = true;
+    } catch (error) {
+      console.error("Form submission failed:", error);
+    }
   });
 
   useVisibleTask$(({ track, cleanup }) => {
@@ -91,21 +100,6 @@ export default component$(() => {
 
   const closeHandler = $(() => {
     formOpen.value = !formOpen.value;
-  });
-
-  const FormValue = useStore<InitialValues<ProjectForm>>({
-    name: "",
-    email: "",
-    profession: "",
-    budget: "",
-    overview: "",
-    option: "",
-  });
-
-  const [ProjectForm, { Form, Field }] = useForm<ProjectForm>({
-    loader: { value: FormValue },
-    action: useFormAction(),
-    validate: zodForm$(FormSchema),
   });
 
   return (
@@ -186,6 +180,7 @@ export default component$(() => {
                   <div class="flex flex-col gap-4 md:flex-row">
                     <Field
                       name="budget"
+                      type="number"
                       validate={[required("Please enter an amount.")]}
                     >
                       {(field, props) => (
